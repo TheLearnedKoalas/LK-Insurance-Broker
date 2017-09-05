@@ -1,0 +1,16 @@
+<ng-sidebar-container>
+    <!-- A sidebar -->
+    <ng-sidebar #sidebar [(opened)]="_opened">
+      <h2>Sidebar menu</h2>
+      <p>To move it in the current component?</p>
+    </ng-sidebar>
+</ng-sidebar-container>
+<div>
+  <ul>
+    <li *ngFor="let company of companiesList">
+      <img src="{{company.logo}}" alt="">
+      <h3>{{company.name}}</h3>
+      <a href="{{company.url}}">Към сайта на застрахователя</a>
+    </li>
+  </ul>
+</div>
