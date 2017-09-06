@@ -1,9 +1,9 @@
 <app-sidebar #child [contents]="companiesList" [header]='{name:"Застрахователни компании"}' (loadContent)="parentLoadContent($event)"></app-sidebar>
 <div>
-    <header>
-        <img src={{content.logo}}>
-        <a href="{{content.url}}">Към сайта на застрахователя</a>
-    </header>
-    <h4>{{content.name}}</h4>
-    <div>{{content.about}}</div>
+    <div *ngFor="let c of content">
+        <img src={{c.logo}}>
+        <h4>{{c.name}}</h4>        
+        <a class="btn btn-primary" href="{{c.url}}">Към сайта на застрахователя</a>
+        <div>{{c.about}}</div>
+    </div>
 </div>

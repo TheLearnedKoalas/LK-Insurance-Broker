@@ -25,14 +25,21 @@ export class CompaniesComponent implements OnInit {
 
   constructor() { }
 
-
-  content = {
-    name: 'Армеец', url: 'http://armeec.bg', logo: 'https://izbiram.bg/tmp/armeetz.gif',
-    // tslint:disable-next-line:max-line-length
-    about: `ЗАД „Aрмеец” е част от групата „Химимпорт”, един от най-големите холдинги в България. Създадена преди повече от 60 години, „Химимпорт” АД  се превърна в мащабна холдингова компания, която обединява над 70 дъщерни и асоциирани дружества, осъществяващи дейност в различни сектори от българската икономика - предимно в областта на транспорта и  финансите, както и в производствената сфера.`
-  };
+  content = this.getAll();
   parentLoadContent(value) {
-    this.content = this.companiesList.find(x => x.name === value);
+    if (value === 'Застрахователни компании') {
+      this.content = this.getAll();
+    } else {
+      this.content = [this.companiesList.find(x => x.name === value)];
+    }
+  }
+
+  getAll() {
+    const all = [];
+    this.companiesList.forEach(x => {
+      all.push({ name: x.name, logo: x.logo });
+    });
+    return all;
   }
 
   // parentLoadContent(value) {
