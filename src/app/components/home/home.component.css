@@ -1,0 +1,30 @@
+img {
+    display: inline;
+    height: 100px;
+}
+
+div{
+    border-top: 1px solid grey;
+}
+ul{
+    list-style: none;    
+    display: flex;
+    justify-content: space-around;
+}
+
+a{
+    font-size: 20px;
+    text-align: center;
+    display: block;
+}
+
+li{
+    display: flex;
+    flex-direction: column;
+    width: 120px;
+}
+
+h3{
+    text-align: center;
+    margin: 10px;
+}

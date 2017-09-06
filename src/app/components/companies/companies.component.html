@@ -1,16 +1,9 @@
-<ng-sidebar-container>
-    <!-- A sidebar -->
-    <ng-sidebar #sidebar [(opened)]="_opened">
-      <h2>Sidebar menu</h2>
-      <p>To move it in the current component?</p>
-    </ng-sidebar>
-</ng-sidebar-container>
+<app-sidebar #child [contents]="companiesList" [header]='{name:"Застрахователни компании"}' (loadContent)="parentLoadContent($event)"></app-sidebar>
 <div>
-  <ul>
-    <li *ngFor="let company of companiesList">
-      <img src="{{company.logo}}" alt="">
-      <h3>{{company.name}}</h3>
-      <a href="{{company.url}}">Към сайта на застрахователя</a>
-    </li>
-  </ul>
+    <header>
+        <img src={{content.logo}}>
+        <a href="{{content.url}}">Към сайта на застрахователя</a>
+    </header>
+    <h4>{{content.name}}</h4>
+    <div>{{content.about}}</div>
 </div>

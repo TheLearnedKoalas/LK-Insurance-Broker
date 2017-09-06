@@ -1,6 +1,7 @@
 .carousel{
     overflow:hidden;
     width:100%;
+  height: 220px;
 }
 .slides{
     list-style:none;

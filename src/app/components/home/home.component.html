@@ -1,18 +1,10 @@
 <app-carousel></app-carousel>
 <div>
-  <h2>Застраховки</h2>
+  <h3>Застраховки</h3>
   <ul>
-    <li><a href="#">
-        <img src="http://www.mm-bulgaria.com/images/mm-group.svg" alt="">
-        Гражданска Отговорност
-      </a></li>
-    <li><a href="#">
-          <img src="http://www.mm-bulgaria.com/images/mm-group.svg" alt="">
-          Автокаско
-        </a></li>
-    <li><a href="#">
-            <img src="http://www.mm-bulgaria.com/images/mm-group.svg" alt="">
-            Имущество
-          </a></li>
+    <li *ngFor="let insurance of insurances">     
+      <img src="{{insurance.logo}}">
+      <a href="#">{{insurance.name}}</a>    
+    </li>
   </ul>
 </div>

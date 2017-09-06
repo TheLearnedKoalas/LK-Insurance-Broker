@@ -9,16 +9,11 @@ import { BreadcrumbService } from 'ng2-breadcrumb/ng2-breadcrumb';
 })
 export class AppComponent {
   name = 'app';
-  asideContents = [];
-  public _opened: boolean = true;
 
-  public _toggleSidebar() {
-    this._opened = !this._opened;
-  }
   constructor(private breadcrumbService: BreadcrumbService) {
     breadcrumbService.addFriendlyNameForRoute('/home', 'Начало');
     breadcrumbService.addFriendlyNameForRoute('/online', 'Online Застраховане');
     breadcrumbService.addFriendlyNameForRoute('/companies', 'Застрахователни компании');
-    breadcrumbService.addFriendlyNameForRoute('/about', 'За нас');
+    breadcrumbService.addFriendlyNameForRoute('/about', 'За нас');    
   }
 }

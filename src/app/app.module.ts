@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
+import { FormsModule } from '@angular/forms';
 
 import { InsuranceModule } from './insurance/insurance.module';
 
@@ -11,8 +12,11 @@ import { CompaniesComponent } from './components/companies/companies.component';
 import { AboutComponent } from './components/about/about.component';
 import { OnlineComponent } from './components/online/online.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 
-import {Ng2BreadcrumbModule, BreadcrumbService} from 'ng2-breadcrumb/ng2-breadcrumb';
+
+import { Ng2BreadcrumbModule, BreadcrumbService } from 'ng2-breadcrumb/ng2-breadcrumb';
 import { SidebarModule } from 'ng-sidebar';
 
 
@@ -26,7 +30,10 @@ import { SidebarModule } from 'ng-sidebar';
     OnlineComponent,
     CompaniesComponent,
     AboutComponent,
-    CarouselComponent
+    CarouselComponent,
+    FooterComponent,
+    SidebarComponent
+
   ],
   imports: [
     Ng2BreadcrumbModule,
@@ -34,9 +41,10 @@ import { SidebarModule } from 'ng-sidebar';
     InsuranceModule,
     // NgbModule.forRoot(),
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
-  providers: [ BreadcrumbService],
+  providers: [BreadcrumbService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,8 +1,14 @@
 <app-navbar></app-navbar>
-<main>
-
-<div class="wrapper">
-<breadcrumb></breadcrumb>
-<router-outlet ></router-outlet>
+<div>
+<breadcrumb>
+    <!-- <app-tab name="Home" icon="glyphicon glyphicon-home"></app-tab>
+    <a [routerLink]="['/Components']">
+        <app-tab name="Cutom Angular 2 Components" icon="glyphicon glyphicon-home"></app-tab>
+    </a>
+    <app-tab action="active" name="Datepicker" icon="glyphicon glyphicon-list-alt"></app-tab> -->
+</breadcrumb>
 </div>
+<main>
+<router-outlet ></router-outlet>
 </main>
+<app-footer></app-footer>
