@@ -5,9 +5,9 @@
 
 div{
     width: 200px;
-    height: 500px;
     float: left;
     padding-top: 10px;
+    height: 100%;
 }
 
 ul{

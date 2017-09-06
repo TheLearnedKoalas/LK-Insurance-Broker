@@ -8,8 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
   insurances = [{
-    name: `Гражданска
-  Отговорност`, logo: 'https://izbiram.bg/tmp/mtpl_0.png'
+    name: 'Гражданска Отговорност', logo: 'https://izbiram.bg/tmp/mtpl_0.png'
   },
   { name: 'Каско', logo: 'https://izbiram.bg/tmp/kasko%20copy.png' },
   { name: 'Имущество', logo: 'https://izbiram.bg/tmp/property-insurance.png' }];

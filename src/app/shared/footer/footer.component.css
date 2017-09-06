@@ -3,7 +3,10 @@
     padding: 0
 }
 div{
+    position: absolute;
+    bottom: 0;
     height: 60px;
+    width: 100%;
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#41aefc+0,89cbf9+41,e3f2fd+100 */
     background: rgb(65,174,252); /* Old browsers */
     background: -moz-linear-gradient(top, rgba(65,174,252,1) 0%, rgba(137,203,249,1) 41%, rgba(227,242,253,1) 100%); /* FF3.6-15 */
