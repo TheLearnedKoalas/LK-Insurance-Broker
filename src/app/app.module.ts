@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 // import { FormsModule } from '@angular/forms';
 
+import { OnlineModule } from './online/online.module';
 import { InsuranceModule } from './insurance/insurance.module';
 import { SharedModule } from './shared/shared.module';
 
@@ -30,6 +31,7 @@ import { Ng2BreadcrumbModule, BreadcrumbService } from 'ng2-breadcrumb/ng2-bread
     Ng2BreadcrumbModule,
     // SidebarModule.forRoot(),
     InsuranceModule,
+    OnlineModule,
     // NgbModule.forRoot(),
     BrowserModule,
     AppRoutingModule,

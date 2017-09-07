@@ -15,6 +15,8 @@ export class AppComponent {
     breadcrumbService.addFriendlyNameForRoute('/companies', 'Застрахователни компании');
     breadcrumbService.addFriendlyNameForRoute('/about', 'За нас');
     breadcrumbService.addFriendlyNameForRoute('/insurances', 'Застраховки');
-    breadcrumbService.addFriendlyNameForRoute('/insurances/online', 'Online застраховане');
+    breadcrumbService.addFriendlyNameForRoute('/insurances/online', 'Online Застраховане');
+    breadcrumbService.addFriendlyNameForRoute('/insurances/online/calculator', 'Калкулатор');
+    breadcrumbService.addFriendlyNameForRoute('/insurances/online/request', 'Поръчка');
   }
 }

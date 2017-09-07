@@ -1,23 +1,23 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { InsuranceRoutingModule } from './insurance-routing.module';
 import { SharedModule } from '../shared/shared.module';
+import { OnlineModule } from '../online/online.module';
+import { InsuranceRoutingModule } from './insurance-routing.module';
 
 import { InsuranceInfoComponent } from './insurance-info/insurance-info.component';
-import { OnlineComponent } from './online/online.component';
 
 @NgModule({
   imports: [
     CommonModule,
     InsuranceRoutingModule,
-    SharedModule
+    SharedModule,
+    OnlineModule,
   ],
   declarations: [
     InsuranceInfoComponent,
-    OnlineComponent
   ],
-  exports: [OnlineComponent, InsuranceInfoComponent, CommonModule],
+  exports: [ InsuranceInfoComponent, CommonModule],
 })
 export class InsuranceModule {
  }
