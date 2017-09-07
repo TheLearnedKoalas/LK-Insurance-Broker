@@ -37,7 +37,7 @@ export class CompaniesComponent implements OnInit {
   getAll() {
     const all = [];
     this.companiesList.forEach(x => {
-      all.push({ name: x.name, logo: x.logo });
+      all.push({ name: x.name, logo: x.logo, url: x.url });
     });
     return all;
   }

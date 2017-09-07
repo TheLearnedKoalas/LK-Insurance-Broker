@@ -3,7 +3,7 @@
     <div *ngFor="let c of content">
         <img src={{c.logo}}>
         <h4>{{c.name}}</h4>        
-        <a class="btn btn-primary" href="{{c.url}}">Към сайта на застрахователя</a>
+        <a class="btn btn-primary" href={{c.url}}>Към сайта на застрахователя</a>
         <div>{{c.about}}</div>
     </div>
 </div>

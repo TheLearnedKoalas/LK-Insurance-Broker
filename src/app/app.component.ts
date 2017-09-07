@@ -12,8 +12,9 @@ export class AppComponent {
 
   constructor(private breadcrumbService: BreadcrumbService) {
     breadcrumbService.addFriendlyNameForRoute('/home', 'Начало');
-    breadcrumbService.addFriendlyNameForRoute('/online', 'Online Застраховане');
     breadcrumbService.addFriendlyNameForRoute('/companies', 'Застрахователни компании');
     breadcrumbService.addFriendlyNameForRoute('/about', 'За нас');
+    breadcrumbService.addFriendlyNameForRoute('/insurances', 'Застраховки');
+    breadcrumbService.addFriendlyNameForRoute('/insurances/online', 'Online застраховане');
   }
 }
