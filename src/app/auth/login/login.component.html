@@ -1,3 +1,18 @@
-<p>
-  login works!
-</p>
+<form class="form-signin">
+  <h2 class="form-signin-heading">Please log in</h2>
+  <label for="email">Email address:</label>
+  <input type="email" id="email" class="form-control" placeholder="Enter Email address" required autofocus [(ngModel)]="email"
+    name="email" required #em="ngModel">
+  <div [hidden]="em.valid || em.pristine" class="alert callout">
+    Email is required
+  </div>
+  <label for="password1" class="control-label">Password:</label>
+  <input type="password" id="password1" class="form-control" placeholder="Enter Password" required [(ngModel)]="password1"
+    name="password1" required #pwd1="ngModel">
+  <div [hidden]="pwd1.valid || pwd1.pristine" class="alert callout">
+    Password required
+  </div>
+  <a class="btn btn-lg btn-block btn-primary" (click)="login()">Login</a>
+  <a class="btn btn-lg btn-block btn-primary" (click)="signup()">Sign Up</a>
+  <a class="btn btn-lg btn-block btn-primary" (click)="cancel()">Back to the Main Site</a>
+</form>
