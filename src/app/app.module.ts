@@ -18,6 +18,8 @@ import { Ng2BreadcrumbModule, BreadcrumbService } from 'ng2-breadcrumb/ng2-bread
 // import { SidebarModule } from 'ng-sidebar';
 // import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
+import { AuthModule } from './auth/auth.module'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,6 +36,7 @@ import { Ng2BreadcrumbModule, BreadcrumbService } from 'ng2-breadcrumb/ng2-bread
     // InsuranceModule,
     // NgbModule.forRoot(),
     BrowserModule,
+    AuthModule,
     AppRoutingModule,
     // FormsModule
   ],
