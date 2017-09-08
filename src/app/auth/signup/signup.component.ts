@@ -1,15 +1,30 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { UserService } from '../shared/user.service';
 
 @Component({
-  selector: 'app-signup',
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
 })
-export class SignupComponent implements OnInit {
+export class SignupComponent {
+  email: string;
+  password1: string;
+  password2: string;
+  passwordFail: boolean = false;
 
-  constructor() { }
+  constructor(private userService: UserService, private router: Router) { }
 
-  ngOnInit() {
+  signUp() {
+    if (this.password1 !== this.password2) {
+      this.passwordFail = true;
+    } else {
+      this.passwordFail = false;
+      this.userService.register(this.email, this.password1);
+      this.userService.verifyUser();
+    }
   }
 
+  cancel() {
+    this.router.navigate(['/auth/login']);
+  }
 }
