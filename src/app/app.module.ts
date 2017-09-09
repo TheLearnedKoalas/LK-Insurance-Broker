@@ -11,7 +11,6 @@ import { SharedModule } from './shared/shared.module';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
-import { CompaniesComponent } from './components/companies/companies.component';
 import { AboutComponent } from './components/about/about.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
 
@@ -24,7 +23,6 @@ import { InsuranceService } from './insurance/insurance.service';
   declarations: [
     AppComponent,
     HomeComponent,
-    CompaniesComponent,
     AboutComponent,
     CarouselComponent
   ],

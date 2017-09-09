@@ -1,0 +1,91 @@
+  <div class="leftback">
+    <div id="quest" class="blogwrapstart">
+      <h4 style="color: #296BA8;padding: 0;">&nbsp;Данни за МПС</h4>
+      <div style="height: 15px;">&nbsp;</div>
+      <form>
+        <div id="criteria_1" class="form-group">
+          <fieldset>
+            <div style="float: left;width: 32%;padding-left: 5px;">&nbsp;Вид МПС</div>
+            <div style="float: left;width: 50%;padding-left: 5px;">
+              <select class="form-control" id="vehicleType" name="vehicleType" required [(ngModel)]="vehicle.vehicleType" #vehicleType="ngModel"> 
+                  <option *ngFor="let t of vehicleTypes" [value]="t.value">{{t.name}}</option>               
+              </select>
+            </div>
+            <div class="clear"></div>
+          </fieldset>
+        </div>
+        <div id="criteria_2" class="form-group">
+          <fieldset>
+            <div style="float: left;width: 32%;padding-left: 5px;">&nbsp;Обем на двигателя</div>
+            <div style="float: left;width: 50%;padding-left: 5px;">
+              <input class="form-control" id="vehiclePower" name="vehiclePower" required [(ngModel)]="vehicle.vehiclePower" #vehiclePower="ngModel">
+            </div>
+            <div class="clear"></div>
+          </fieldset>
+        </div>
+        <div id="criteria_3" class="form-group">
+          <fieldset>
+            <div style="float: left;width: 32%;padding-left: 5px;">&nbsp;Марка</div>
+            <div style="float: left;width: 50%;padding-left: 5px;">
+              <input class="form-control" id="brand" name="brand" required [(ngModel)]="vehicle.brand" #brand="ngModel">
+            </div>
+            <div class="clear"></div>
+          </fieldset>
+        </div>
+        <div id="criteria_4" class="form-group">
+          <fieldset>
+            <div style="float: left;width: 32%;padding-left: 5px;">&nbsp;Модел</div>
+            <div style="float: left;width: 50%;padding-left: 5px;">
+              <input class="form-control" id="model" name="model" required [(ngModel)]="vehicle.model" #model="ngModel">
+            </div>
+            <div class="clear"></div>
+          </fieldset>
+        </div>
+        <div id="criteria_5" class="form-group">
+          <fieldset>
+            <div style="float: left;width: 32%;padding-left: 5px;">&nbsp;Регистрационен номер</div>
+            <div style="float: left;width: 50%;padding-left: 5px;">
+              <input class="form-control" id="registrationNumber" name="registrationNumber" required [(ngModel)]="vehicle.registrationNumber" #registrationNumber="ngModel">
+            </div>
+            <div class="clear"></div>
+          </fieldset>
+        </div>
+        <div id="criteria_6" class="form-group">
+          <fieldset>
+            <div style="float: left;width: 32%;padding-left: 5px;">&nbsp;Регистрационен номер</div>
+            <div style="float: left;width: 50%;padding-left: 5px;">
+              <input class="form-control" id="chassis" name="chassis" required [(ngModel)]="vehicle.chassis" #chassis="ngModel">
+            </div>
+            <div class="clear"></div>
+          </fieldset>
+        </div>
+        <div id="criteria_7" class="form-group">
+          <fieldset>
+            <div style="float: left;width: 32%;padding-left: 5px;">&nbsp;Първа регистрация</div>
+            <div style="float: left;width: 50%;padding-left: 5px;">
+              <input class="form-control" id="firstReg" name="firstReg" required [(ngModel)]="vehicle.firstReg" #firstReg="ngModel">
+            </div>
+            <div style="float: left;width: 8%;padding:5px 0 0 5px;">
+              <div class="baloon" style="width: 24px;height:24px;" lang="Година на първа регистрация по данни от регистрационния талон на МПС">
+                <img style="width: 24px;height:24px;" src="http://iandgbrokers.com/calculator-grajdanska/images/hint.png" alt="hint">
+              </div>
+            </div>
+            <div class="clear"></div>
+          </fieldset>
+        </div>
+        <div id="criteria_8" class="form-group">
+          <fieldset>
+            <div style="float: left;width: 32%;padding-left: 5px;">&nbsp;Предназначение</div>
+            <div style="float: left;width: 50%;padding-left: 5px;">
+              <select class="form-control" id="purpose" name="purpose" required [(ngModel)]="vehicle.purpose" #purpose="ngModel">
+                <option *ngFor="let p of purposes" [value]="p.name">{{p.name}}</option>               
+              </select> </div>
+            <div class="clear"></div>
+          </fieldset>
+        </div>
+        <div style="height: 10px;">&nbsp;</div>
+        <button (click)="CreateVehicle()" class="btn btn-primary">Създай</button>
+        <button (click)="FindVehicle()" class="btn btn-primary">Намери</button>
+      </form>
+    </div>
+  </div>

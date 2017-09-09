@@ -7,7 +7,6 @@ import { SharedModule } from '../shared/shared.module';
 
 
 import { CalcQuestionaryComponent } from './calc-questionary/calc-questionary.component';
-import { PolicyRequestComponent } from './policy-request/policy-request.component';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
@@ -20,7 +19,6 @@ import { FormsModule } from '@angular/forms';
   ],
   declarations: [
     CalcQuestionaryComponent,
-    PolicyRequestComponent
 ],
   exports: [CalcQuestionaryComponent, CommonModule],
 })

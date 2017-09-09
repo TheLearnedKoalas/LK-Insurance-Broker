@@ -1,8 +1,8 @@
-// import { Vehicle } from './models/vehicle';
-// import { Individual } from './models/individual';
-// import { Company } from './models/company';
+import { Vehicle } from './models/vehicle';
+import { Individual } from './models/individual';
+import { Company } from './models/company';
 import { Client } from './models/client';
-// import { ThirdPartInsurance } from './models/thirdPartInsurance';
+import { ThirdPartInsurance } from './models/thirdPartInsurance';
 import { Injectable, ReflectiveInjector } from '@angular/core';
 import { Http, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';

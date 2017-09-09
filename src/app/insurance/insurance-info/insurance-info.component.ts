@@ -6,7 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./insurance-info.component.css']
 })
 export class InsuranceInfoComponent implements OnInit {
-
   insurancesList = [
     {
       name: 'Гражданска Отговорност', logo: 'https://izbiram.bg/tmp/mtpl_0.png',
@@ -203,6 +202,7 @@ export class InsuranceInfoComponent implements OnInit {
   constructor() { }
 
   content = this.getAll();
+
   parentLoadContent(value) {
     if (value === 'Застраховки') {
       this.content = this.getAll();
@@ -218,7 +218,7 @@ export class InsuranceInfoComponent implements OnInit {
     });
     return all;
   }
+
   ngOnInit() {
   }
-
 }

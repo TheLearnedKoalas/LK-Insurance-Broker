@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 // import { Popup } from 'ng2-opd-popup';
 
 import { InsuranceService } from '../../insurance/insurance.service';
+import { Router, ActivatedRoute } from '@angular/router';
+// import { InsuranceRoutingModule } from "../../insurance/insurance-routing.module";
 
 @Component({
   selector: 'app-calc-questionary',
@@ -29,7 +31,7 @@ export class CalcQuestionaryComponent implements OnInit {
 
   showed = false;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   offer = {
     vehicleType: '',
@@ -48,7 +50,7 @@ export class CalcQuestionaryComponent implements OnInit {
   }
 
   onSubmitPolicyDetails() {
-
+    this.router.navigate(['/insurances/form'], { queryParams: this.offer });
   }
 
   ngOnInit() {
