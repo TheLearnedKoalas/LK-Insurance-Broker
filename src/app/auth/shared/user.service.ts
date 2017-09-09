@@ -19,7 +19,6 @@ export class UserService implements CanActivate {
       messagingSenderId: "974569024812"
     });
   }
-
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     let url: string = state.url;
     return this.verifyLogin(url);
