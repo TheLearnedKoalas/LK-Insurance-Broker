@@ -2,17 +2,18 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { SharedModule } from '../shared/shared.module';
-import { OnlineModule } from '../online/online.module';
+// import { OnlineModule } from '../online/online.module';
 import { InsuranceRoutingModule } from './insurance-routing.module';
 
 import { InsuranceInfoComponent } from './insurance-info/insurance-info.component';
+// import { InsuranceFormComponent } from './forms/insurance.form/insurance.form.component';
 
 @NgModule({
   imports: [
     CommonModule,
     InsuranceRoutingModule,
     SharedModule,
-    OnlineModule,
+   // OnlineModule,
   ],
   declarations: [
     InsuranceInfoComponent,

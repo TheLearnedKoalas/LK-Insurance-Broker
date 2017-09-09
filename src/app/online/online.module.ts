@@ -1,22 +1,25 @@
+//  import { InsuranceModule } from './../insurance/insurance.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { OnlineRoutingModule } from './online-routing.module';
 import { SharedModule } from '../shared/shared.module';
 
+
 import { CalcQuestionaryComponent } from './calc-questionary/calc-questionary.component';
-import { CalcOfferComponent } from './calc-offer/calc-offer.component';
 import { PolicyRequestComponent } from './policy-request/policy-request.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
     OnlineRoutingModule,
-    SharedModule
+    SharedModule,
+    FormsModule,
+    // InsuranceModule
   ],
   declarations: [
     CalcQuestionaryComponent,
-    CalcOfferComponent,
     PolicyRequestComponent
 ],
   exports: [CalcQuestionaryComponent, CommonModule],

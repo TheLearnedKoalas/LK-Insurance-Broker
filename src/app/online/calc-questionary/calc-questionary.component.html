@@ -1,140 +1,281 @@
 <div><img src="http://iandgbrokers.com/calculator-grajdanska/images/step1.png" alt="steps"></div>
+<div *ngIf="showed" id="offer">
+
+  <!-- to add image of the company -->
+  <form (ngSubmit)="onSubmitPolicyDetails()">
+    <div class="company-offer">
+      <div class="form-group">
+        <div>
+            Еднократно
+        </div>
+      </div>
+      <div class="form-group">
+        <div>
+          <div>1ва</div>
+          <div>2ра</div>
+          <div>Общо</div>
+        </div>
+      </div>
+      <div class="form-group">
+          <div>
+              <div>1ва</div>
+              <div>2ра</div>
+              <div>3та</div>
+              <div>Общо</div>
+          </div>
+      </div>
+      <div class="form-group">
+          <div>
+              <div>1ва</div>
+              <div>2ра</div>
+              <div>3та</div>
+              <div>4та</div>
+              <div>Общо</div>
+          </div>
+      </div>
+    </div>
+    <div class="company-offer">
+      <div class="form-group">
+        <div>
+          <label>
+                <input class="form-control" id="paymentDetails" name="paymentDetails" required [(ngModel)]="offer.paymentDetails" #paymentDetails="ngModel"
+                  value="Лев Инс%184.62" type="radio">
+                  <div>184.62</div>
+                </label>
+        </div>
+      </div>
+      <div class="form-group">
+        <div>
+          <label>
+                  <input class="form-control" id="paymentDetails" name="paymentDetails" required [(ngModel)]="offer.paymentDetails" #paymentDetails="ngModel"
+                        value="Лев Инс%99.76*84.86" type="radio">
+                      <div>
+                          <div>99.76</div>
+                          <div>84.86</div>
+                          <div>184.62</div>
+                      </div>
+                    </label>
+        </div>
+      </div>
+      <div class="form-group">
+        <div>
+          <label>
+                        <div>Не се поддържа</div>
+                    </label>
+        </div>
+      </div>
+      <div class="form-group">
+        <div>
+          <label>
+                    <input class="form-control" id="paymentDetails" name="paymentDetails" required [(ngModel)]="offer.paymentDetails" #paymentDetails="ngModel"
+                    value="Лев Инс%57.33*42.43*42.43*42.43" type="radio">
+                    <div>
+                        <div>57.33</div>
+                        <div>42.43</div>
+                        <div>42.43</div>
+                        <div>42.43</div>
+                        <div>184.62</div>
+                      </div>
+                  </label>
+        </div>
+      </div>
+    </div>
+    <div class="company-offer">
+      <div class="form-group">
+        <div>
+          <label>
+                  <input class="form-control" id="paymentDetails" name="paymentDetails" required [(ngModel)]="offer.paymentDetails" #paymentDetails="ngModel"
+                    value="Бул Инс%184.62" type="radio">
+                    <div>184.62</div>
+                  </label>
+        </div>
+      </div>
+      <div class="form-group">
+        <div>
+          <label>
+                    <input class="form-control" id="paymentDetails" name="paymentDetails" required [(ngModel)]="offer.paymentDetails" #paymentDetails="ngModel"
+                          value="Бул Инс%99.76*84.86" type="radio">
+                        <div>
+                            <div>99.76</div>
+                            <div>84.86</div>
+                            <div>184.62</div>
+                        </div>
+                      </label>
+        </div>
+      </div>
+      <div class="form-group">
+        <div>
+          <label>
+                          <div>Не се поддържа</div>
+                      </label>
+        </div>
+      </div>
+      <div class="form-group">
+        <div>
+          <label>
+                      <input class="form-control" id="paymentDetails" name="paymentDetails" required [(ngModel)]="offer.paymentDetails" #paymentDetails="ngModel"
+                      value="Бул Инс%57.33*42.43*42.43*42.43" type="radio">
+                      <div>
+                          <div>57.33</div>
+                          <div>42.43</div>
+                          <div>42.43</div>
+                          <div>42.43</div>
+                          <div>184.62</div>
+                        </div>
+                    </label>
+        </div>
+      </div>
+    </div>
+    <div class="company-offer">
+      <div class="form-group">
+        <div>
+          <label>
+                    <input class="form-control" id="paymentDetails" name="paymentDetails" required [(ngModel)]="offer.paymentDetails" #paymentDetails="ngModel"
+                      value="Армеец%184.62" type="radio">
+                      <div>184.62</div>
+                    </label>
+        </div>
+      </div>
+      <div class="form-group">
+        <div>
+          <label>
+                      <input class="form-control" id="paymentDetails" name="paymentDetails" required [(ngModel)]="offer.paymentDetails" #paymentDetails="ngModel"
+                            value="Армеец%99.76*84.86" type="radio">
+                          <div>
+                              <div>99.76</div>
+                              <div>84.86</div>
+                              <div>184.62</div>
+                          </div>
+                        </label>
+        </div>
+      </div>
+      <div class="form-group">
+        <div>
+          <label>
+                            <div>Не се поддържа</div>
+                        </label>
+        </div>
+      </div>
+      <div class="form-group">
+        <div>
+          <label>
+                        <input class="form-control" id="paymentDetails" name="paymentDetails" required [(ngModel)]="offer.paymentDetails" #paymentDetails="ngModel"
+                        value="Армеец%57.33*42.43*42.43*42.43" type="radio">
+                        <div>
+                            <div>57.33</div>
+                            <div>42.43</div>
+                            <div>42.43</div>
+                            <div>42.43</div>
+                            <div>184.62</div>
+                          </div>
+                      </label>
+        </div>
+      </div>
+    </div>
+    <div style="height: 10px;">&nbsp;</div>
+    <button type="submit" class="btn btn-primary">Поръчай</button>
+  </form>
+</div>
 <div id="main-wrap">
-  <!-- Start Left Section -->
-  <!-- Start Quest -->
   <div class="leftback">
     <div id="quest" class="blogwrapstart">
       <h4 style="color: #296BA8;padding: 0;">&nbsp;Данни за МПС</h4>
       <div style="height: 15px;">&nbsp;</div>
-      <form enctype="application/x-www-form-urlencoded" action="/calculator-grajdanska/compare/гражданска-отговорност-оферти" method="POST"
-        onsubmit="return SendCriterias();">
-        <div id="criteria_1">
+      <form (ngSubmit)="onSubmit()">
+        <div id="criteria_1" class="form-group">
           <fieldset>
-            <div style="float: left;width: 32%;padding-left: 5px;">&nbsp;<img src="http://iandgbrokers.com/calculator-grajdanska/images/plus_m.gif" alt="plus">&nbsp;Вид МПС</div>
+            <div style="float: left;width: 32%;padding-left: 5px;">&nbsp;Вид МПС</div>
             <div style="float: left;width: 50%;padding-left: 5px;">
-              <select id="categoriesSel" name="categoriesSel" class="contacttextform" onchange="CatCh(this.value);"><option value="2" selected="">Лек автомобил</option><option value="3">Товарен автомобил</option><option value="4">Мотопед</option><option value="5">Мотоциклет</option><option value="6">Триколка</option><option value="7">Багажно ремарке</option><option value="8">Товарно ремарке</option><option value="9">Седлови влекач</option><option value="10">Автобус, Микробус, Тролейбус</option><option value="13">Трамвайна мотриса</option><option value="14">Строителна техника</option><option value="15">Горска техника</option><option value="16">Земеделска техника</option><option value="17">Вътрешнозаводски транспорт</option><option value="22">Къмпинг ремарке</option><option value="19">Електрокар или мотокар</option></select>
+              <select class="form-control" id="vehicleType" name="vehicleType" required [(ngModel)]="offer.vehicleType" #vehicleType="ngModel"> 
+                  <option *ngFor="let t of vehicleTypes" [value]="t.value">{{t.name}}</option>               
+              </select>
             </div>
             <div class="clear"></div>
           </fieldset>
         </div>
-        <div id="criteria_2">
+        <div id="criteria_2" class="form-group">
           <fieldset>
-            <div style="float: left;width: 32%;padding-left: 5px;">&nbsp;<img src="http://iandgbrokers.com/calculator-grajdanska/images/plus_m.gif" alt="plus">&nbsp;Обем на двигателя</div>
+            <div style="float: left;width: 32%;padding-left: 5px;">&nbsp;Обем на двигателя</div>
             <div style="float: left;width: 50%;padding-left: 5px;">
-              <select id="n_volume_zSel" name="n_volume_zSel" class="contacttextform"><option value="1">до 800 куб. см. вкл.</option><option value="2">до 900 куб. см. вкл.</option><option value="3">до 1000 куб. см. вкл.</option><option value="4">до 1100 куб. см. вкл.</option><option value="5">до 1200 куб. см. вкл.</option><option value="6">до 1300 куб. см. вкл.</option><option value="7">до 1400 куб. см. вкл.</option><option value="8">до 1500 куб. см. вкл.</option><option value="9" selected="">до 1600 куб. см. вкл.</option><option value="10">до 1700 куб. см. вкл.</option><option value="11">до 1800 куб. см. вкл.</option><option value="12">до 1900 куб. см. вкл.</option><option value="13">до 2000 куб. см. вкл.</option><option value="14">до 2100 куб. см. вкл.</option><option value="15">до 2200 куб. см. вкл.</option><option value="16">до 2300 куб. см. вкл.</option><option value="17">до 2400 куб. см. вкл.</option><option value="18">до 2500 куб. см. вкл.</option><option value="19">до 2600 куб. см. вкл.</option><option value="20">до 2700 куб. см. вкл.</option><option value="21">до 2800 куб. см. вкл.</option><option value="22">до 2900 куб. см. вкл.</option><option value="23">до 3000 куб. см. вкл.</option><option value="24">до 3100 куб. см. вкл.</option><option value="25">до 3200 куб. см. вкл.</option><option value="26">до 3300 куб. см. вкл.</option><option value="27">до 3400 куб. см. вкл.</option><option value="28">над 3400 куб. см.</option></select>
+              <input class="form-control" id="vehiclePower" name="vehiclePower" required [(ngModel)]="offer.vehiclePower" #vehiclePower="ngModel">Обем
+              двигателя
             </div>
             <div class="clear"></div>
           </fieldset>
         </div>
-        <div id="criteria_3" style="display:none;">
+        <div id="criteria_9" class="form-group">
           <fieldset>
-            <div style="float: left;width: 32%;padding-left: 5px;">&nbsp;<img src="http://iandgbrokers.com/calculator-grajdanska/images/plus_m.gif" alt="plus">&nbsp;Товароносимост</div>
+            <div style="float: left;width: 32%;padding-left: 5px;">&nbsp;Собственик на МПС
+            </div>
             <div style="float: left;width: 50%;padding-left: 5px;">
-              <select id="n_capacities_ySel" name="n_capacities_ySel" class="contacttextform"></select>
+              <select class="form-control" id="clientType" name="clientType" required [(ngModel)]="offer.clientType" #clientType="ngModel"> 
+                <option value="individual" selected="">физическо лице</option>
+                <option value="company">юридическо лице</option></select>
             </div>
             <div class="clear"></div>
           </fieldset>
         </div>
-        <div id="criteria_4" style="display:none;">
+        <div id="criteria_10" class="form-group">
           <fieldset>
-            <div style="float: left;width: 32%;padding-left: 5px;">&nbsp;<img src="http://iandgbrokers.com/calculator-grajdanska/images/plus_m.gif" alt="plus">&nbsp;Общо тегло</div>
+            <div style="float: left;width: 32%;padding-left: 5px;">&nbsp;Възраст на собственика
+            </div>
             <div style="float: left;width: 50%;padding-left: 5px;">
-              <select id="n_weight_xSel" name="n_weight_xSel" class="contacttextform"></select>
+              <input class="form-control" id="clientAge" name="clientAge" required [(ngModel)]="offer.clientAge" #clientAge="ngModel">години
             </div>
             <div class="clear"></div>
           </fieldset>
         </div>
-        <div id="criteria_6" style="display:none;">
+        <div id="criteria_11" class="form-group">
           <fieldset>
-            <div style="float: left;width: 32%;padding-left: 5px;">&nbsp;<img src="http://iandgbrokers.com/calculator-grajdanska/images/plus_m.gif" alt="plus">&nbsp;Брой места</div>
+            <div style="float: left;width: 32%;padding-left: 5px;">&nbsp;Шофьорски стаж</div>
             <div style="float: left;width: 50%;padding-left: 5px;">
-              <select id="n_seats_uSel" name="n_seats_uSel" class="contacttextform"></select>
+              <select class="form-control" id="driverExperience" name="driverExperience" required [(ngModel)]="offer.driverExperience"
+                #driverExperience="ngModel">
+                <option value="1">до 1г.</option>
+                <option value="2">над 1 до 2 г.</option>
+                <option value="3">над 2 до 3 г.</option>
+                <option value="5">над 3 до 5 г.</option>
+                <option value="10">над 5 до 10 г.</option>
+                <option value=">10" selected="">над 10 г.</option>
+              </select>
             </div>
             <div class="clear"></div>
           </fieldset>
         </div>
-        <div id="criteria_7">
+        <div id="criteria_15" class="form-group">
           <fieldset>
-            <div style="float: left;width: 32%;padding-left: 5px;">&nbsp;<img src="http://iandgbrokers.com/calculator-grajdanska/images/plus_m.gif" alt="plus">&nbsp;Регистрационен
-              номер
-            </div>
+            <div style="float: left;width: 32%;padding-left: 5px;">&nbsp;Първа регистрация</div>
             <div style="float: left;width: 50%;padding-left: 5px;">
-              <select id="n_registerSel" name="n_registerSel" class="contacttextform" onchange="RegCh(this.value);"><option value="2">А - Бургас</option><option value="3">В - Варна</option><option value="33">ВА - София</option><option value="5">ВН - Видин</option><option value="6">ВР - Враца</option><option value="4">ВТ - Велико Търново</option><option value="1">Е - Благоевград</option><option value="7">ЕВ - Габрово</option><option value="15">ЕН - Плевен</option><option value="9">К - Кърджали</option><option value="10">КН - Кюстендил</option><option value="12">М - Монтана</option><option value="28">Н - Шумен</option><option value="11">ОВ - Ловеч</option><option value="18">Р - Русе</option><option value="13">РА - Пазарджик</option><option value="16">РВ - Пловдив</option><option value="14">РК - Перник</option><option value="17">РР - Разград</option><option value="22" selected="">С - София</option><option value="23">СА - София</option><option value="31">СВ - София</option><option value="21">СМ - Смолян</option><option value="20">СН - Сливен</option><option value="24">СО - София окръг</option><option value="32">СР - София</option><option value="19">СС - Силистра</option><option value="25">СТ - Стара Загора</option><option value="26">Т - Търговище</option><option value="8">ТХ - Добрич</option><option value="29">У - Ямбол</option><option value="27">Х - Хасково</option><option value="34">ХХ - София</option></select>
-            </div>
-            <div style="float: left;width: 8%;padding:5px 0 0 5px;">
-              <div class="baloon" style="width: 24px;height:24px;" lang="Моля изберете буквите, с които започва регистрационният номер на МПС. Ако превозното средство все още не е регистрирано, изберете буквите, с които ще започва регистрационният номер">
-                <img style="width: 24px;height:24px;" src="http://iandgbrokers.com/calculator-grajdanska/images/hint.png" alt="hint">
-              </div>
-            </div>
-            <div class="clear"></div>
-            <div class="clear"></div>
-          </fieldset>
-        </div>
-        <div id="criteria_19">
-          <fieldset>
-            <div style="float: left;width: 32%;padding-left: 5px;">&nbsp;<img src="http://iandgbrokers.com/calculator-grajdanska/images/plus_m.gif" alt="plus">&nbsp;Община</div>
-            <div style="float: left;width: 50%;padding-left: 5px;">
-              <select id="n_municipalitySel" name="n_municipalitySel" onchange="MuniCh(this.value)" class="contacttextform"><option value="SOF46" selected="">СТОЛИЧНА</option></select>
-            </div>
-            <div class="clear"></div>
-          </fieldset>
-        </div>
-        <div id="criteria_8">
-          <fieldset>
-            <div style="float: left;width: 32%;padding-left: 5px;">&nbsp;<img src="http://iandgbrokers.com/calculator-grajdanska/images/plus_m.gif" alt="plus">&nbsp;Населено място</div>
-            <div style="float: left;width: 50%;padding-left: 5px;">
-              <select id="n_citiesSel" name="n_citiesSel" class="contacttextform"><option value="240;0;23">гр. Банкя</option><option value="241;0;23">гр. Бухово</option><option value="242;0;23">гр. Нови Искър</option><option value="243;1;0" selected="">гр. София</option><option value="244;0;11">с. Балша</option><option value="245;0;11">с. Бистрица</option><option value="246;0;11">с. Бусманци</option><option value="248;0;11">с. Владая</option><option value="249;0;11">с. Войнеговци</option><option value="250;0;11">с. Волуяк</option><option value="251;0;11">с. Герман</option><option value="252;0;11">с. Горни Богров</option><option value="253;0;11">с. Доброславци</option><option value="254;0;11">с. Долни Богров</option><option value="255;0;11">с. Долни Пасарел</option><option value="256;0;11">с. Железница</option><option value="257;0;11">с. Желява</option><option value="258;0;11">с. Житен</option><option value="259;0;11">с. Иваняне</option><option value="260;0;11">с. Казичене</option><option value="261;0;11">с. Клисура</option><option value="262;0;11">с. Кокаляне</option><option value="263;0;11">с. Кривина</option><option value="264;0;11">с. Кубратово</option><option value="265;0;11">с. Кътина</option><option value="1262;0;11">с. Лозен</option><option value="1263;0;11">с. Локорско</option><option value="1264;0;11">с. Мало Бучино</option><option value="266;0;11">с. Мировяне</option><option value="267;0;11">с. Мрамор</option><option value="268;0;11">с. Мърчаево</option><option value="269;0;11">с. Негован</option><option value="270;0;11">с. Панчарево</option><option value="271;0;11">с. Плана</option><option value="272;0;11">с. Подгумер</option><option value="273;0;11">с. Световрачене</option><option value="274;0;11">с. Чепинци</option><option value="275;0;11">с. Яна</option></select>
-            </div>
-            <div class="clear"></div>
-          </fieldset>
-        </div>
-        <div id="criteria_9">
-          <fieldset>
-            <div style="float: left;width: 32%;padding-left: 5px;">&nbsp;<img src="http://iandgbrokers.com/calculator-grajdanska/images/plus_m.gif" alt="plus">&nbsp;Собственик
-              на МПС
-            </div>
-            <div style="float: left;width: 50%;padding-left: 5px;">
-              <select id="n_ownerSel" name="n_ownerSel" class="contacttextform" onchange="UridCh()"><option value="1" selected="">физическо лице</option><option value="2">юридическо лице</option></select>
-            </div>
-            <div class="clear"></div>
-          </fieldset>
-        </div>
-        <div id="criteria_10">
-          <fieldset>
-            <div style="float: left;width: 32%;padding-left: 5px;">&nbsp;<img src="http://iandgbrokers.com/calculator-grajdanska/images/plus_m.gif" alt="plus">&nbsp;Възраст на
-              собственика
-            </div>
-            <div style="float: left;width: 50%;padding-left: 5px;">
-              <input class="contacttextform" style="width:50%;" name="n_agedriverSel" id="n_agedriverSel" value="40" type="text">              години
-            </div>
-            <div class="clear"></div>
-          </fieldset>
-        </div>
-        <div id="criteria_11">
-          <fieldset>
-            <div style="float: left;width: 32%;padding-left: 5px;">&nbsp;<img src="http://iandgbrokers.com/calculator-grajdanska/images/plus_m.gif" alt="plus">&nbsp;Шофьорски стаж</div>
-            <div style="float: left;width: 50%;padding-left: 5px;">
-              <select id="n_experienceSel" name="n_experienceSel" class="contacttextform"><option value="1">до 1г.</option><option value="2">над 1 до 2 г.</option><option value="6">над 2 до 3 г.</option><option value="3">над 3 до 5 г.</option><option value="4">над 5 до 10 г.</option><option value="5" selected="">над 10 г.</option></select>
-            </div>
-            <div class="clear"></div>
-          </fieldset>
-        </div>
-        <div id="criteria_12">
-          <fieldset>
-            <div style="float: left;width: 32%;padding-left: 5px;">&nbsp;<img src="http://iandgbrokers.com/calculator-grajdanska/images/plus_m.gif" alt="plus">&nbsp;Произшествие
-              посл. 3 год.</div>
-            <div style="float: left;width: 50%;padding-left: 5px;">
-              <select id="n_accidentSel" name="n_accidentSel" class="contacttextform"><option value="1">да</option><option value="2" selected="">не</option></select>
-            </div>
-            <div class="clear"></div>
-          </fieldset>
-        </div>
-        <div id="criteria_13"></div>
-        <div id="criteria_15">
-          <fieldset>
-            <div style="float: left;width: 32%;padding-left: 5px;">&nbsp;<img src="http://iandgbrokers.com/calculator-grajdanska/images/plus_m.gif" alt="plus">&nbsp;Първа регистрация</div>
-            <div style="float: left;width: 50%;padding-left: 5px;">
-              <select id="firstregSel" name="firstregSel" class="contacttextform"><option value="2017">2017 год.</option><option value="2016">2016 год.</option><option value="2015">2015 год.</option><option value="2014">2014 год.</option><option value="2013">2013 год.</option><option value="2012">2012 год.</option><option value="2011">2011 год.</option><option value="2010">2010 год.</option><option value="2009">2009 год.</option><option value="2008">2008 год.</option><option value="2007">2007 год.</option><option value="2006">2006 год.</option><option value="2005" selected="">2005 год.</option><option value="2004">2004 год.</option><option value="2003">2003 год.</option><option value="2002">2002 год.</option><option value="2001">2001 год.</option><option value="2000">2000 год.</option><option value="1999">1999 год.</option><option value="1998">1998 год.</option><option value="1997">1997 год.</option><option value="1996">1996 год.</option><option value="1995">1995 год.</option><option value="1994">1994 год.</option><option value="1993">1993 год.</option><option value="1992">1992 год.</option><option value="1991">1991 год.</option><option value="1990">1990 год.</option><option value="1989">1989 год.</option><option value="1988">1988 год.</option><option value="1987">1987 год.</option><option value="1986">1986 год.</option><option value="1985">1985 год.</option><option value="1984">1984 год.</option><option value="1983">1983 год.</option><option value="1982">1982 год.</option><option value="1981">1981 год.</option><option value="1980">1980 год.</option><option value="1979">1979 год.</option><option value="1978">1978 год.</option><option value="1977">1977 год.</option><option value="1976">1976 год.</option><option value="1975">1975 год.</option><option value="1974">1974 год.</option><option value="1973">1973 год.</option><option value="1972">1972 год.</option><option value="1971">1971 год.</option><option value="1970">1970 год.</option><option value="1969">1969 год.</option><option value="1968">1968 год.</option><option value="1967">1967 год.</option></select>
+              <select class="form-control" id="firstReg" name="firstReg" required [(ngModel)]="offer.firstReg" #firstReg="ngModel">>
+                <option value="2017">2017 год.</option>
+                <option value="2016">2016 год.</option>
+                <option value="2015">2015 год.</option>
+                <option value="2014">2014 год.</option>
+                <option value="2013">2013 год.</option>
+                <option value="2012">2012 год.</option>
+                <option value="2011">2011 год.</option>
+                <option value="2010">2010 год.</option>
+                <option value="2009">2009 год.</option>
+                <option value="2008">2008 год.</option>
+                <option value="2007">2007 год.</option>
+                <option value="2006">2006 год.</option>
+                <option value="2005" selected="">2005 год.</option>
+                <option value="2004">2004 год.</option>
+                <option value="2003">2003 год.</option>
+                <option value="2002">2002 год.</option>
+                <option value="2001">2001 год.</option>
+                <option value="2000">2000 год.</option>
+                <option value="1999">1999 год.</option>
+                <option value="1998">1998 год.</option>
+                <option value="1997">1997 год.</option>
+                <option value="1996">1996 год.</option>
+                <option value="1995">1995 год.</option>
+                <option value="1994">1994 год.</option>
+                <option value="1993">1993 год.</option>
+                <option value="1992">1992 год.</option>
+                <option value="1991">1991 год.</option>
+                <option value="1990">1990 год.</option>
+              </select>
             </div>
             <div style="float: left;width: 8%;padding:5px 0 0 5px;">
               <div class="baloon" style="width: 24px;height:24px;" lang="Година на първа регистрация по данни от регистрационния талон на МПС">
@@ -144,70 +285,31 @@
             <div class="clear"></div>
           </fieldset>
         </div>
-        <div id="criteria_14">
+        <div id="criteria_17" class="form-group">
           <fieldset>
-            <div style="float: left;width: 32%;padding-left: 5px;">&nbsp;<img src="http://iandgbrokers.com/calculator-grajdanska/images/plus_m.gif" alt="plus">&nbsp;Десен Волан</div>
+            <div style="float: left;width: 32%;padding-left: 5px;">&nbsp;Предназначение</div>
             <div style="float: left;width: 50%;padding-left: 5px;">
-              <select id="leftvolanSel" name="leftvolanSel" class="contacttextform">                          
-                                                      <option value="0" selected="">не</option>                          
-                                                      <option value="1">да</option>                          
-                                                   </select>
-            </div>
-            <div class="clear"></div>
-          </fieldset>
-        </div>
-        <div id="criteria_16">
-          <fieldset>
-            <div style="float: left;width: 32%;padding-left: 5px;">&nbsp;<img src="http://iandgbrokers.com/calculator-grajdanska/images/plus_m.gif" alt="plus">&nbsp;Има ли затраховка
-              Каско
-            </div>
-            <div style="float: left;width: 50%;padding-left: 5px;">
-              <select id="n_kaskoSel" name="n_kaskoSel" class="contacttextform">                          
-                                                              <option value="0">Не нямам</option>                          
-                                                              <option value="4">Да в Бул инс</option><option value="7">Да в Евроинс</option><option value="18">Да в Дженерали</option><option value="9">Да в Лев инс</option><option value="10">Да в ОЗК</option><option value="11">Да в Армеец</option><option value="12">Да в Уника</option><option value="16">Да в Булстрад</option><option value="31">Да в ДЗИ</option><option value="25">Да в Далл Богг</option><option value="26">Да в Групама</option><option value="28">Да в Олимпик</option></select>
-            </div>
-            <div class="clear"></div>
-          </fieldset>
-        </div>
-        <div id="criteria_18">
-          <fieldset>
-            <div style="float: left;width: 32%;padding-left: 5px;">&nbsp;<img src="http://iandgbrokers.com/calculator-grajdanska/images/plus_m.gif" alt="plus">&nbsp;Има ли сключена
-              гражданска отговорност досега</div>
-            <div style="float: left;width: 50%;padding-left: 5px;">
-              <select id="n_newSel" name="n_newSel" class="contacttextform">                          
-                                                              <option value="0">Не нямам</option>                          
-                                                              <option value="4">Да в Бул инс</option><option value="7">Да в Евроинс</option><option value="18">Да в Дженерали</option><option value="9">Да в Лев инс</option><option value="10">Да в ОЗК</option><option value="11">Да в Армеец</option><option value="12">Да в Уника</option><option value="16">Да в Булстрад</option><option value="31">Да в ДЗИ</option><option value="25">Да в Далл Богг</option><option value="26">Да в Групама</option><option value="28">Да в Олимпик</option></select>
-            </div>
-            <div class="clear"></div>
-          </fieldset>
-        </div>
-        <div id="criteria_17">
-          <fieldset>
-            <div style="float: left;width: 32%;padding-left: 5px;">&nbsp;<img src="http://iandgbrokers.com/calculator-grajdanska/images/plus_m.gif" alt="plus">&nbsp;Предназначение</div>
-            <div style="float: left;width: 50%;padding-left: 5px;">
-              <select id="n_purposeSel" name="n_purposeSel" class="contacttextform">
-                                                              <option value="1" selected="">Лично ползване</option><option value="2">Служебно ползване</option><option value="3">Таксиметрови превози</option><option value="4">Състезателен автомобил</option><option value="5">Учебен</option><option value="6">Отдаване под наем</option><option value="7">Превоз на опасни товари</option><option value="8">МПС със специален режим</option><option value="9">Тестови</option><option value="10">Обществен транспорт</option><option value="11">Производствена дейност</option><option value="12">Търговска дейност</option><option value="13">Куриерски услуги</option><option value="14">Международен транспорт</option></select>              </div>
+              <select class="form-control" id="purpose" name="purpose" required [(ngModel)]="offer.purpose" #purpose="ngModel">
+                  <option value="Лично ползване" selected="">Лично ползване</option>
+                  <option value="Служебно ползване">Служебно ползване</option>
+                  <option value="Таксиметрови превози">Таксиметрови превози</option>
+                  <option value="Състезателен автомобил">Състезателен автомобил</option>
+                  <option value="Учебен">Учебен</option>
+                  <option value="Отдаване под наем">Отдаване под наем</option>
+                  <option value="Превоз на опасни товари">Превоз на опасни товари</option>
+                  <option value="МПС със специален режим">МПС със специален режим</option>
+                  <option value="Тестови">Тестови</option>
+                  <option value="Обществен транспорт">Обществен транспорт</option>
+                  <option value="Производствена дейност">Производствена дейност</option>
+                  <option value="Търговска дейност">Търговска дейност</option>
+                  <option value="Куриерски услуги">Куриерски услуги</option>
+                  <option value="Международен транспорт">Международен транспорт</option></select> </div>
             <div class="clear"></div>
           </fieldset>
         </div>
         <div style="height: 10px;">&nbsp;</div>
-        <fieldset>
-          <input id="cnames" name="cnames" value="" class="contactformbutton" type="hidden">
-          <!-- add function for clicking to navigateoffer -->
-          <div class="btn btn-primary" style="float:right;">
-            <span>                          
-                <input class="submit_input" value="Изчисли" tabindex="-" type="submit">                          
-                <div class="clear"></div>                          
-            </span>
-          </div>
-        </fieldset>
+        <button type="submit" class="btn btn-primary">Изчисли</button>
       </form>
     </div>
   </div>
 </div>
-<!-- End Quest -->
-<!-- End Left Section -->
-<!-- Start Right Section -->
-<!-- End Right Section -->
-
-<div class="clear"></div>

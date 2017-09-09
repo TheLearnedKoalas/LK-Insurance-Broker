@@ -5,7 +5,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 export const insuranceRoutes: Routes = [
   { path: '', component: InsuranceInfoComponent },
-  { path: 'online', loadChildren: '../online/online.module#OnlineModule' }
+  { path: 'online', loadChildren: '../online/online.module#OnlineModule' },
+  // { path: 'form', component: InsuranceFormComponent }
 ];
 
 @NgModule({
