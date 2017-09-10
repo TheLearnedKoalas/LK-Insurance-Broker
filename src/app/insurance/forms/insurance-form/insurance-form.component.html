@@ -1,17 +1,22 @@
-<app-client-form #child1 [client]="client"  (loadContent)="parentLoadClientContent($event)"></app-client-form>
-<app-vehicle-form #child2 [vehicle]="vehicle"  (loadContent)="parentLoadVehicleContent($event)"></app-vehicle-form>
+<app-client-form #child1 [client]="client" (loadContent)="parentLoadClientContent($event)"></app-client-form>
+<app-vehicle-form #child2 [vehicle]="vehicle" (loadContent)="parentLoadVehicleContent($event)"></app-vehicle-form>
 <div class="leftback">
-    <div id="quest" class="blogwrapstart">
-      <h4 style="color: #296BA8;padding: 0;">&nbsp;Данни за Застраховка</h4>
-      <div style="height: 15px;">&nbsp;</div>
-      <form>
+  <div id="quest" class="blogwrapstart">
+    <h4 style="color: #296BA8;padding: 0;">&nbsp;Данни за Застраховка</h4>
+    <div style="height: 15px;">&nbsp;</div>
+    <form #insuranceForm="ngForm">
+      <div [hidden]="insuranceForm.submitted">
         <div id="criteria_31" class="form-group">
           <fieldset>
             <div style="float: left;width: 32%;padding-left: 5px;">&nbsp;Застрахователна компания</div>
             <div style="float: left;width: 50%;padding-left: 5px;">
-              <select class="form-control" id="insuranceCompany" name="insuranceCompany" required [(ngModel)]="insurance.insuranceCompany" #insuranceCompany="ngModel"> 
+              <select class="form-control" id="insuranceCompany" name="insuranceCompany" required [(ngModel)]="insurance.insuranceCompany"
+                #insuranceCompany="ngModel"> 
                 <option *ngFor="let t of companiesList" [value]="t.name">{{t.name}}</option>   
               </select>
+            </div>
+            <div *ngIf="insuranceCompany.errors && insuranceCompany.touched" class="alert alert-danger">
+              <div *ngIf="insuranceCompany.errors.required">Изберете застрахователна компания</div>
             </div>
             <div class="clear"></div>
           </fieldset>
@@ -20,8 +25,9 @@
           <fieldset>
             <div style="float: left;width: 32%;padding-left: 5px;">&nbsp;Начална дата</div>
             <div style="float: left;width: 50%;padding-left: 5px;">
-                <!-- to be date field -->
-              <input class="form-control" value="{{ today | date }}" id="startDate" name="startDate" required [(ngModel)]="insurance.startDate" #startDate="ngModel">
+              <!-- to be date field -->
+              <input class="form-control" value="{{ today | date }}" id="startDate" name="startDate" required [(ngModel)]="insurance.startDate"
+                #startDate="ngModel">
             </div>
             <div class="clear"></div>
           </fieldset>
@@ -32,6 +38,9 @@
             <div style="float: left;width: 50%;padding-left: 5px;">
               <input class="form-control" id="totalPayment" name="totalPayment" required [(ngModel)]="insurance.totalPayment" #totalPayment="ngModel">
             </div>
+            <div *ngIf="totalPayment.errors && totalPayment.touched" class="alert alert-danger">
+              <div *ngIf="totalPayment.errors.required">Въведете застрахователна премия</div>
+            </div>
             <div class="clear"></div>
           </fieldset>
         </div>
@@ -41,12 +50,16 @@
             <div style="float: left;width: 50%;padding-left: 5px;">
               <input class="form-control" id="paymentsCount" name="paymentsCount" required [(ngModel)]="insurance.paymentsCount" #paymentsCount="ngModel">
             </div>
+            <div *ngIf="paymentsCount.errors && paymentsCount.touched" class="alert alert-danger">
+              <div *ngIf="paymentsCount.errors.required">Въведете брой вноски</div>
+            </div>
             <div class="clear"></div>
           </fieldset>
         </div>
         <div style="height: 10px;">&nbsp;</div>
-        <button (click)="CreatePolicy()" class="btn btn-primary">Създай</button>
+        <button (click)="CreatePolicy()"  [disabled]="insuranceForm.invalid" class="btn btn-primary">Създай</button>
         <button (click)="FindPolicy()" class="btn btn-primary">Намери</button>
-      </form>
-    </div>
+      </div>
+    </form>
   </div>
+</div>

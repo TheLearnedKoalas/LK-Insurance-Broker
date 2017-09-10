@@ -2,48 +2,62 @@
   <div id="quest" class="blogwrapstart">
     <h4 style="color: #296BA8;padding: 0;">&nbsp;Данни за Застрахован</h4>
     <div style="height: 15px;">&nbsp;</div>
-    <form>
-      <div id="criteria_21" class="form-group">
-        <fieldset>
-          <div style="float: left;width: 32%;padding-left: 5px;">&nbsp;Собственик на МПС </div>
-          <div style="float: left;width: 50%;padding-left: 5px;">
-            <select class="form-control" id="clientType" name="clientType" required [(ngModel)]="client.clientType" #clientType="ngModel"> 
+    <form #clientForm="ngForm">
+      <div [hidden]="clientForm.submitted">
+        <div id="criteria_21" class="form-group">
+          <fieldset>
+            <div style="float: left;width: 32%;padding-left: 5px;">&nbsp;Собственик на МПС </div>
+            <div style="float: left;width: 50%;padding-left: 5px;">
+              <select class="form-control" id="clientType" name="clientType" required [(ngModel)]="client.clientType" #clientType="ngModel"> 
               <option *ngFor="let t of clientTypes" [value]="t.name">{{t.name}}</option>   
             </select>
-          </div>
-          <div class="clear"></div>
-        </fieldset>
+            </div>
+            <div *ngIf="clientType.errors && clientType.touched" class="alert alert-danger">
+              <div *ngIf="clientType.errors.required">Изберете вид собственик</div>
+            </div>
+            <div class="clear"></div>
+          </fieldset>
+        </div>
+        <div id="criteria_22" class="form-group">
+          <fieldset>
+            <div style="float: left;width: 32%;padding-left: 5px;">&nbsp;Име</div>
+            <div style="float: left;width: 50%;padding-left: 5px;">
+              <input class="form-control" id="name" name="name" required [(ngModel)]="client.name" #name="ngModel">
+            </div>
+            <div *ngIf="name.errors && name.touched" class="alert alert-danger">
+              <div *ngIf="name.errors.required">Въведете име</div>
+            </div>
+            <div class="clear"></div>
+          </fieldset>
+        </div>
+        <div id="criteria_23" class="form-group">
+          <fieldset>
+            <div style="float: left;width: 32%;padding-left: 5px;">&nbsp;ЕГН/Булстат/ЛНЧ</div>
+            <div style="float: left;width: 50%;padding-left: 5px;">
+              <input class="form-control" id="id" name="id" required [(ngModel)]="client.id" #id="ngModel">
+            </div>
+            <div *ngIf="id.errors && id.touched" class="alert alert-danger">
+              <div *ngIf="id.errors.required">Въведете ЕГН/Булстат/ЛНЧ</div>
+            </div>
+            <div class="clear"></div>
+          </fieldset>
+        </div>
+        <div id="criteria_24" class="form-group">
+          <fieldset>
+            <div style="float: left;width: 32%;padding-left: 5px;">&nbsp;Адрес</div>
+            <div style="float: left;width: 50%;padding-left: 5px;">
+              <input class="form-control" id="adress" name="adress" required [(ngModel)]="client.adress" #adress="ngModel">
+            </div>
+            <div *ngIf="adress.errors && adress.touched" class="alert alert-danger">
+              <div *ngIf="adress.errors.required">Въведете адрес</div>
+            </div>
+            <div class="clear"></div>
+          </fieldset>
+        </div>
+        <div style="height: 10px;">&nbsp;</div>
+        <button (click)="CreateClient()" [disabled]="clientForm.invalid" class="btn btn-primary">Създай</button>
+        <button (click)="FindClient()" class="btn btn-primary">Намери</button>
       </div>
-      <div id="criteria_22" class="form-group">
-        <fieldset>
-          <div style="float: left;width: 32%;padding-left: 5px;">&nbsp;Три имена</div>
-          <div style="float: left;width: 50%;padding-left: 5px;">
-            <input class="form-control" id="name" name="name" required [(ngModel)]="client.name" #name="ngModel">
-          </div>
-          <div class="clear"></div>
-        </fieldset>
-      </div>
-      <div id="criteria_23" class="form-group">
-        <fieldset>
-          <div style="float: left;width: 32%;padding-left: 5px;">&nbsp;ЕГН/Булстат/ЛНЧ</div>
-          <div style="float: left;width: 50%;padding-left: 5px;">
-            <input class="form-control" id="id" name="id" required [(ngModel)]="client.id" #id="ngModel">
-          </div>
-          <div class="clear"></div>
-        </fieldset>
-      </div>
-      <div id="criteria_24" class="form-group">
-        <fieldset>
-          <div style="float: left;width: 32%;padding-left: 5px;">&nbsp;Адрес</div>
-          <div style="float: left;width: 50%;padding-left: 5px;">
-            <input class="form-control" id="adress" name="adress" required [(ngModel)]="client.adress" #adress="ngModel">
-          </div>
-          <div class="clear"></div>
-        </fieldset>
-      </div>
-      <div style="height: 10px;">&nbsp;</div>
-      <button (click)="CreateClient()" class="btn btn-primary">Създай</button>
-      <button (click)="FindClient()" class="btn btn-primary">Намери</button>
     </form>
   </div>
 </div>

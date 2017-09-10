@@ -1,8 +1,9 @@
-  <div class="leftback">
-    <div id="quest" class="blogwrapstart">
-      <h4 style="color: #296BA8;padding: 0;">&nbsp;Данни за МПС</h4>
-      <div style="height: 15px;">&nbsp;</div>
-      <form>
+<div class="leftback">
+  <div id="quest" class="blogwrapstart">
+    <h4 style="color: #296BA8;padding: 0;">&nbsp;Данни за МПС</h4>
+    <div style="height: 15px;">&nbsp;</div>
+    <form #vehicleForm="ngForm">
+      <div [hidden]="vehicleForm.submitted">
         <div id="criteria_1" class="form-group">
           <fieldset>
             <div style="float: left;width: 32%;padding-left: 5px;">&nbsp;Вид МПС</div>
@@ -45,8 +46,13 @@
           <fieldset>
             <div style="float: left;width: 32%;padding-left: 5px;">&nbsp;Регистрационен номер</div>
             <div style="float: left;width: 50%;padding-left: 5px;">
-              <input class="form-control" id="registrationNumber" name="registrationNumber" required [(ngModel)]="vehicle.registrationNumber" #registrationNumber="ngModel">
+              <input class="form-control" id="registrationNumber" name="registrationNumber" required [(ngModel)]="vehicle.registrationNumber"
+                #registrationNumber="ngModel">
             </div>
+            <div *ngIf="registrationNumber.errors && registrationNumber.touched" class="alert alert-danger">
+              <div *ngIf="registrationNumber.errors.required">Въведете регистрационен номер</div>
+            </div>
+
             <div class="clear"></div>
           </fieldset>
         </div>
@@ -55,6 +61,9 @@
             <div style="float: left;width: 32%;padding-left: 5px;">&nbsp;Номер на шаси</div>
             <div style="float: left;width: 50%;padding-left: 5px;">
               <input class="form-control" id="chassis" name="chassis" required [(ngModel)]="vehicle.chassis" #chassis="ngModel">
+            </div>
+            <div *ngIf="chassis.errors && chassis.touched" class="alert alert-danger">
+              <div *ngIf="chassis.errors.required">Въведете номер на шаси</div>
             </div>
             <div class="clear"></div>
           </fieldset>
@@ -70,6 +79,9 @@
                 <img style="width: 24px;height:24px;" src="http://iandgbrokers.com/calculator-grajdanska/images/hint.png" alt="hint">
               </div>
             </div>
+            <div *ngIf="firstReg.errors && firstReg.touched" class="alert alert-danger">
+              <div *ngIf="firstReg.errors.required">Въведете първа регистрация</div>
+            </div>
             <div class="clear"></div>
           </fieldset>
         </div>
@@ -84,8 +96,9 @@
           </fieldset>
         </div>
         <div style="height: 10px;">&nbsp;</div>
-        <button (click)="CreateVehicle()" class="btn btn-primary">Създай</button>
+        <button (click)="CreateVehicle()" [disabled]="vehicleForm.invalid" class="btn btn-primary">Създай</button>
         <button (click)="FindVehicle()" class="btn btn-primary">Намери</button>
-      </form>
-    </div>
+      </div>
+    </form>
   </div>
+</div>
