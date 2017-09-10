@@ -17,6 +17,11 @@ export class AppComponent {
     breadcrumbService.addFriendlyNameForRoute('/insurances', 'Застраховки');
     breadcrumbService.addFriendlyNameForRoute('/insurances/online', 'Online Застраховане');
     breadcrumbService.addFriendlyNameForRoute('/insurances/online/calculator', 'Калкулатор');
+    breadcrumbService.addFriendlyNameForRoute('/auth/login', 'Вход');
+    breadcrumbService.addFriendlyNameForRoute('/auth/signup', 'Регистрация');
+    breadcrumbService.addFriendlyNameForRoute('/profile', 'Профил');
+    breadcrumbService.addFriendlyNameForRoute('/profile/*', 'Застраховки');
+    breadcrumbService.addFriendlyNameForRoute('/admin', 'Админ Панел');
     breadcrumbService.addFriendlyNameForRouteRegex('/insurances/form.*', 'Нова полица');
   }
 }

@@ -1,38 +1,38 @@
 <form class="form-signin">
-  <h2 class="form-signin-heading">Register an Account</h2>
-  <label for="username">Username:</label>
-  <input type="text" id="username" class="form-control" placeholder="Enter Username" required autofocus [(ngModel)]="username"
+  <h2 class="form-signin-heading">Регистрирайте Акаунт</h2>
+  <label for="username">Потребителско име:</label>
+  <input type="text" id="username" class="form-control" placeholder="Въведете Потребителско име" required autofocus [(ngModel)]="username"
     name="username" required #em="ngModel">
-  <div [hidden]="em.valid || em.pristine" class="alert alert-dangeralert-dismissible fade show" role="alert">
+  <div [hidden]="em.valid || em.pristine" class="alert alert-danger alert-dismissible fade show" role="alert">
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
-    <strong>Username is required!</strong>
+    <strong>Потребителското име е задължително!</strong>
   </div>
-  <label for="password1" class="control-label">Password:</label>
-  <input type="password" id="password1" class="form-control" placeholder="Enter Password" required [(ngModel)]="password1"
+  <label for="password1" class="control-label">Парола:</label>
+  <input type="password" id="password1" class="form-control" placeholder="Въведете Парола" required [(ngModel)]="password1"
     name="password1" required #pwd1="ngModel">
   <div [hidden]="pwd1.valid || pwd1.pristine" class="alert alert-danger alert-dismissible fade show" role="alert">
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
-    <strong> Password required! </strong>
+    <strong> Паролата е задължителна! </strong>
   </div>
-  <label for="password2" class="control-label">Confirm Password:</label>
-  <input type="password" id="password2" class="form-control" placeholder="Confirm Password" required [(ngModel)]="password2"
+  <label for="password2" class="control-label">Потвърдете Паролата:</label>
+  <input type="password" id="password2" class="form-control" placeholder="Потвърдете Паролата" required [(ngModel)]="password2"
     name="password2" required #pwd2="ngModel">
   <div [hidden]="pwd2.valid || pwd2.pristine" class="alert alert-danger alert-dismissible fade show" role="alert">
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
-    <strong> Confirm Password! </strong> 
+    <strong> Потвърдете Паролата! </strong> 
   </div>
   <div *ngIf="passwordFail" class="alert alert-danger alert-dismissible fade show" role="alert">
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-    <strong>Passwords Do Not Match!</strong>
+    <strong>Паролите не съвпадат!</strong>
   </div>
-  <a class="btn btn-lg btn-block btn-primary" (click)="signup()">Sign Up</a>
-  <a class="btn btn-lg btn-block btn-danger" (click)="cancel()">Cancel</a>
+  <a class="btn btn-lg btn-block btn-primary" (click)="signup()">Регистрация</a>
+  <a class="btn btn-lg btn-block btn-danger" (click)="cancel()">Назад</a>
 </form>

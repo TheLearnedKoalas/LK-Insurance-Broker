@@ -14,16 +14,28 @@ export class UserService {
   constructor(private router: Router, private httpService: DataUserService) {
   }
 
-  verifyAdmin(): boolean {
-    return this.loggedInUser.isAdmin;
+  verifyAdmin(url: string): boolean {
+    if (this.isUserLoggedIn && this.loggedInUser.isAdmin) {
+      return true;
+    }
+    this.router.navigate(['/auth/login']);
+    return false;
   }
   verifyLogin(url: string): boolean {
     if (this.isUserLoggedIn) {
       return true;
     }
-
     this.router.navigate(['/auth/login']);
     return false;
+  }
+
+  updateProfile(user: IUser) {
+    return this.httpService.updateUser(user)
+      .then((user) => {
+        this.loggedInUser = user;
+        this.change();
+      })
+      .catch(console.log);
   }
 
   change() {
