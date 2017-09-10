@@ -51,7 +51,7 @@ import { DataUserService } from "./data/user/data-user.service";
     // PopupModule
   ],
 
-  providers: [BreadcrumbService, UserService, DataUserService,InsuranceService],
+  providers: [BreadcrumbService, UserService, DataUserService,InsuranceService,ClientService,VehicleService],
 
   bootstrap: [AppComponent]
 })
