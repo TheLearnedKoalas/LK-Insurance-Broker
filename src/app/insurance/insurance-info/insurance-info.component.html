@@ -1,0 +1,9 @@
+<app-sidebar #child [contents]="insurancesList" [header]='{name:"Застраховки"}' (loadContent)="parentLoadContent($event)"></app-sidebar>
+<div>
+  <div *ngFor="let c of content">
+    <img src={{c.logo}}>
+    <h4>{{c.name}}</h4>
+    <a class="btn btn-primary" [routerLink]="[ '/insurances/form' ]" role="button">Заяви Online</a>
+    <div>{{c.about}}</div>
+  </div>
+</div>
