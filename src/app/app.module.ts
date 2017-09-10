@@ -18,7 +18,10 @@ import { Ng2BreadcrumbModule, BreadcrumbService } from 'ng2-breadcrumb/ng2-bread
 // import { SidebarModule } from 'ng-sidebar';
 // import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
+import { HttpModule }    from '@angular/http';
 import { AuthModule } from './auth/auth.module'
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService }  from './data/in-memory-data.service';
 
 @NgModule({
   declarations: [
@@ -36,6 +39,8 @@ import { AuthModule } from './auth/auth.module'
     // InsuranceModule,
     // NgbModule.forRoot(),
     BrowserModule,
+    HttpModule,
+    InMemoryWebApiModule.forRoot(InMemoryDataService),
     AuthModule,
     AppRoutingModule,
     // FormsModule

@@ -1,23 +1,15 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-import * as firebase from 'firebase';
+import { IUser } from '../../models/interfaces/user';
+import { DataUserService } from "../../data/user/data-user.service";
 
 @Injectable()
 export class UserService implements CanActivate {
 
-  userLoggedIn: boolean = false;
-  loggedInUser: string;
-  authUser: any;
+  isUserLoggedIn: boolean = false;
+  loggedInUser: IUser;
 
-  constructor(private router: Router) {
-    firebase.initializeApp({
-      apiKey: "AIzaSyAoCA32m0RfhReqLpmL3IOPnHLsaOOrGRk",
-      authDomain: "lk-insurance-broker.firebaseapp.com",
-      databaseURL: "https://lk-insurance-broker.firebaseio.com",
-      projectId: "lk-insurance-broker",
-      storageBucket: "lk-insurance-broker.appspot.com",
-      messagingSenderId: "974569024812"
-    });
+  constructor(private router: Router, private httpService: DataUserService) {
   }
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     let url: string = state.url;
@@ -26,7 +18,7 @@ export class UserService implements CanActivate {
   }
 
   verifyLogin(url: string): boolean {
-    if (this.userLoggedIn) {
+    if (this.isUserLoggedIn) {
       return true;
     }
 
@@ -34,34 +26,39 @@ export class UserService implements CanActivate {
     return false;
   }
 
-  register(email: string, password: string) {
-    firebase.auth().createUserWithEmailAndPassword(email, password)
-      .catch((err) => {
-        alert(`${err.message}`)
+  register(username: string, password: string) {
+    return this.httpService.createUser(username, password, '', '', '', '')
+      .then((user) => {
+        this.loggedInUser = user[0];
+        this.isUserLoggedIn = true;
+        this.router.navigate(['/home']);
+        return user[0] as IUser;
       })
+      .catch(console.log);
   }
 
-  verifyUser() {
-    this.authUser = firebase.auth().currentUser;
-
-    if (this.authUser) {
-      alert(`Login success! ${this.authUser.email}`)
-      this.userLoggedIn = true;
-      this.router.navigate(['/auth']);
-    }
+  login(loginUsername: string, loginPassword: string) {
+    return this.httpService.getUserByUsername(loginUsername).then((user) => {
+      if (!user[0]) {
+        return;
+      }
+      if (user[0].password !== loginPassword) {
+        return;
+      }
+      this.isUserLoggedIn = true;
+      this.loggedInUser = user[0];
+      this.router.navigate(['/home']);
+      return user[0] as IUser;
+    })
+      .catch(console.log);
   }
 
-  login(loginEmail: string, loginPassword: string) {
-    firebase.auth().signInWithEmailAndPassword(loginEmail, loginPassword)
-      .catch((err) => {
-        alert(`${err.message}`);
-      })
+  getCurrentUser(): IUser {
+    return this.loggedInUser;
   }
 
   logout() {
-    this.userLoggedIn = false;
-    firebase.auth().signOut()
-      .then(() => { alert(`Logged out!`); })
-      .catch((err) => { alert(`${err.message}`); });
+    this.isUserLoggedIn = false;
+    this.loggedInUser = null;
   }
 }

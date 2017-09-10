@@ -1,14 +1,14 @@
 <form class="form-signin">
   <h2 class="form-signin-heading">Please log in</h2>
-  <label for="email">Email address:</label>
-  <input type="email" id="email" class="form-control" placeholder="Enter Email address" required autofocus [(ngModel)]="email"
-    name="email" required #em="ngModel">
+  <label for="username">Email address:</label>
+  <input type="text" id="username" class="form-control" placeholder="Enter Username" required autofocus [(ngModel)]="username"
+    name="username" required #em="ngModel">
   <div [hidden]="em.valid || em.pristine" class="alert alert-danger">
-    Email is required
+    Username is required
   </div>
-  <label for="password1" class="control-label">Password:</label>
-  <input type="password" id="password1" class="form-control" placeholder="Enter Password" required [(ngModel)]="password1"
-    name="password1" required #pwd1="ngModel">
+  <label for="password" class="control-label">Password:</label>
+  <input type="password" id="password" class="form-control" placeholder="Enter Password" required [(ngModel)]="password"
+    name="password" required #pwd1="ngModel">
   <div [hidden]="pwd1.valid || pwd1.pristine" class="alert alert-danger">
     Password required
   </div>

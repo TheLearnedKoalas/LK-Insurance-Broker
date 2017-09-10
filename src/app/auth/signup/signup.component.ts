@@ -7,7 +7,7 @@ import { UserService } from '../shared/user.service';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent {
-  email: string;
+  username: string;
   password1: string;
   password2: string;
   passwordFail: boolean = false;
@@ -19,8 +19,7 @@ export class SignupComponent {
       this.passwordFail = true;
     } else {
       this.passwordFail = false;
-      this.userService.register(this.email, this.password1);
-      this.userService.verifyUser();
+      this.userService.register(this.username, this.password1);
     }
   }
 

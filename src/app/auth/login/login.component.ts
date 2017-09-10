@@ -7,14 +7,13 @@ import { UserService } from '../shared/user.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  email: string;
-  password1: string;
+  username: string;
+  password: string;
 
   constructor(private userService: UserService, private router: Router) { }
 
   login() {
-    this.userService.login(this.email, this.password1);
-    this.userService.verifyUser();
+    this.userService.login(this.username, this.password);
   }
 
   signup() {

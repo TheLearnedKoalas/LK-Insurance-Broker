@@ -9,6 +9,7 @@ import { SignupComponent } from './signup/signup.component';
 import { MenuComponent } from './menu/menu.component';
 
 import { UserService } from './shared/user.service';
+import { DataUserService } from "../data/user/data-user.service";
 
 const AuthRoutes: Routes = [
     {
@@ -38,7 +39,8 @@ const AuthRoutes: Routes = [
         SignupComponent
     ],
     providers: [
-        UserService
+        DataUserService,
+        UserService,
     ]
 })
 export class AuthModule { }
