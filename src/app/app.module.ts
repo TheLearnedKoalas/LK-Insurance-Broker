@@ -21,6 +21,12 @@ import { VehicleService } from './insurance/services/vehicle.service';
 // import { SidebarModule } from 'ng-sidebar';
 // import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
+import { AuthModule } from './auth/auth.module'
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './data/in-memory-data.service';
+import { UserService } from "./shared/user/user.service";
+import { DataUserService } from "./data/user/data-user.service";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,13 +42,17 @@ import { VehicleService } from './insurance/services/vehicle.service';
     OnlineModule,
     // NgbModule.forRoot(),
     BrowserModule,
-    AppRoutingModule,
     HttpModule,
+    InMemoryWebApiModule.forRoot(InMemoryDataService),
+    AuthModule,
+    AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
     // PopupModule
   ],
-  providers: [InsuranceService, ClientService, VehicleService, BreadcrumbService],
+
+  providers: [BreadcrumbService, UserService, DataUserService],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
