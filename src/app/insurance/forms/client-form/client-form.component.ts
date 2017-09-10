@@ -1,4 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+
+import { ClientService } from '../../services/client.service';
 
 @Component({
   selector: 'app-client-form',
@@ -10,7 +12,7 @@ export class ClientFormComponent implements OnInit {
 
   clientTypes = [{ name: 'физическо лице' }, { name: 'юридическо лице' }];
 
-  constructor() { }
+  constructor(private clientService: ClientService) { }
 
   @Input()
   client = {
@@ -20,9 +22,14 @@ export class ClientFormComponent implements OnInit {
     adress: '',
   };
 
+  @Output()
+  loadContent = new EventEmitter<object>();
 
   CreateClient() {
-  
+    // this.clientService.createClient(this.client)
+    //   .subscibe(res => {
+    //     this.loadContent.emit(res);
+    //   });
   }
 
   FindClient() {

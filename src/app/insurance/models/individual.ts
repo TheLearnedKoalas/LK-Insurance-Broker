@@ -6,7 +6,7 @@ export class Individual implements Client {
     private _id: string;
     @IsLength(2, 50)
     private _name: string;
-    constructor(_id: string, name: string, public adress: string, public contacts: { phone: string, email: string }) {
+    constructor(_id: string, name: string, public adress: string) {
     }
     set name(value) {
         this._name = value;
@@ -16,4 +16,5 @@ export class Individual implements Client {
     get id() {
         return this._id;
     }
+    contacts: { phone: string; email: string; };
 }

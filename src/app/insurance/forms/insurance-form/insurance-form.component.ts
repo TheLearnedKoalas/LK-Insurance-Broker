@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
+import { InsuranceService } from '../../services/insurance.service';
+
 @Component({
   selector: 'app-insurance-form',
   templateUrl: './insurance-form.component.html',
@@ -26,10 +28,14 @@ export class InsuranceFormComponent implements OnInit {
   }];
 
   client = {
-    clientType: ''
+    clientType: '',
+    name: '',
+    id: '',
+    adress: ''
   };
 
   vehicle = {
+    chassis: '',
     vehicleType: '',
     vehiclePower: '',
     firstReg: '',
@@ -38,44 +44,77 @@ export class InsuranceFormComponent implements OnInit {
 
   sub;
 
+  today;
+
   insurance = {
     insuranceCompany: '',
-    startingDate: '',
+    startDate: '',
     totalPayment: '',
     paymentsCount: ''
   };
   constructor(private activateRoute: ActivatedRoute,
-    private route: Router, ) { }
+    private router: Router,
+    private insuranceService: InsuranceService
+  ) { }
 
   CreatePolicy() {
-    console.log(this.insurance);
+    this.insuranceService.create(this.insurance, this.client, this.vehicle)
+      .subscribe(x => {
+        console.log(x);
+        this.router.navigate(['/insurances/form']);
+      });
   }
 
-  FindPolicy() {
+  // FindPolicy() { // for admin
+  //   this.insuranceService.find(this.client.id, this.vehicle.chassis)
+  //     .subscribe(res => {
+  //       // console.log(res);
+  //       for (const key in this.insurance) {
+  //         if (res.hasOwnProperty(key)) {
+  //           this.insurance[key] = res[key];
+  //         }
+  //       }
+  //       for (const key in this.client) {
+  //         if (res.client.hasOwnProperty(key)) {
+  //           this.client[key] = res.client[key];
+  //         }
+  //       }
+  //       for (const key in this.vehicle) {
+  //         if (res.vehicle.hasOwnProperty(key)) {
+  //           this.vehicle[key] = res.vehicle[key];
+  //         }
+  //       }
+  //     }); // catch error when empty fields
+  // }
 
+  parentLoadClientContent(value) {
+    this.client = value;
+  }
+  parentLoadVehicleContent(value) {
+    this.vehicle = value;
   }
 
   ngOnInit() {
     this.sub = this.activateRoute.queryParams
       .subscribe(params => {
-        const paymentDetails = params.paymentDetails.split('%');
-        this.insurance.insuranceCompany = paymentDetails[0];
-        const payment = paymentDetails[1].split('*');
+        if (params.hasOwnProperty('paymentDetails')) {
+          //    console.log(params);
+          const paymentDetails = params.paymentDetails.split('%');
+          this.insurance.insuranceCompany = paymentDetails[0];
+          const payment = paymentDetails[1].split('*');
 
-        let sum = 0;
-        for (let i = 0; i < payment.length; i++) {
-          sum += +payment[i];
+          let sum = 0;
+          for (let i = 0; i < payment.length; i++) {
+            sum += +payment[i];
+          }
+          this.insurance.totalPayment = sum.toString(); // ith's better to come from param
+          this.insurance.paymentsCount = payment.length.toString();
+          this.client.clientType = params.clientType;
+          this.vehicle.vehicleType = params.vehicleType;
+          this.vehicle.vehiclePower = params.vehiclePower;
+          this.vehicle.firstReg = params.firstReg;
+          this.vehicle.purpose = params.purpose;
         }
-        this.insurance.totalPayment = sum.toString(); // ith's better to come from param
-        this.insurance.paymentsCount = payment.length.toString();
-
-        this.client.clientType = params.clientType;
-        this.vehicle.vehicleType = params.vehicleType;
-        this.vehicle.vehiclePower = params.vehiclePower;
-        this.vehicle.firstReg = params.firstReg;
-        this.vehicle.purpose = params.purpose;
-
       });
   }
-
 }

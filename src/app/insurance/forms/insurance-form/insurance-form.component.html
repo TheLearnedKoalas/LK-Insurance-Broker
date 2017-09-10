@@ -1,5 +1,5 @@
-<app-client-form #child1 [client]="client"></app-client-form>
-<app-vehicle-form #child2 [vehicle]="vehicle"></app-vehicle-form>
+<app-client-form #child1 [client]="client"  (loadContent)="parentLoadClientContent($event)"></app-client-form>
+<app-vehicle-form #child2 [vehicle]="vehicle"  (loadContent)="parentLoadVehicleContent($event)"></app-vehicle-form>
 <div class="leftback">
     <div id="quest" class="blogwrapstart">
       <h4 style="color: #296BA8;padding: 0;">&nbsp;Данни за Застраховка</h4>
@@ -21,7 +21,7 @@
             <div style="float: left;width: 32%;padding-left: 5px;">&nbsp;Начална дата</div>
             <div style="float: left;width: 50%;padding-left: 5px;">
                 <!-- to be date field -->
-              <input class="form-control" id="startDate" name="startDate" required [(ngModel)]="insurance.startDate" #startDate="ngModel">
+              <input class="form-control" value="{{ today | date }}" id="startDate" name="startDate" required [(ngModel)]="insurance.startDate" #startDate="ngModel">
             </div>
             <div class="clear"></div>
           </fieldset>

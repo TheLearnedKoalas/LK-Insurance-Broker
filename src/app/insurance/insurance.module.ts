@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { SharedModule } from '../shared/shared.module';
-// import { OnlineModule } from '../online/online.module';
 import { InsuranceRoutingModule } from './insurance-routing.module';
 import { FormsModule } from '@angular/forms';
 
@@ -11,6 +10,10 @@ import { InsuranceFormComponent } from './forms/insurance-form/insurance-form.co
 import { VehicleFormComponent } from './forms/vehicle-form/vehicle-form.component';
 import { ClientFormComponent } from './forms/client-form/client-form.component';
 import { CompaniesComponent } from './companies/companies.component';
+
+import { ClientService } from './services/client.service';
+import { InsuranceService } from './services/insurance.service';
+import { VehicleService } from './services/vehicle.service';
 
 @NgModule({
   imports: [
@@ -28,6 +31,7 @@ import { CompaniesComponent } from './companies/companies.component';
   ],
   exports: [InsuranceInfoComponent, InsuranceFormComponent,
     VehicleFormComponent, ClientFormComponent, CompaniesComponent, CommonModule],
+  providers: [InsuranceService, ClientService, VehicleService]
 })
 export class InsuranceModule {
 }

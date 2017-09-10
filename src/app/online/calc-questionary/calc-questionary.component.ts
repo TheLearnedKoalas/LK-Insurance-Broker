@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 // import { Popup } from 'ng2-opd-popup';
 
-import { InsuranceService } from '../../insurance/insurance.service';
+// import { InsuranceService } from '../../insurance/insurance.service';
 import { Router, ActivatedRoute } from '@angular/router';
 // import { InsuranceRoutingModule } from "../../insurance/insurance-routing.module";
 
