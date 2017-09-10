@@ -25,7 +25,6 @@ export class UserProfileComponent implements OnInit, OnDestroy {
   }
 
   update() {
-    console.log(this.isUpdated);
     this.userService.updateProfile(this.currentUser).then(() => {
       this.isUpdated = true;
     })
