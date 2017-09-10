@@ -5,12 +5,12 @@ import { CompaniesComponent } from './insurance/companies/companies.component';
 import { AboutComponent } from './components/about/about.component';
 
 export const routes: Routes = [
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   // { path: 'online', component: OnlineComponent },
   { path: 'companies', component: CompaniesComponent },
   { path: 'insurances', loadChildren: './insurance/insurance.module#InsuranceModule' },
   { path: 'about', component: AboutComponent },
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: '**', redirectTo: 'home', pathMatch: 'full' }
 ];
 

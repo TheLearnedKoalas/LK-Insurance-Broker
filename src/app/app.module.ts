@@ -35,8 +35,6 @@ import { DataUserService } from "./data/user/data-user.service";
     SharedModule,
     Ng2BreadcrumbModule,
     // SidebarModule.forRoot(),
-    InsuranceModule,
-    OnlineModule,
     // NgbModule.forRoot(),
     BrowserModule,
     HttpModule,
@@ -44,6 +42,8 @@ import { DataUserService } from "./data/user/data-user.service";
     AuthModule,
     AppRoutingModule,
     FormsModule,
+    InsuranceModule,
+    OnlineModule,
     ReactiveFormsModule,
     // PopupModule
   ],
