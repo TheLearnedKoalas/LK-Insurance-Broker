@@ -20,14 +20,16 @@
       "prefix": "app",
       "styles": [
         "styles.css",
-        "../node_modules/angular-carousel/dist/angular-carousel.css"
+        "../node_modules/bootstrap/dist/css/bootstrap.min.css",
+        "../node_modules/angular-carousel/dist/angular-carousel.min.css"
       ],
       "scripts": [
         "../node_modules/jquery/dist/jquery.min.js",
+        "../node_modules/popper.js/dist/umd/popper.min.js",
         "../node_modules/bootstrap/dist/js/bootstrap.min.js",
-        "../node_modules/popper.js/dist/popper.min.js",
-        "../node_modules/tether/dist/js/tether.js",
-        "../node_modules/angular-carousel/dist/angular-carousel.js"
+        "../node_modules/angular/angular.min.js",
+        "../node_modules/angular-touch//angular-touch.min.js",
+        "../node_modules/angular-carousel/dist/angular-carousel.min.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {
