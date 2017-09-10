@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { UserService } from "../../auth/shared/user.service";
+import { UserService } from "../user/user.service";
 import { IUser } from "../../models/interfaces/user";
 import { Subscription } from "rxjs/Subscription";
 
@@ -24,5 +24,9 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
+  }
+
+  logout(){
+    this.userService.logout();
   }
 }

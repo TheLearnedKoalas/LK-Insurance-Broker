@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserService } from '../shared/user.service';
+import { UserService } from '../../shared/user/user.service';
 
 @Component({
   templateUrl: './signup.component.html',
@@ -20,7 +20,6 @@ export class SignupComponent {
     } else {
       this.passwordFail = false;
       this.userService.register(this.username, this.password1);
-      console.log(this.userService.loggedInUser);
     }
   }
 

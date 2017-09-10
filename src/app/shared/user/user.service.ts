@@ -5,20 +5,18 @@ import { DataUserService } from "../../data/user/data-user.service";
 import { Subject } from "rxjs/Subject";
 
 @Injectable()
-export class UserService implements CanActivate {
+export class UserService {
 
   isUserLoggedIn: boolean = false;
   loggedInUser: IUser;
   userChange: Subject<IUser> = new Subject<IUser>();
-  
+
   constructor(private router: Router, private httpService: DataUserService) {
   }
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    let url: string = state.url;
-    return this.verifyLogin(url);
 
+  verifyAdmin(): boolean {
+    return this.loggedInUser.isAdmin;
   }
-
   verifyLogin(url: string): boolean {
     if (this.isUserLoggedIn) {
       return true;
@@ -28,8 +26,7 @@ export class UserService implements CanActivate {
     return false;
   }
 
-  change()
-  {
+  change() {
     this.userChange.next(this.loggedInUser);
   }
 

@@ -6,10 +6,6 @@ import { FormsModule } from '@angular/forms';
 import { AuthComponent } from './auth/auth.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
-import { MenuComponent } from './menu/menu.component';
-
-import { UserService } from './shared/user.service';
-import { DataUserService } from "../data/user/data-user.service";
 
 const AuthRoutes: Routes = [
     {
@@ -18,7 +14,7 @@ const AuthRoutes: Routes = [
         children: [
             { path: 'login', component: LoginComponent },
             { path: 'signup', component: SignupComponent },
-            { path: '', component: MenuComponent, canActivate: [UserService] }
+            { path: '', pathMatch: 'full', redirectTo: 'login' }
         ]
     }
 ];
@@ -34,13 +30,9 @@ const AuthRoutes: Routes = [
     ],
     declarations: [
         AuthComponent,
-        MenuComponent,
         LoginComponent,
-        SignupComponent
+        SignupComponent,
     ],
-    providers: [
-        DataUserService,
-        UserService,
-    ]
+    providers: []
 })
 export class AuthModule { }

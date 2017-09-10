@@ -7,12 +7,12 @@ import { AboutComponent } from './components/about/about.component';
 // import { InsuranceInfoComponent } from './insurance/insurance-info/insurance-info.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'online', component: OnlineComponent },
   { path: 'companies', component: CompaniesComponent },
   // { path: 'insurances', component: InsuranceInfoComponent },
   { path: 'about', component: AboutComponent },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: '**', redirectTo: 'home', pathMatch: 'full' }
 ];
 
