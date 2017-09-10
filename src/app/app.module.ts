@@ -15,6 +15,9 @@ import { AboutComponent } from './components/about/about.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
 
 import { Ng2BreadcrumbModule, BreadcrumbService } from 'ng2-breadcrumb/ng2-breadcrumb';
+import { InsuranceService } from './insurance/services/insurance.service';
+import { ClientService } from './insurance/services/client.service';
+import { VehicleService } from './insurance/services/vehicle.service';
 // import { SidebarModule } from 'ng-sidebar';
 // import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
@@ -39,7 +42,7 @@ import { Ng2BreadcrumbModule, BreadcrumbService } from 'ng2-breadcrumb/ng2-bread
     ReactiveFormsModule,
     // PopupModule
   ],
-  providers: [BreadcrumbService],
+  providers: [InsuranceService, ClientService, VehicleService, BreadcrumbService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
