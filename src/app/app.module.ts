@@ -1,18 +1,18 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
-// import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+// import { PopupModule } from 'ng2-opd-popup';
 
-// import { InsuranceModule } from './insurance/insurance.module';
+import { OnlineModule } from './online/online.module';
+import { InsuranceModule } from './insurance/insurance.module';
 import { SharedModule } from './shared/shared.module';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
-import { CompaniesComponent } from './components/companies/companies.component';
 import { AboutComponent } from './components/about/about.component';
-import { OnlineComponent } from './components/online/online.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
-
 
 import { Ng2BreadcrumbModule, BreadcrumbService } from 'ng2-breadcrumb/ng2-breadcrumb';
 // import { SidebarModule } from 'ng-sidebar';
@@ -22,8 +22,6 @@ import { Ng2BreadcrumbModule, BreadcrumbService } from 'ng2-breadcrumb/ng2-bread
   declarations: [
     AppComponent,
     HomeComponent,
-    OnlineComponent,
-    CompaniesComponent,
     AboutComponent,
     CarouselComponent
   ],
@@ -31,11 +29,15 @@ import { Ng2BreadcrumbModule, BreadcrumbService } from 'ng2-breadcrumb/ng2-bread
     SharedModule,
     Ng2BreadcrumbModule,
     // SidebarModule.forRoot(),
-    // InsuranceModule,
+    InsuranceModule,
+    OnlineModule,
     // NgbModule.forRoot(),
     BrowserModule,
     AppRoutingModule,
-    // FormsModule
+    HttpModule,
+    FormsModule,
+    ReactiveFormsModule,
+    // PopupModule
   ],
   providers: [BreadcrumbService],
   bootstrap: [AppComponent]

@@ -6,6 +6,7 @@ img {
 div{
     border-top: 1px solid grey;
 }
+
 ul{
     list-style: none;    
     display: flex;
