@@ -1,4 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { VehicleService } from './../../services/vehicle.service';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-vehicle-form',
@@ -6,7 +8,6 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['../insurance-form/insurance-form.component.css']
 })
 export class VehicleFormComponent implements OnInit {
-
   vehicleTypes = [{ value: '2', name: 'Лек автомобил' },
   { value: '3', name: 'Товарен автомобил' },
   { value: '4', name: 'Мотопед' },
@@ -37,31 +38,51 @@ export class VehicleFormComponent implements OnInit {
   { name: 'Производствена дейност' },
   { name: 'Търговска дейност' },
   { name: 'Куриерски услуги' },
-  { name: 'Международен транспорт' },
-  ];
+  { name: 'Международен транспорт' }];
 
-  constructor() { }
-
+  constructor(private vehicleService: VehicleService) { }
+  @Output()
+  loadContent = new EventEmitter<object>();
   @Input()
-  vehicle = {
-    vehicleType: '',
-    chassis: '',
-    registrationNumber: '',
-    brand: '',
-    model: '',
-    firstReg: '',
-    vehiclePower: '',
-    purpose: '',
-  };
+  public vehicle: FormGroup;
+  @Input()
+  public vehicleType = new FormControl(this.vehicleTypes[0].name, [Validators.required]);
+  @Input()
+  public chassis = new FormControl('', []);
+  @Input()
+  public registrationNumber = new FormControl('', []);
+  @Input()
+  public brand = new FormControl('', []);
+  @Input()
+  public model = new FormControl('', []);
+  @Input()
+  public firstReg = new FormControl('', []);
+  @Input()
+  public vehiclePower = new FormControl('', []);
+  @Input()
+  public purpose = new FormControl(this.purposes[0].name, [Validators.required]);
 
+  ngOnInit() {
+    this.vehicle = new FormGroup({
+      vehicleType: this.vehicleType,
+      chassis: this.chassis,
+      registrationNumber: this.registrationNumber,
+      brand: this.brand,
+      model: this.model,
+      firstReg: this.firstReg,
+      vehiclePower: this.vehiclePower,
+      purpose: this.purpose
+    });
+  }
   CreateVehicle() {
-    console.log(this.vehicle);
+    // console.log(this.vehicle.value);
+    
+    this.vehicleService.create(this.vehicle.value)
+      .subscribe(res => {
+        this.loadContent.emit(this.vehicle.value);
+      });
   }
 
   FindVehicle() {
-
-  }
-
-  ngOnInit() {
   }
 }
