@@ -1,65 +1,49 @@
-<app-client-form #child1 [client]="client" (loadContent)="parentLoadClientContent($event)"></app-client-form>
-<app-vehicle-form #child2 [vehicle]="vehicle" (loadContent)="parentLoadVehicleContent($event)"></app-vehicle-form>
 <div class="leftback">
   <div id="quest" class="blogwrapstart">
-    <h4 style="color: #296BA8;padding: 0;">&nbsp;Данни за Застраховка</h4>
     <div style="height: 15px;">&nbsp;</div>
-    <form #insuranceForm="ngForm">
-      <div [hidden]="insuranceForm.submitted">
+    <!-- "  -->
+    <div>
+      <app-client-form #client (loadContent)="parentLoadClientContent($event)"></app-client-form>
+    </div>
+    <div>
+      <app-vehicle-form #vehicle (loadContent)="parentLoadVehicleContent($event)"></app-vehicle-form>
+    </div>
+    <div class="blogwrapstart">
+      <form [formGroup]="insurance" (ngSubmit)="insurance.reset(CreatePolicy(insurance.value))">
+
+        <h4 style="color: #296BA8;padding: 0;">&nbsp;Данни за Застраховка</h4>
+        <div style="height: 15px;">&nbsp;</div>
         <div id="criteria_31" class="form-group">
-          <fieldset>
-            <div style="float: left;width: 32%;padding-left: 5px;">&nbsp;Застрахователна компания</div>
-            <div style="float: left;width: 50%;padding-left: 5px;">
-              <select class="form-control" id="insuranceCompany" name="insuranceCompany" required [(ngModel)]="insurance.insuranceCompany"
-                #insuranceCompany="ngModel"> 
+          <label for="insuranceCompany">&nbsp;Застрахователна компания</label>
+          <select name="insuranceCompany" formControlName="insuranceCompany" required [(ngModel)]="insuranceCompany"> 
                 <option *ngFor="let t of companiesList" [value]="t.name">{{t.name}}</option>   
               </select>
-            </div>
-            <div *ngIf="insuranceCompany.errors && insuranceCompany.touched" class="alert alert-danger">
-              <div *ngIf="insuranceCompany.errors.required">Изберете застрахователна компания</div>
-            </div>
-            <div class="clear"></div>
-          </fieldset>
+          <!-- <span *ngIf="insuranceCompany.hasError('required') && insuranceCompany.touched || (!insuranceCompany.valid)" class="text-danger">Изберете застрахователна компания</span> -->
+          <div class="clear"></div>
         </div>
         <div id="criteria_32" class="form-group">
-          <fieldset>
-            <div style="float: left;width: 32%;padding-left: 5px;">&nbsp;Начална дата</div>
-            <div style="float: left;width: 50%;padding-left: 5px;">
-              <!-- to be date field -->
-              <input class="form-control" value="{{ today | date }}" id="startDate" name="startDate" required [(ngModel)]="insurance.startDate"
-                #startDate="ngModel">
-            </div>
-            <div class="clear"></div>
-          </fieldset>
+          <label for="startDate">&nbsp;Начална дата</label>
+          <input name="startDate" formControlName="startDate" required>
+          <!-- <span *ngIf="startDate.hasError('required') && startDate.touched || (!startDate.valid)" class="text-danger">Изберете застрахователна компания</span> -->
+          <div class="clear"></div>
         </div>
         <div id="criteria_33" class="form-group">
-          <fieldset>
-            <div style="float: left;width: 32%;padding-left: 5px;">&nbsp;Застрахователна премия</div>
-            <div style="float: left;width: 50%;padding-left: 5px;">
-              <input class="form-control" id="totalPayment" name="totalPayment" required [(ngModel)]="insurance.totalPayment" #totalPayment="ngModel">
-            </div>
-            <div *ngIf="totalPayment.errors && totalPayment.touched" class="alert alert-danger">
-              <div *ngIf="totalPayment.errors.required">Въведете застрахователна премия</div>
-            </div>
-            <div class="clear"></div>
-          </fieldset>
+          <label for="totalPayment">&nbsp;Застрахователна премия</label>
+          <input name="totalPayment" formControlName="totalPayment" required>
+          <!-- <span *ngIf="totalPayment.hasError('required') && totalPayment.touched || (!totalPayment.valid)" class="text-danger">Въведете застрахователна премия</span> -->
+          <div class="clear"></div>
         </div>
         <div id="criteria_34" class="form-group">
-          <fieldset>
-            <div style="float: left;width: 32%;padding-left: 5px;">&nbsp;Брой вноски</div>
-            <div style="float: left;width: 50%;padding-left: 5px;">
-              <input class="form-control" id="paymentsCount" name="paymentsCount" required [(ngModel)]="insurance.paymentsCount" #paymentsCount="ngModel">
-            </div>
-            <div *ngIf="paymentsCount.errors && paymentsCount.touched" class="alert alert-danger">
-              <div *ngIf="paymentsCount.errors.required">Въведете брой вноски</div>
-            </div>
-            <div class="clear"></div>
-          </fieldset>
+          <label for="paymentsCount">&nbsp;Брой вноски</label>
+          <input name="paymentsCount" formControlName="paymentsCount" required>
         </div>
-        <div style="height: 10px;">&nbsp;</div>
-        <button (click)="CreatePolicy()"  [disabled]="insuranceForm.invalid" class="btn btn-primary">Създай</button>
-        <button (click)="FindPolicy()" class="btn btn-primary">Намери</button>
-      </div>
+        <!-- <span *ngIf="paymentsCount.hasError('required') && paymentsCount.touched || (!paymentsCount.valid)" class="text-danger">Изберете застрахователна компания</span> -->
+        <div class="clear"></div>
+    <div style="height: 10px;">&nbsp;</div>
+    <button type="submit" [disabled]="insurance.invalid" class="btn btn-primary">Създай</button>
     </form>
+  </div>
+    <!-- (click)="insuranceForm.resetForm(CreatePolicy())" -->
+    <!-- <button (click)="FindPolicy()" class="btn btn-primary">Намери</button> -->
   </div>
 </div>
