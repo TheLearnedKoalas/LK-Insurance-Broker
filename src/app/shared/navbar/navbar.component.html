@@ -27,21 +27,21 @@
       </li>
     </ul>
     <ul class="navbar-nav navbar-right">
-      <li class="nav-item">
+      <li class="nav-item" *ngIf='currentUser === undefined'>
+        <a class="nav-link" [routerLink]="[ '/auth/signup' ]">РЕГИСТРАЦИЯ</a>
+      </li>
+      <li class="nav-item" *ngIf='currentUser === undefined'>
         <a class="nav-link" [routerLink]="[ '/auth' ]">ВХОД</a>
       </li>
-      <!-- <li class="nav-item">
-        <a class="nav-link" [routerLink]="[ '/auth/sign-in' ]">Вход</a>
+      <li class="nav-item" *ngIf='currentUser !== undefined'>
+        <a class="nav-link" [routerLink]="[ '/auth/profil' ]">ПРОФИЛ</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" [routerLink]="[ '/auth/profil' ]">Профил</a>
+      <li class="nav-item" *ngIf='currentUser !== undefined && currentUser.isAdmin'>
+          <a class="nav-link" [routerLink]="[ '/auth/profil' ]">АДМИН</a>
+        </li>
+      <li class="nav-item" *ngIf='currentUser !== undefined'>
+        <a class="nav-link" [routerLink]="[ '/auth/sign-out' ]">ИЗХОД</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" [routerLink]="[ '/auth/sign-out' ]">Изход</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" [routerLink]="[ '/auth/sign-up' ]">Регистрация</a>
-      </li> -->
     </ul>
   </div>
 </nav>

@@ -20,6 +20,7 @@ export class SignupComponent {
     } else {
       this.passwordFail = false;
       this.userService.register(this.username, this.password1);
+      console.log(this.userService.loggedInUser);
     }
   }
 

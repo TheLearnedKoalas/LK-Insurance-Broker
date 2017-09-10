@@ -1,32 +1,38 @@
 <form class="form-signin">
   <h2 class="form-signin-heading">Register an Account</h2>
-  <label for="email">Email address:</label>
-  <input type="email" id="email" class="form-control" placeholder="Enter Email address" required autofocus [(ngModel)]="email"
-    name="email" required #em="ngModel">
-  <div [hidden]="em.valid || em.pristine" class="alert alert-danger">
-    Email is required
+  <label for="username">Username:</label>
+  <input type="text" id="username" class="form-control" placeholder="Enter Username" required autofocus [(ngModel)]="username"
+    name="username" required #em="ngModel">
+  <div [hidden]="em.valid || em.pristine" class="alert alert-dangeralert-dismissible fade show" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+    <strong>Username is required!</strong>
   </div>
   <label for="password1" class="control-label">Password:</label>
   <input type="password" id="password1" class="form-control" placeholder="Enter Password" required [(ngModel)]="password1"
     name="password1" required #pwd1="ngModel">
-  <div [hidden]="pwd1.valid || pwd1.pristine" class="alert alert-danger">
-    Password required
+  <div [hidden]="pwd1.valid || pwd1.pristine" class="alert alert-danger alert-dismissible fade show" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+    <strong> Password required! </strong>
   </div>
   <label for="password2" class="control-label">Confirm Password:</label>
   <input type="password" id="password2" class="form-control" placeholder="Confirm Password" required [(ngModel)]="password2"
     name="password2" required #pwd2="ngModel">
-  <div [hidden]="pwd2.valid || pwd2.pristine" class="alert alert-danger">
-    Confirm Password
+  <div [hidden]="pwd2.valid || pwd2.pristine" class="alert alert-danger alert-dismissible fade show" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+    <strong> Confirm Password! </strong> 
   </div>
-  <div *ngIf="passwordFail" class="alert alert-danger">
-    Passwords Do Not Match
+  <div *ngIf="passwordFail" class="alert alert-danger alert-dismissible fade show" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+    <strong>Passwords Do Not Match!</strong>
   </div>
   <a class="btn btn-lg btn-block btn-primary" (click)="signup()">Sign Up</a>
   <a class="btn btn-lg btn-block btn-danger" (click)="cancel()">Cancel</a>
 </form>
-<!-- <div class="alert alert-warning alert-dismissible fade show" role="alert">
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
-    <strong>Holy guacamole!</strong> You should check in on some of those fields below.
-  </div> -->

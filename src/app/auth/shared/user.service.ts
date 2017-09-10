@@ -2,13 +2,15 @@ import { Injectable } from '@angular/core';
 import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { IUser } from '../../models/interfaces/user';
 import { DataUserService } from "../../data/user/data-user.service";
+import { Subject } from "rxjs/Subject";
 
 @Injectable()
 export class UserService implements CanActivate {
 
   isUserLoggedIn: boolean = false;
   loggedInUser: IUser;
-
+  userChange: Subject<IUser> = new Subject<IUser>();
+  
   constructor(private router: Router, private httpService: DataUserService) {
   }
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
@@ -26,13 +28,19 @@ export class UserService implements CanActivate {
     return false;
   }
 
+  change()
+  {
+    this.userChange.next(this.loggedInUser);
+  }
+
   register(username: string, password: string) {
     return this.httpService.createUser(username, password, '', '', '', '')
       .then((user) => {
-        this.loggedInUser = user[0];
+        this.loggedInUser = user;
         this.isUserLoggedIn = true;
+        this.change();
         this.router.navigate(['/home']);
-        return user[0] as IUser;
+        return user;
       })
       .catch(console.log);
   }
@@ -47,6 +55,7 @@ export class UserService implements CanActivate {
       }
       this.isUserLoggedIn = true;
       this.loggedInUser = user[0];
+      this.change();
       this.router.navigate(['/home']);
       return user[0] as IUser;
     })
@@ -60,5 +69,6 @@ export class UserService implements CanActivate {
   logout() {
     this.isUserLoggedIn = false;
     this.loggedInUser = null;
+    this.change();
   }
 }
