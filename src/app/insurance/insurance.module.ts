@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { SharedModule } from '../shared/shared.module';
 import { InsuranceRoutingModule } from './insurance-routing.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { InsuranceInfoComponent } from './insurance-info/insurance-info.component';
 import { InsuranceFormComponent } from './forms/insurance-form/insurance-form.component';
@@ -21,6 +21,7 @@ import { VehicleService } from './services/vehicle.service';
     InsuranceRoutingModule,
     SharedModule,
     FormsModule,
+    ReactiveFormsModule,
   ],
   declarations: [
     InsuranceInfoComponent,
@@ -31,7 +32,6 @@ import { VehicleService } from './services/vehicle.service';
   ],
   exports: [InsuranceInfoComponent, InsuranceFormComponent,
     VehicleFormComponent, ClientFormComponent, CompaniesComponent, CommonModule],
-  providers: [InsuranceService, ClientService, VehicleService]
 })
 export class InsuranceModule {
 }

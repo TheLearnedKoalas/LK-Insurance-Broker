@@ -132,20 +132,20 @@ export class InsuranceService {
         //     .catch(this.handleErrorObservable);
     }
 
-    getAllPolicesforUser(userName): Observable<ThirdPartInsurance[]> {
-        return Observable
-            .create(x => x.next(this.insurances.filter(i => i.status === 'policy'
-                && i.user === userName)));
-        // const headers = new Headers();
-        // headers.append('Content-Type', 'application/json');
-        // const params = new URLSearchParams();
-        // params.append('status', 'policy');
-        // params.append('user', 'userName');
-        // const options = new RequestOptions({ headers: headers, params: params });
-        // return this.http.get(this.url, options)
-        //     .map(this.extractData)
-        //     .catch(this.handleErrorObservable);
-    }
+    // getAllPolicesforUser(userName): Observable<ThirdPartInsurance[]> { // from users
+    //     return Observable
+    //         .create(x => x.next(this.insurances.filter(i => i.status === 'policy'
+    //             && i.user === userName)));
+    //     // const headers = new Headers();
+    //     // headers.append('Content-Type', 'application/json');
+    //     // const params = new URLSearchParams();
+    //     // params.append('status', 'policy');
+    //     // params.append('user', 'userName');
+    //     // const options = new RequestOptions({ headers: headers, params: params });
+    //     // return this.http.get(this.url, options)
+    //     //     .map(this.extractData)
+    //     //     .catch(this.handleErrorObservable);
+    // }
 
     findByNumber(number): Observable<ThirdPartInsurance> {
         // const headers = new Headers();

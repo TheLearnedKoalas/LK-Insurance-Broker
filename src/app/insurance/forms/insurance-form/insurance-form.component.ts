@@ -1,5 +1,8 @@
+import { Client } from './../../models/client';
+import { ThirdPartInsurance } from './../../models/thirdPartInsurance';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Validators, FormGroup, FormControl, FormGroupName, ControlContainer, FormBuilder } from '@angular/forms';
 
 import { InsuranceService } from '../../services/insurance.service';
 
@@ -9,6 +12,50 @@ import { InsuranceService } from '../../services/insurance.service';
   styleUrls: ['../insurance-form/insurance-form.component.css']
 })
 export class InsuranceFormComponent implements OnInit {
+  purpose: any;
+  vehiclePower: any;
+  firstReg: any;
+  model: any;
+  brand: any;
+  registrationNumber: any;
+  chassis: any;
+  vehicleType: any;
+  sub;
+  public insuranceCompany: FormControl;
+  public totalPayment: FormControl;
+
+  public paymentsCount: FormControl;
+
+  public startDate: FormControl;
+
+  clientType = '';
+  name = '';
+  id = '';
+  adress = '';
+
+  insurance = this.fb.group({
+    insuranceCompany: [this.insuranceCompany, []],
+    totalPayment: [this.totalPayment, []],
+    paymentsCount: [this.paymentsCount, []],
+    startDate: [this.startDate, []],
+    client: [{
+      clientType: this.clientType,
+      name: this.name,
+      id: this.id,
+      adress: this.adress,
+    }, []],
+    vehicle: [{
+      vehicleType: this.vehicleType,
+      chassis: this.chassis,
+      registrationNumber: this.registrationNumber,
+      brand: this.brand,
+      model: this.model,
+      firstReg: this.firstReg,
+      vehiclePower: this.vehiclePower,
+      purpose: this.purpose
+    }, []]
+  });
+
 
 
   companiesList = [{
@@ -27,42 +74,41 @@ export class InsuranceFormComponent implements OnInit {
     about: `Застрахователната политика на дружеството е ориентирана към компетентно определяне и управление на риска, цялостно консултиране на клиента относно правилния избор на застрахователно покритие, превантивна дейност с цел намаляване вероятността за настъпване на застрахователно събитие, перфектност в извършване на ликвидация при настъпили щети и не на последно място - непрекъснато подобряване обслужването на клиентите.`
   }];
 
-  client = {
-    clientType: '',
-    name: '',
-    id: '',
-    adress: ''
-  };
-
-  vehicle = {
-    chassis: '',
-    vehicleType: '',
-    vehiclePower: '',
-    firstReg: '',
-    purpose: ''
-  };
-
-  sub;
-
-  today;
-
-  insurance = {
-    insuranceCompany: '',
-    startDate: '',
-    totalPayment: '',
-    paymentsCount: ''
-  };
   constructor(private activateRoute: ActivatedRoute,
     private router: Router,
-    private insuranceService: InsuranceService
+    private insuranceService: InsuranceService,
+    private fb: FormBuilder
   ) { }
 
-  CreatePolicy() {
-    this.insuranceService.create(this.insurance, this.client, this.vehicle)
-      .subscribe(x => {
-        console.log(x);
-        this.router.navigate(['/insurances/form']);
-      });
+  CreatePolicy() { // ugly!!!
+    const insurance = this.fb.group({
+      insuranceCompany: [this.insuranceCompany, []],
+      totalPayment: [this.totalPayment, []],
+      paymentsCount: [this.paymentsCount, []],
+      startDate: [this.startDate, []],
+      client: [{
+        clientType: this.clientType,
+        name: this.name,
+        id: this.id,
+        adress: this.adress,
+      }, []],
+      vehicle: [{
+        vehicleType: this.vehicleType,
+        chassis: this.chassis,
+        registrationNumber: this.registrationNumber,
+        brand: this.brand,
+        model: this.model,
+        firstReg: this.firstReg,
+        vehiclePower: this.vehiclePower,
+        purpose: this.purpose
+      }, []]
+    });
+    console.log(insurance.value);
+    // this.insuranceService.create(insurance.value)
+    //   .subscribe(x => {
+    //     console.log(x);
+    //     this.router.navigate(['/insurances/form']);
+    //   });
   }
 
   // FindPolicy() { // for admin
@@ -88,33 +134,43 @@ export class InsuranceFormComponent implements OnInit {
   // }
 
   parentLoadClientContent(value) {
-    this.client = value;
+    this.id = value.adress;
+    this.adress = value.adress;
+    this.name = value.name;
   }
   parentLoadVehicleContent(value) {
-    this.vehicle = value;
+    this.brand = value.brand;
+    this.chassis = value.chassis;
+    this.firstReg = value.firsReg;
+    this.registrationNumber = value.registrationNumber;
+    // more
   }
 
-  ngOnInit() {
+  ngOnInit() { // not loading content
+    let count;
+    let paymentDetails = [''];
+    let sum = 0;
+    const clientDetails = { clientType: '' };
+    this.insuranceCompany = new FormControl('', [Validators.required]);
     this.sub = this.activateRoute.queryParams
       .subscribe(params => {
         if (params.hasOwnProperty('paymentDetails')) {
           //    console.log(params);
-          const paymentDetails = params.paymentDetails.split('%');
-          this.insurance.insuranceCompany = paymentDetails[0];
+          paymentDetails = params.paymentDetails.split('%');
           const payment = paymentDetails[1].split('*');
-
-          let sum = 0;
           for (let i = 0; i < payment.length; i++) {
             sum += +payment[i];
           }
-          this.insurance.totalPayment = sum.toString(); // ith's better to come from param
-          this.insurance.paymentsCount = payment.length.toString();
-          this.client.clientType = params.clientType;
-          this.vehicle.vehicleType = params.vehicleType;
-          this.vehicle.vehiclePower = params.vehiclePower;
-          this.vehicle.firstReg = params.firstReg;
-          this.vehicle.purpose = params.purpose;
+          count = payment.length.toString();
+          clientDetails.clientType = params.clientType;
+          this.insuranceCompany = new FormControl(paymentDetails[0], [Validators.required]);
+          this.clientType = params.clientType;
+          this.vehicleType = params.vehicleType;
+          this.vehiclePower = params.vehiclePower;
+          this.firstReg = params.firstReg;
+          this.purpose = params.purpose;
         }
       });
+    this.totalPayment = new FormControl(sum.toString(), [Validators.required]);
   }
 }
