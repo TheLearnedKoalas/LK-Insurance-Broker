@@ -26,21 +26,24 @@ import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './data/in-memory-data.service';
 import { UserService } from "./shared/user/user.service";
 import { DataUserService } from "./data/user/data-user.service";
+
 import { DataClientService } from "./data/user/data-client.service";
+
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     AboutComponent,
-    CarouselComponent
+    CarouselComponent,
+    UserProfileComponent
   ],
   imports: [
     SharedModule,
     Ng2BreadcrumbModule,
     // SidebarModule.forRoot(),
-    InsuranceModule,
-    OnlineModule,
     // NgbModule.forRoot(),
     BrowserModule,
     HttpModule,
@@ -48,6 +51,8 @@ import { DataClientService } from "./data/user/data-client.service";
     AuthModule,
     AppRoutingModule,
     FormsModule,
+    InsuranceModule,
+    OnlineModule,
     ReactiveFormsModule,
     // PopupModule
   ],
