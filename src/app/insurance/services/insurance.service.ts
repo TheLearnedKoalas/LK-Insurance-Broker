@@ -25,43 +25,43 @@ export class InsuranceService {
         private vehicleService: VehicleService) {
     }
 
-    create(insuranceDetails, client, vehicle): Observable<ThirdPartInsurance> {
-        this.clientService.find(client.id)
-            .subscribe(res => {
-                if (res === undefined) { // ok?
-                    this.clientService.create(client)
-                        .subscribe(c => {
-                            client = c;
-                        });
-                } else {
-                    client = res;
-                }
-            });
-        this.vehicleService.find(vehicle.chassis)
-            .subscribe(res => {
-                if (res === undefined) {
-                    this.vehicleService.create(vehicle)
-                        .subscribe(v => {
-                            vehicle = v;
-                        });
-                } else {
-                    vehicle = res;
-                }
-            });
-        const insurance = new ThirdPartInsurance(client, vehicle, 'current'); // userName
-        if (insuranceDetails.hasOwnProperty('startDate')) {
-            insurance.startDate = new Date(Date.now());
-            insurance.endDate = insurance.startDate;
-            insurance.endDate.setDate(insurance.endDate.getDate() + 365);
-        }
-        if (insuranceDetails.hasOwnProperty('totalPayment')) {
-            insurance.totalPayment = insuranceDetails.totalPayment;
-        }
-        if (insuranceDetails.hasOwnProperty('paymentsCount')) {
-            insurance.paymentsCount = insuranceDetails.paymentsCount;
-        }
-        this.insurances.push(insurance);
-        return Observable.create(x => x.next(insurance));
+    create(insuranceDetails, client, vehicle) {
+        // this.clientService.find(client.id)
+        //     .subscribe(res => {
+        //         if (res === undefined) { // ok?
+        //             this.clientService.create(client)
+        //                 .subscribe(c => {
+        //                     client = c;
+        //                 });
+        //         } else {
+        //             client = res;
+        //         }
+        //     });
+        // this.vehicleService.find(vehicle.chassis)
+        //     .subscribe(res => {
+        //         if (res === undefined) {
+        //             this.vehicleService.create(vehicle)
+        //                 .subscribe(v => {
+        //                     vehicle = v;
+        //                 });
+        //         } else {
+        //             vehicle = res;
+        //         }
+        //     });
+        // const insurance = new ThirdPartInsurance(client, vehicle, 'current'); // userName
+        // if (insuranceDetails.hasOwnProperty('startDate')) {
+        //     insurance.startDate = new Date(Date.now());
+        //     insurance.endDate = insurance.startDate;
+        //     insurance.endDate.setDate(insurance.endDate.getDate() + 365);
+        // }
+        // if (insuranceDetails.hasOwnProperty('totalPayment')) {
+        //     insurance.totalPayment = insuranceDetails.totalPayment;
+        // }
+        // if (insuranceDetails.hasOwnProperty('paymentsCount')) {
+        //     insurance.paymentsCount = insuranceDetails.paymentsCount;
+        // }
+        // this.insurances.push(insurance);
+        // return Observable.create(x => x.next(insurance));
 
         // const headers = new Headers({ 'Content-Type': 'application/json' });
         // const options = new RequestOptions({ headers: headers });
@@ -70,11 +70,11 @@ export class InsuranceService {
         //     .catch(this.handleErrorObservable);
     }
 
-    find(clientId, vehicleChassis): Observable<ThirdPartInsurance> {
-        const insurance = this.insurances.find(x => x.client.id === clientId
-            && x.vehicle.chassis === vehicleChassis);
+    find(clientId, vehicleChassis) {
+        // const insurance = this.insurances.find(x => x.client.id === clientId
+        //     && x.vehicle.chassis === vehicleChassis);
 
-        return Observable.create(x => x.next(insurance));
+        // return Observable.create(x => x.next(insurance));
         // const headers = new Headers();
         // headers.append('Content-Type', 'application/json');
         // const params = new URLSearchParams();
@@ -86,8 +86,8 @@ export class InsuranceService {
         //     .catch(this.handleErrorObservable);
     }
 
-    getAllPolices(): Observable<ThirdPartInsurance[]> {
-        return Observable.create(x => x.next(this.insurances.filter(i => i.status === 'policy')));
+    getAllPolices()  {
+        // return Observable.create(x => x.next(this.insurances.filter(i => i.status === 'policy')));
         // const headers = new Headers();
         // headers.append('Content-Type', 'application/json');
         // const params = new URLSearchParams();
@@ -98,8 +98,8 @@ export class InsuranceService {
         //     .catch(this.handleErrorObservable);
     }
 
-    getAllOffers(): Observable<ThirdPartInsurance[]> {
-        return Observable.create(x => x.next(this.insurances.filter(i => i.status === 'offer')));
+    getAllOffers() {
+        // return Observable.create(x => x.next(this.insurances.filter(i => i.status === 'offer')));
         // const headers = new Headers();
         // headers.append('Content-Type', 'application/json');
         // const params = new URLSearchParams();
@@ -110,15 +110,15 @@ export class InsuranceService {
         //     .catch(this.handleErrorObservable);
     }
 
-    finishPolicyOffer(offerId, policyNumber): Observable<ThirdPartInsurance> {
-        let offer: ThirdPartInsurance;
-        this.findById(offerId)
-            .subscribe(res => {
-                offer = res;
-            });
-        offer.status = 'policy';
-        offer.number = policyNumber;
-        return Observable.create(x => x.next(offer));
+    finishPolicyOffer(offerId, policyNumber) {
+        // let offer: ThirdPartInsurance;
+        // this.findById(offerId)
+        //     .subscribe(res => {
+        //         offer = res;
+        //     });
+        // offer.status = 'policy';
+        // offer.number = policyNumber;
+        // return Observable.create(x => x.next(offer));
         // let insurance: ThirdPartInsurance;
         // this.findById(offerId)
         //     .subscribe(res => {
@@ -147,7 +147,7 @@ export class InsuranceService {
     //     //     .catch(this.handleErrorObservable);
     // }
 
-    findByNumber(number): Observable<ThirdPartInsurance> {
+    findByNumber(number) {
         // const headers = new Headers();
         // headers.append('Content-Type', 'application/json');
         // const params = new URLSearchParams();
@@ -156,10 +156,10 @@ export class InsuranceService {
         // return this.http.get(this.url, options)
         //     .map(this.extractData)
         //     .catch(this.handleErrorObservable);
-        return Observable.create(x => x.next(this.insurances.find(i => i.number === number)));
+        // return Observable.create(x => x.next(this.insurances.find(i => i.number === number)));
     }
 
-    private findById(id): Observable<ThirdPartInsurance> {
+    private findById(id){
         // const headers = new Headers();
         // headers.append('Content-Type', 'application/json');
         // const params = new URLSearchParams();
@@ -168,16 +168,7 @@ export class InsuranceService {
         // return this.http.get(this.url, options)
         //     .map(this.extractData)
         //     .catch(this.handleErrorObservable);
-        return Observable.create(x => x.next(this.insurances.find(i => i.id === id)));
-    }
-
-    private extractData(res: Response) {
-        const body = res.json();
-        return body.data || {};
-    }
-    private handleErrorObservable(error: Response | any) {
-        console.error(error.message || error);
-        return Observable.throw(error.message || error);
-    }
+        // return Observable.create(x => x.next(this.insurances.find(i => i.id === id)));
+    }  
 }
 

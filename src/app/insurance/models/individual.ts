@@ -7,7 +7,9 @@ export class Individual implements Client {
     @IsLength(2, 50)
     private _name: string;
     constructor(_id: string, name: string, public adress: string) {
+        this.clientType = 'физическо лице';
     }
+    public clientType: string; // enum
     set name(value) {
         this._name = value;
     } get name() {

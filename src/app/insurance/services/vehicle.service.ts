@@ -15,22 +15,22 @@ export class VehicleService {
 
     url = 'http://localhost:4200/insurances/vehicles';
     constructor(private http: Http) { }
-    create(vehicle): Observable<Vehicle> {
-        this.find(vehicle.chassis)
-            .subscribe(res => {
-                if (res !== undefined) {
-                    vehicle = res;
-                    // return http.get
-                }
-            });
-        const vehicleToCreate = new Vehicle();
-        for (const key in vehicle) {
-            if (vehicleToCreate.hasOwnProperty(key)) {
-                vehicleToCreate[key] = vehicle[key];
-            }
-        }
+    create(vehicle) {
+        // this.find(vehicle.chassis)
+        //     .subscribe(res => {
+        //         if (res !== undefined) {
+        //             vehicle = res;
+        //             // return http.get
+        //         }
+        //     });
+        // const vehicleToCreate = new Vehicle();
+        // for (const key in vehicle) {
+        //     if (vehicleToCreate.hasOwnProperty(key)) {
+        //         vehicleToCreate[key] = vehicle[key];
+        //     }
+        // }
 
-        return Observable.create(x => x.next(vehicleToCreate));
+        // return Observable.create(x => x.next(vehicleToCreate));
         // const headers = new Headers({ 'Content-Type': 'application/json' });
         // const options = new RequestOptions({ headers: headers });
         // return this.http.post(this.url, vehicleToCreate, options)// url???
@@ -38,9 +38,9 @@ export class VehicleService {
         //     .catch(this.handleErrorObservable);
     }
 
-    find(vehicleChassis): Observable<Vehicle> {
-        const vehicleFound = this.vehicles.find(x => x.chassis === vehicleChassis);
-        return Observable.create(x => x.next(vehicleFound));
+    find(vehicleChassis) {
+        // const vehicleFound = this.vehicles.find(x => x.chassis === vehicleChassis);
+        // return Observable.create(x => x.next(vehicleFound));
 
         // const headers = new Headers();
         // headers.append('Content-Type', 'application/json');
@@ -52,20 +52,11 @@ export class VehicleService {
         //     .catch(this.handleErrorObservable);
     }
 
-    getAll(): Observable<Vehicle[]> {
-        return Observable.create(x => x.next(this.vehicles));
+    getAll() {
+        // return Observable.create(x => x.next(this.vehicles));
 
         // return this.http.get(this.url)
         //     .map(this.extractData)
         //     .catch(this.handleErrorObservable);});
-    }
-
-    private extractData(res: Response) {
-        const body = res.json();
-        return body.data || {};
-    }
-    private handleErrorObservable(error: Response | any) {
-        console.error(error.message || error);
-        return Observable.throw(error.message || error);
     }
 }

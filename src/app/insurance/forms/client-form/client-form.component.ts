@@ -20,7 +20,7 @@ export class ClientFormComponent implements OnInit {
 
   public name = new FormControl('', []);
 
-  public id= new FormControl('', []);
+  public id = new FormControl('', []);
 
   public adress = new FormControl('', []);
 
@@ -33,10 +33,8 @@ export class ClientFormComponent implements OnInit {
 
   CreateClient() {
     // console.log(this.client.value);
-    this.clientService.create(this.client.value)
-      .subscribe(res => {
-        this.loadContent.emit(this.client.value);
-      });
+    const res = this.clientService.create(this.client.value);
+    console.log('yes' + res);
   }
 
   FindClient() {
