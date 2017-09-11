@@ -1,0 +1,93 @@
+* {
+    outline: none;
+}
+
+* {
+    text-rendering: optimizeLegibility;
+}
+
+#main-wrap {
+    max-width: 1000px;
+    float: none;
+    margin: 0px auto;
+    text-align: left;
+    color: #777;
+    position: relative;
+}
+
+.leftback {
+    text-align: left;
+    background-color: #2462AD;
+    overflow: hidden;
+    padding: 50px 0;
+    width: 100%;
+    border-radius: 15px;
+    margin-top: 65px;
+}
+
+.blogwrapstart{
+    width: 92%;
+   /*position: relative; */
+    background-color: white;
+    height: auto;
+    border: 1px solid #d5d5d5;
+    padding: 25px 10px;
+    border-radius: 15px;
+    margin: 0 auto;
+}
+
+.blogwrapstart h4 {
+    font-size: 16pt;
+    width: 100%;
+    text-align: left;
+    color: #296BA8;
+    padding: 0;
+}
+
+ select, option,input {
+    width: 92%;
+    padding: 6px 4% 6px 4%;
+    border: 1px solid #d5d5d5;
+    color: #286CAD;
+    font-size: 12pt;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 3px;
+}
+
+.btn{
+    width: 150px;
+    padding-left: 30px;
+}
+
+#offer{
+    background-color: #2462AD;
+     height: auto;
+     border: 1px solid #d5d5d5;
+     padding: 25px 10px;
+     border-radius: 15px;
+     margin: 0 auto;
+    font-size: 16pt;
+    position: absolute;
+    color: #777;  
+    z-index: 100;
+    margin: 50px;
+}
+
+#offer form{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+}
+
+.company-offer{
+    display: flex;
+    margin: 5px;
+    border: 1px solid #d5d5d5;
+    border-radius: 15px;
+}
+
+.company-offer div{
+    display: flex;
+    margin: 5px;
+}

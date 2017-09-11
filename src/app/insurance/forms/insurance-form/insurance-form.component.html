@@ -1,0 +1,49 @@
+<div class="leftback">
+  <div id="quest" class="blogwrapstart">
+    <div style="height: 15px;">&nbsp;</div>
+    <!-- "  -->
+    <div>
+      <app-client-form #client (loadContent)="parentLoadClientContent($event)"></app-client-form>
+    </div>
+    <div>
+      <app-vehicle-form #vehicle (loadContent)="parentLoadVehicleContent($event)"></app-vehicle-form>
+    </div>
+    <div class="blogwrapstart">
+      <form [formGroup]="insurance" (ngSubmit)="insurance.reset(CreatePolicy(insurance.value))">
+
+        <h4 style="color: #296BA8;padding: 0;">&nbsp;Данни за Застраховка</h4>
+        <div style="height: 15px;">&nbsp;</div>
+        <div id="criteria_31" class="form-group">
+          <label for="insuranceCompany">&nbsp;Застрахователна компания</label>
+          <select name="insuranceCompany" formControlName="insuranceCompany" required [(ngModel)]="insuranceCompany"> 
+                <option *ngFor="let t of companiesList" [value]="t.name">{{t.name}}</option>   
+              </select>
+          <!-- <span *ngIf="insuranceCompany.hasError('required') && insuranceCompany.touched || (!insuranceCompany.valid)" class="text-danger">Изберете застрахователна компания</span> -->
+          <div class="clear"></div>
+        </div>
+        <div id="criteria_32" class="form-group">
+          <label for="startDate">&nbsp;Начална дата</label>
+          <input name="startDate" formControlName="startDate" required>
+          <!-- <span *ngIf="startDate.hasError('required') && startDate.touched || (!startDate.valid)" class="text-danger">Изберете застрахователна компания</span> -->
+          <div class="clear"></div>
+        </div>
+        <div id="criteria_33" class="form-group">
+          <label for="totalPayment">&nbsp;Застрахователна премия</label>
+          <input name="totalPayment" formControlName="totalPayment" required>
+          <!-- <span *ngIf="totalPayment.hasError('required') && totalPayment.touched || (!totalPayment.valid)" class="text-danger">Въведете застрахователна премия</span> -->
+          <div class="clear"></div>
+        </div>
+        <div id="criteria_34" class="form-group">
+          <label for="paymentsCount">&nbsp;Брой вноски</label>
+          <input name="paymentsCount" formControlName="paymentsCount" required>
+        </div>
+        <!-- <span *ngIf="paymentsCount.hasError('required') && paymentsCount.touched || (!paymentsCount.valid)" class="text-danger">Изберете застрахователна компания</span> -->
+        <div class="clear"></div>
+    <div style="height: 10px;">&nbsp;</div>
+    <button type="submit" [disabled]="insurance.invalid" class="btn btn-primary">Създай</button>
+    </form>
+  </div>
+    <!-- (click)="insuranceForm.resetForm(CreatePolicy())" -->
+    <!-- <button (click)="FindPolicy()" class="btn btn-primary">Намери</button> -->
+  </div>
+</div>

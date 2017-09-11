@@ -1,0 +1,11 @@
+<app-carousel></app-carousel>
+<div>
+  <h3>Застраховки</h3>
+  <ul>
+    <li *ngFor="let insurance of insurances">     
+      <img src="{{insurance.logo}}">
+      <!-- To open current insurance type -->
+      <a [routerLink]="[ '/insurances' ]">{{insurance.name}}</a>   
+    </li>
+  </ul>
+</div>

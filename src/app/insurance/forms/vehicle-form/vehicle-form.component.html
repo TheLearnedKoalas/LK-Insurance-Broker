@@ -1,0 +1,64 @@
+<div class="blogwrapstart">
+  <h4 style="color: #296BA8;padding: 0;">&nbsp;Данни за МПС</h4>
+  <form [formGroup]="vehicle">
+    <div style="height: 15px;">&nbsp;</div>
+    <div id="criteria_1" class="form-group">
+      <label for="vehicleType">&nbsp;Вид МПС</label>
+      <select name="vehicleType" formControlName="vehicleType" required> 
+                <option *ngFor="let t of vehicleTypes" [value]="t.value">{{t.name}}</option>               
+              </select>
+      <span *ngIf="vehicleType.hasError('required') && vehicleType.touched || (!vehicleType.valid)" class="text-danger">Изберете вид МПС</span>
+      <div class="clear"></div>
+    </div>
+    <div id="criteria_2" class="form-group">
+      <label for="vehiclePower">&nbsp;Обем на двигателя</label>
+      <input name="vehiclePower" formControlName="vehiclePower" required>
+      <!-- <span *ngIf="vehiclePower.hasError('required') && vehiclePower.touched || (!vehiclePower.valid)" class="text-danger">Изберете вид МПС</span> -->
+      <div class="clear"></div>
+    </div>
+    <div id="criteria_3" class="form-group">
+      <label for="brand">&nbsp;Марка</label>
+      <input name="brand" formControlName="brand" required>
+      <!-- <span *ngIf="brand.hasError('required') && brand.touched || (!brand.valid)" class="text-danger">Изберете вид МПС</span> -->
+      <div class="clear"></div>
+    </div>
+    <div id="criteria_4" class="form-group">
+      <label for="model">&nbsp;Модел</label>
+      <input name="model" formControlName="model" required>
+      <!-- <span *ngIf="vehicleType.hasError('required') && vehicleType.touched || (!vehicleType.valid)" class="text-danger">Изберете вид МПС</span> -->
+      <div class="clear"></div>
+    </div>
+    <div id="criteria_5" class="form-group">
+      <label for="registrationNumber">&nbsp;Регистрационен номер</label>
+      <input name="registrationNumber" formControlName="registrationNumber" required>
+      <!-- <span *ngIf="vehicleType.hasError('required') && vehicleType.touched || (!vehicleType.valid)" class="text-danger">Въведете регистрационен номер</span> -->
+      <div class="clear"></div>
+    </div>
+    <div id="criteria_6" class="form-group">
+      <label for="chassis">&nbsp;Номер на шаси</label>
+      <input name="chassis" formControlName="chassis" required>
+      <!-- <span *ngIf="vehicleType.hasError('required') && vehicleType.touched || (!vehicleType.valid)" class="text-danger">Въведете номер на шаси</span> -->
+      <div class="clear"></div>
+    </div>
+    <div id="criteria_7" class="form-group">
+      <label for="firstReg">&nbsp;Първа регистрация</label>
+      <input name="firstReg" formControlName="firstReg" required>
+      <!-- <span *ngIf="vehicleType.hasError('required') && vehicleType.touched || (!vehicleType.valid)" class="text-danger">Въведете регистрационен номер</span> -->
+      <div class="baloon" style="width: 24px;height:24px;" lang="Година на първа регистрация по данни от регистрационния талон на МПС">
+        <img style="width: 24px;height:24px;" src="http://iandgbrokers.com/calculator-grajdanska/images/hint.png" alt="hint">
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div id="criteria_8" class="form-group">
+      <label for="purpose">&nbsp;Предназначение</label>
+      <select name="purpose" formControlName="purpose" required>
+                <option *ngFor="let p of purposes" [value]="p.name">{{p.name}}</option>               
+              </select>
+      <span *ngIf="purpose.hasError('required') && purpose.touched || (!purpose.valid)" class="text-danger">Изберете предназначение</span>
+      <div class="clear"></div>
+    </div>
+    <div style="height: 10px;">&nbsp;</div>
+    <button (click)="CreateVehicle()" class="btn btn-primary">Създай</button>
+    <button (click)="FindVehicle()" class="btn btn-primary">Намери</button>  
+  </form>
+</div>

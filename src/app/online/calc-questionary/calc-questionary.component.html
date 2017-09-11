@@ -1,0 +1,315 @@
+<div><img src="http://iandgbrokers.com/calculator-grajdanska/images/step1.png" alt="steps"></div>
+<div *ngIf="showed" id="offer">
+
+  <!-- to add image of the company -->
+  <form #paymentDetailsForm="ngForm" (ngSubmit)="onSubmitPolicyDetails()">
+    <div [hidden]="paymentDetailsForm.submitted">
+      <div class="company-offer">
+        <div class="form-group">
+          <div>
+            Еднократно
+          </div>
+        </div>
+        <div class="form-group">
+          <div>
+            <div>1ва</div>
+            <div>2ра</div>
+            <div>Общо</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div>
+            <div>1ва</div>
+            <div>2ра</div>
+            <div>3та</div>
+            <div>Общо</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div>
+            <div>1ва</div>
+            <div>2ра</div>
+            <div>3та</div>
+            <div>4та</div>
+            <div>Общо</div>
+          </div>
+        </div>
+      </div>
+      <div class="company-offer">
+        <div class="form-group">
+          <div>
+            <label>
+                <input class="form-control" id="paymentDetails" name="paymentDetails" required [(ngModel)]="offer.paymentDetails" #paymentDetails="ngModel"
+                  value="Лев Инс%184.62" type="radio">
+                  <div>184.62</div>
+                </label>
+          </div>
+        </div>
+        <div class="form-group">
+          <div>
+            <label>
+                  <input class="form-control" id="paymentDetails" name="paymentDetails" required [(ngModel)]="offer.paymentDetails" #paymentDetails="ngModel"
+                        value="Лев Инс%99.76*84.86" type="radio">
+                      <div>
+                          <div>99.76</div>
+                          <div>84.86</div>
+                          <div>184.62</div>
+                      </div>
+                    </label>
+          </div>
+        </div>
+        <div class="form-group">
+          <div>
+            <label>
+                        <div>Не се поддържа</div>
+                    </label>
+          </div>
+        </div>
+        <div class="form-group">
+          <div>
+            <label>
+                    <input class="form-control" id="paymentDetails" name="paymentDetails" required [(ngModel)]="offer.paymentDetails" #paymentDetails="ngModel"
+                    value="Лев Инс%57.33*42.43*42.43*42.43" type="radio">
+                    <div>
+                        <div>57.33</div>
+                        <div>42.43</div>
+                        <div>42.43</div>
+                        <div>42.43</div>
+                        <div>184.62</div>
+                      </div>
+                  </label>
+          </div>
+        </div>
+      </div>
+      <div class="company-offer">
+        <div class="form-group">
+          <div>
+            <label>
+                  <input class="form-control" id="paymentDetails" name="paymentDetails" required [(ngModel)]="offer.paymentDetails" #paymentDetails="ngModel"
+                    value="Бул Инс%184.62" type="radio">
+                    <div>184.62</div>
+                  </label>
+          </div>
+        </div>
+        <div class="form-group">
+          <div>
+            <label>
+                    <input class="form-control" id="paymentDetails" name="paymentDetails" required [(ngModel)]="offer.paymentDetails" #paymentDetails="ngModel"
+                          value="Бул Инс%99.76*84.86" type="radio">
+                        <div>
+                            <div>99.76</div>
+                            <div>84.86</div>
+                            <div>184.62</div>
+                        </div>
+                      </label>
+          </div>
+        </div>
+        <div class="form-group">
+          <div>
+            <label>
+                          <div>Не се поддържа</div>
+                      </label>
+          </div>
+        </div>
+        <div class="form-group">
+          <div>
+            <label>
+                      <input class="form-control" id="paymentDetails" name="paymentDetails" required [(ngModel)]="offer.paymentDetails" #paymentDetails="ngModel"
+                      value="Бул Инс%57.33*42.43*42.43*42.43" type="radio">
+                      <div>
+                          <div>57.33</div>
+                          <div>42.43</div>
+                          <div>42.43</div>
+                          <div>42.43</div>
+                          <div>184.62</div>
+                        </div>
+                    </label>
+          </div>
+        </div>
+      </div>
+      <div class="company-offer">
+        <div class="form-group">
+          <div>
+            <label>
+                    <input class="form-control" id="paymentDetails" name="paymentDetails" required [(ngModel)]="offer.paymentDetails" #paymentDetails="ngModel"
+                      value="Армеец%184.62" type="radio">
+                      <div>184.62</div>
+                    </label>
+          </div>
+        </div>
+        <div class="form-group">
+          <div>
+            <label>
+                      <input class="form-control" id="paymentDetails" name="paymentDetails" required [(ngModel)]="offer.paymentDetails" #paymentDetails="ngModel"
+                            value="Армеец%99.76*84.86" type="radio">
+                          <div>
+                              <div>99.76</div>
+                              <div>84.86</div>
+                              <div>184.62</div>
+                          </div>
+                        </label>
+          </div>
+        </div>
+        <div class="form-group">
+          <div>
+            <label>
+                            <div>Не се поддържа</div>
+                        </label>
+          </div>
+        </div>
+        <div class="form-group">
+          <div>
+            <label>
+                        <input class="form-control" id="paymentDetails" name="paymentDetails" required [(ngModel)]="offer.paymentDetails" #paymentDetails="ngModel"
+                        value="Армеец%57.33*42.43*42.43*42.43" type="radio">
+                        <div>
+                            <div>57.33</div>
+                            <div>42.43</div>
+                            <div>42.43</div>
+                            <div>42.43</div>
+                            <div>184.62</div>
+                          </div>
+                      </label>
+          </div>
+        </div>
+      </div>
+      <div style="height: 10px;">&nbsp;</div>
+      <div *ngIf="paymentDetails.errors && paymentDetails.touched" class="alert alert-danger">
+        <div *ngIf="paymentDetails.errors.required">Изберете застраховка</div>
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="paymentDetailsForm.invalid">Поръчай</button>
+    </div>
+  </form>
+</div>
+<div id="main-wrap">
+  <div class="leftback">
+    <div id="quest" class="blogwrapstart">
+      <h4 style="color: #296BA8;padding: 0;">&nbsp;Данни за МПС</h4>
+      <div style="height: 15px;">&nbsp;</div>
+      <form #offerForm="ngForm" (ngSubmit)="onSubmit()">
+        <div [hidden]="offerForm.submitted">
+          <div id="criteria_1" class="form-group">
+            <fieldset>
+              <div style="float: left;width: 32%;padding-left: 5px;">&nbsp;Вид МПС</div>
+              <div style="float: left;width: 50%;padding-left: 5px;">
+                <select class="form-control" id="vehicleType" name="vehicleType" [(ngModel)]="offer.vehicleType" #vehicleType="ngModel" required> 
+                  <option *ngFor="let t of vehicleTypes" [value]="t.value">{{t.name}}</option>               
+              </select>
+              </div>
+              <div *ngIf="vehicleType.errors && vehicleType.touched" class="alert alert-danger">
+                <div *ngIf="vehicleType.errors.required">Изберете вид МПС</div>
+              </div>
+              <div class="clear"></div>
+            </fieldset>
+          </div>
+          <div id="criteria_2" class="form-group">
+            <fieldset>
+              <div style="float: left;width: 32%;padding-left: 5px;">&nbsp;Обем на двигателя</div>
+              <div style="float: left;width: 50%;padding-left: 5px;">
+                <input class="form-control" id="vehiclePower" name="vehiclePower" required [(ngModel)]="offer.vehiclePower" #vehiclePower="ngModel">Обем
+                двигателя
+              </div>
+              <div *ngIf="vehiclePower.errors && vehiclePower.touched" class="alert alert-danger">
+                <div *ngIf="vehiclePower.errors.required">Изберете oбем на двигателя</div>
+              </div>
+              <div class="clear"></div>
+            </fieldset>
+          </div>
+          <div id="criteria_9" class="form-group">
+            <fieldset>
+              <div style="float: left;width: 32%;padding-left: 5px;">&nbsp;Собственик на МПС
+              </div>
+              <div style="float: left;width: 50%;padding-left: 5px;">
+                <select class="form-control" id="clientType" name="clientType" required [(ngModel)]="offer.clientType" #clientType="ngModel"> 
+                <option value="физическо лице" selected="">физическо лице</option>
+                <option value="юридическо лице">юридическо лице</option></select>
+              </div>
+              <div *ngIf="clientType.errors && clientType.touched" class="alert alert-danger">
+                <div *ngIf="clientType.errors.required">Изберете собственик на МПС</div>
+              </div>
+              <div class="clear"></div>
+            </fieldset>
+          </div>
+          <div id="criteria_10" class="form-group">
+            <fieldset>
+              <div style="float: left;width: 32%;padding-left: 5px;">&nbsp;Възраст на собственика
+              </div>
+              <div style="float: left;width: 50%;padding-left: 5px;">
+                <input class="form-control" id="clientAge" name="clientAge" required [(ngModel)]="offer.clientAge" #clientAge="ngModel">години
+              </div>
+              <div *ngIf="clientAge.errors && clientAge.touched" class="alert alert-danger">
+                <div *ngIf="clientAge.errors.required">Изберете възраст на собственика</div>
+              </div>
+              <div class="clear"></div>
+            </fieldset>
+          </div>
+          <div id="criteria_11" class="form-group">
+            <fieldset>
+              <div style="float: left;width: 32%;padding-left: 5px;">&nbsp;Шофьорски стаж</div>
+              <div style="float: left;width: 50%;padding-left: 5px;">
+                <select class="form-control" id="driverExperience" name="driverExperience" required [(ngModel)]="offer.driverExperience"
+                  #driverExperience="ngModel">
+                <option value="1">до 1г.</option>
+                <option value="2">над 1 до 2 г.</option>
+                <option value="3">над 2 до 3 г.</option>
+                <option value="5">над 3 до 5 г.</option>
+                <option value="10">над 5 до 10 г.</option>
+                <option value=">10" selected="">над 10 г.</option>
+              </select>
+              </div>
+              <div *ngIf="clientAge.errors && clientAge.touched" class="alert alert-danger">
+                <div *ngIf="clientAge.errors.required">Изберете шофьорски стаж</div>
+              </div>
+              <div class="clear"></div>
+            </fieldset>
+          </div>
+          <div id="criteria_15" class="form-group">
+            <fieldset>
+              <div style="float: left;width: 32%;padding-left: 5px;">&nbsp;Първа регистрация</div>
+              <div style="float: left;width: 50%;padding-left: 5px;">
+                <input class="form-control" id="firstReg" name="firstReg" required [(ngModel)]="offer.firstReg" #firstReg="ngModel">
+              </div>
+              <div style="float: left;width: 8%;padding:5px 0 0 5px;">
+                <div *ngIf="firstReg.errors && firstReg.touched" class="alert alert-danger">
+                  <div *ngIf="firstReg.errors.required">Изберете първа регистрация</div>
+                </div>
+                <div class="baloon" style="width: 24px;height:24px;" lang="Година на първа регистрация по данни от регистрационния талон на МПС">
+                  <img style="width: 24px;height:24px;" src="http://iandgbrokers.com/calculator-grajdanska/images/hint.png" alt="hint">
+                </div>
+              </div>
+              <div class="clear"></div>
+            </fieldset>
+          </div>
+          <div id="criteria_17" class="form-group">
+            <fieldset>
+              <div style="float: left;width: 32%;padding-left: 5px;">&nbsp;Предназначение</div>
+              <div style="float: left;width: 50%;padding-left: 5px;">
+                <select class="form-control" id="purpose" name="purpose" required [(ngModel)]="offer.purpose" #purpose="ngModel">
+                  <option value="Лично ползване" selected="">Лично ползване</option>
+                  <option value="Служебно ползване">Служебно ползване</option>
+                  <option value="Таксиметрови превози">Таксиметрови превози</option>
+                  <option value="Състезателен автомобил">Състезателен автомобил</option>
+                  <option value="Учебен">Учебен</option>
+                  <option value="Отдаване под наем">Отдаване под наем</option>
+                  <option value="Превоз на опасни товари">Превоз на опасни товари</option>
+                  <option value="МПС със специален режим">МПС със специален режим</option>
+                  <option value="Тестови">Тестови</option>
+                  <option value="Обществен транспорт">Обществен транспорт</option>
+                  <option value="Производствена дейност">Производствена дейност</option>
+                  <option value="Търговска дейност">Търговска дейност</option>
+                  <option value="Куриерски услуги">Куриерски услуги</option>
+                  <option value="Международен транспорт">Международен транспорт</option></select> </div>
+              <div *ngIf="purpose.errors && purpose.touched" class="alert alert-danger">
+                <div *ngIf="purpose.errors.required">Изберете предназначение</div>
+              </div>
+
+              <div class="clear"></div>
+            </fieldset>
+          </div>
+          <div style="height: 10px;">&nbsp;</div>
+          <button type="submit" class="btn btn-primary" [disabled]="offerForm.invalid">Изчисли</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

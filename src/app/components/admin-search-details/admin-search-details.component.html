@@ -1,0 +1,62 @@
+<table class="table table-bordered table-hover">
+  <thead class="thead-inverse">
+    <tr>
+      <th>#</th>
+      <th>Номер</th>
+      <th>Статус</th>
+      <th>От Дата</th>
+      <th>До Дата</th>
+      <th>Застрахователна Компания</th>
+      <th>Застрахован Обект</th>
+      <th>Брой Вноски</th>
+      <th>Цена</th>
+    </tr>
+  </thead>
+  <tbody *ngIf='currentUser'>
+    <tr *ngFor='let insurance of currentUser.insurances; let i = index'>
+      <th scope="row">{{i + 1}}</th>
+      <td>{{insurance.number}}</td>
+      <td>{{insurance.status}}</td>
+      <td>{{insurance.startDate | date}}</td>
+      <td>{{insurance.endDate | date}}</td>
+      <td>{{insurance.insuranceCompany }}</td>
+      <td>{{insurance.vehicle.registrationNumber}}</td>
+      <td>{{insurance.paymentsCount}}</td>
+      <td>{{insurance.totalPayment | currency:'BGN':true:'1.2-2'}}</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="col-md-12">
+  <div class="form-area">
+    <form role="form">
+      <br style="clear:both">
+      <h3 style="margin-bottom: 25px; text-align: center;">Добавяне на застраховка</h3>
+      <div class="form-group">
+        <input type="text" class="form-control" id="number" name="number" placeholder="Номер" required [(ngModel)]='number'>
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" id="status" name="status" placeholder="Статус" required [(ngModel)]='status'>
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" id="start-date" name="start-date" placeholder="От Дата" required [(ngModel)]='startDate'>
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" id="end-date" name="end-date" placeholder="До Дата" required [(ngModel)]='endDate'>
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" id="insurance-company" name="insurance-company" placeholder="Застрахователна Компания" required [(ngModel)]='insuranceCompany'>
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" id="registration-number" name="registration-number" placeholder="Застрахован Обект" required [(ngModel)]='registrationNumber'>
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" id="payments-count" name="payments-count" placeholder="Брой Вноски" required [(ngModel)]='paymentsCount'>
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" id="total-payment" name="total-payment" placeholder="Цена" required [(ngModel)]='totalPayment'>
+      </div>
+      <button type="button" id="submit" name="submit" class="btn btn-primary pull-right" (click)='addInsurance()'>Добави</button>
+    </form>
+  </div>
+</div>

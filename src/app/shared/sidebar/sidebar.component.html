@@ -1,0 +1,6 @@
+<div>
+  <ul>
+    <li><button (click)="onLoadContent(header.name)">{{header.name}}</button></li>
+    <li *ngFor="let content of contents"><button (click)="onLoadContent(content.name)">{{content.name}}</button></li>
+  </ul>
+</div>
