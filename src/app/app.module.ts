@@ -31,6 +31,8 @@ import { DataClientService } from "./data/user/data-client.service";
 
 import { UserModule } from "./user/user.module";
 import { AdminPaneComponent } from './components/admin-pane/admin-pane.component';
+import { AdminGuard } from "./shared/guards/admin.guard";
+import { AdminSearchDetailsComponent } from './components/admin-search-details/admin-search-details.component';
 
 
 @NgModule({
@@ -39,7 +41,8 @@ import { AdminPaneComponent } from './components/admin-pane/admin-pane.component
     HomeComponent,
     AboutComponent,
     CarouselComponent,
-    AdminPaneComponent
+    AdminPaneComponent,
+    AdminSearchDetailsComponent
   ],
   imports: [
     SharedModule,
@@ -59,7 +62,7 @@ import { AdminPaneComponent } from './components/admin-pane/admin-pane.component
     // PopupModule
   ],
 
-  providers: [BreadcrumbService, UserService, DataUserService,InsuranceService,ClientService,DataClientService,VehicleService],
+  providers: [BreadcrumbService, UserService, DataUserService,InsuranceService,ClientService,DataClientService,VehicleService, AdminGuard],
 
   bootstrap: [AppComponent]
 })

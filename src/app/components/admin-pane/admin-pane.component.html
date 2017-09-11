@@ -1,10 +1,29 @@
-<div id="search-component">
-  <h4>User Search</h4>
-  <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />
-  <div>
-    <div *ngFor="let user of users | async"
-         (click)="gotoDetail(user)" class="search-result" >
-      {{user.username}}
-    </div>
-  </div>
+<div class="form-group pull-right">
+  <input type="text" class="search form-control" placeholder="Въведете потребителско име" #searchBox id="search-box" (keyup)="search(searchBox.value)">
 </div>
+<span class="counter pull-right"></span>
+<table class="table table-hover table-bordered results">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th class="col-md-4 col-xs-4">Потребителско име</th>
+      <th class="col-md-2 col-xs-2">Собствено име</th>
+      <th class="col-md-2 col-xs-2">Фамилия</th>
+      <th class="col-md-2 col-xs-2">Имейл</th>
+      <th class="col-md-2 col-xs-2">Телефон</th>
+    </tr>
+    <tr class="warning no-result">
+      <td colspan="4"><i class="fa fa-warning"></i> No result</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users | async; let i = index" (click)="gotoDetail(user)" class="search-result">
+      <th scope="row">{{i+1}}</th>
+      <td>{{user.username}}</td>
+      <td>{{user.firstName}}</td>
+      <td>{{user.lastName}}</td>
+      <td>{{user.email}}</td>
+      <td>{{user.telephone}}</td>
+    </tr>
+  </tbody>
+</table>

@@ -47,7 +47,7 @@ export class AdminPaneComponent implements OnInit {
   }
 
   gotoDetail(user: IUser): void {
-    let link = ['/detail', user.id];
+    let link = ['/details', user.id];
     this.router.navigate(link);
   }
 

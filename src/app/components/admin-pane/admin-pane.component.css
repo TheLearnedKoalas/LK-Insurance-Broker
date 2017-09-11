@@ -1,20 +1,17 @@
-.search-result{
-    border-bottom: 1px solid gray;
-    border-left: 1px solid gray;
-    border-right: 1px solid gray;
-    width:195px;
-    height: 16px;
-    padding: 5px;
-    background-color: white;
-    cursor: pointer;
-  }
-   
-  .search-result:hover {
-    color: #eee;
-    background-color: #607D8B;
-  }
-   
-  #search-box{
-    width: 200px;
-    height: 20px;
-  }
+body{
+  padding:20px 20px;
+}
+
+.results tr[visible='false'],
+.no-result{
+  display:none;
+}
+
+.results tr[visible='true']{
+  display:table-row;
+}
+
+.counter{
+  padding:8px; 
+  color:#ccc;
+}
