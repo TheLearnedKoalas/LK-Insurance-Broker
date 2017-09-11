@@ -5,12 +5,12 @@ Insurance broker web site, which provides online services.
 
 Clients can order different kind of insurances. They get feedback from our experts right away!
 
-We provide you the opporunity to be informed for all expireing or forthcoming payments 24 hours a day with the user profil functionality
+We provide you the opportunity to be informed for all expiring or forthcoming payments 24 hours a day with the user profile functionality.
 
-At the othr side this app is serves the broker's needs. Employees has access to all base with their admin profil
+On the other side this app serves the broker's needs. Employees have access to the whole base with their admin profile.
 =======
 ### Application Demo
-- [**Live Preview**]()
+- [**Live Preview**](http://koalas-insurance-broker.azurewebsites.net/home)
 - [**Documentation**](https://cdn.rawgit.com/TheLearnedKoalas/Documentation/aff004d7/index.html)
 
 ## Authors
