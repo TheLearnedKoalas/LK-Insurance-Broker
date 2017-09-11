@@ -1,3 +1,22 @@
-<p>
-  user-insurances works!
-</p>
+<table class="table table-bordered table-hover">
+  <thead class="thead-inverse">
+    <tr>
+      <th>#</th>
+      <th>От Дата</th>
+      <th>До Дата</th>
+      <th>Тип Застраховка</th>
+      <th>Застрахован Обект</th>
+      <th>Цена</th>
+    </tr>
+  </thead>
+  <tbody *ngFor='let insurance of currentUser.insurances; let i = index'>
+    <tr>
+      <th scope="row">{{i + 1}}</th>
+      <td>{{insurance.startingDate | date}}</td>
+      <td>{{insurance.endingDate | date}}</td>
+      <td>{{insurance.insuranceType | insuranceType }}</td>
+      <td>{{insurance.insuranceObject.signature}}</td>
+      <td>{{insurance.price | currency:'BGN':true:'1.2-2'}}</td>
+    </tr>
+  </tbody>
+</table>

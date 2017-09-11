@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { InMemoryDbService } from 'angular-in-memory-web-api';
+import { InsuranceType } from "../models/enums/insuranceType";
 
 @Injectable()
 export class InMemoryDataService implements InMemoryDbService {
@@ -31,8 +32,8 @@ export class InMemoryDataService implements InMemoryDbService {
             startingDate: Date.now(),
             endingDate: Date.UTC(2018, 12, 29),
             price: 100,
-            insuranceType: 2,
-            insuranceObject: { test: "testObject" }
+            insuranceType: 2 as InsuranceType,
+            insuranceObject: { signature: "testObject" }
           }
         ]
       }

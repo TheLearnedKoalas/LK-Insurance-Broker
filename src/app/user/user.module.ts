@@ -6,6 +6,7 @@ import { UserInsurancesComponent } from "./user-insurances/user-insurances.compo
 import { Routes, RouterModule } from "@angular/router";
 import { UserComponent } from './user/user.component';
 import { FormsModule } from "@angular/forms";
+import { InsuranceTypePipe } from './pipe/insurance-type.pipe';
 
 const UserRoutes: Routes = [
   {
@@ -28,7 +29,7 @@ const UserRoutes: Routes = [
   exports: [
     RouterModule
   ],
-  declarations: [UserComponent, UserProfileComponent, UserInsurancesComponent],
+  declarations: [UserComponent, UserProfileComponent, UserInsurancesComponent, InsuranceTypePipe],
   providers: [ProfileGuard]
 })
 export class UserModule { }
