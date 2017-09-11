@@ -40,7 +40,7 @@
         <a class="nav-link" [routerLink]="[ '/user/insurances' ]">ВАШИТЕ ЗАСТРАХОВКИ</a>
       </li>
       <li class="nav-item" *ngIf='currentUser && currentUser.isAdmin'>
-        <a class="nav-link" [routerLink]="[ '/auth/profil' ]">АДМИН</a>
+        <a class="nav-link" [routerLink]="[ '/admin' ]">АДМИН</a>
       </li>
       <li class="nav-item" *ngIf='currentUser'>
         <a class="nav-link" (click)='logout()' [routerLink]="[ '/home' ]">ИЗХОД</a>

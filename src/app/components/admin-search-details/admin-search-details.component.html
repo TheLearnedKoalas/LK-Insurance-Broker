@@ -1,0 +1,28 @@
+<table class="table table-bordered table-hover">
+  <thead class="thead-inverse">
+    <tr>
+      <th>#</th>
+      <th>Номер</th>
+      <th>Статус</th>
+      <th>От Дата</th>
+      <th>До Дата</th>
+      <th>Застрахователна Компания</th>
+      <th>Застрахован Обект</th>
+      <th>Брой Вноски</th>
+      <th>Цена</th>
+    </tr>
+  </thead>
+  <tbody *ngIf='currentUser'>
+    <tr *ngFor='let insurance of currentUser.insurances; let i = index'>
+      <th scope="row">{{i + 1}}</th>
+      <td>{{insurance.number}}</td>
+      <td>{{insurance.status}}</td>
+      <td>{{insurance.startDate | date}}</td>
+      <td>{{insurance.endDate | date}}</td>
+      <td>{{insurance.insuranceCompany }}</td>
+      <td>{{insurance.vehicle.registrationNumber}}</td>
+      <td>{{insurance.paymentsCount}}</td>
+      <td>{{insurance.totalPayment | currency:'BGN':true:'1.2-2'}}</td>
+    </tr>
+  </tbody>
+</table>
