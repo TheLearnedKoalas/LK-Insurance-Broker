@@ -29,9 +29,10 @@ import { DataUserService } from "./data/user/data-user.service";
 
 import { DataClientService } from "./data/insurance/data-client.service";
 import { DataVehicleService } from "./data/insurance/data-vehicle.service";
-import { UserProfileComponent } from './components/user-profile/user-profile.component';
+// import { UserProfileComponent } from './components/user-profile/user-profile.component';
 
 import { UserModule } from "./user/user.module";
+import { DataInsuranceService } from "./data/insurance/data-insurance.service";
 
 @NgModule({
   declarations: [
@@ -58,7 +59,7 @@ import { UserModule } from "./user/user.module";
     // PopupModule
   ],
 
-  providers: [BreadcrumbService, UserService, DataUserService,InsuranceService,ClientService,DataClientService,VehicleService,DataVehicleService],
+  providers: [BreadcrumbService, UserService, DataUserService,InsuranceService,DataInsuranceService,ClientService,DataClientService,VehicleService,DataVehicleService],
 
   bootstrap: [AppComponent]
 })

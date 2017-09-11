@@ -87,6 +87,7 @@ export class VehicleFormComponent implements OnInit {
     this.vehicleService.getById(this.chassis.value)
       .subscribe(res => {
         console.log(res);
+        this.loadContent.emit(res[0]);        
         this.registrationNumber = new FormControl(res.registrationNumber, []);
         this.brand = new FormControl(res.brand, []);
         this.model = new FormControl(res.model, []);

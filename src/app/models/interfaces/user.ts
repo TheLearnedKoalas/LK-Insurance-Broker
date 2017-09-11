@@ -1,4 +1,5 @@
 import { IInsurance } from "./insurance";
+import { ThirdPartInsurance } from "../../insurance/models/thirdPartInsurance";
 
 export interface IUser {
     id: number,
@@ -9,5 +10,5 @@ export interface IUser {
     email: string,
     telephone: string,
     isAdmin: boolean,
-    insurances: IInsurance[]
+    insurances: ThirdPartInsurance[]// IInsurance[]
 }
