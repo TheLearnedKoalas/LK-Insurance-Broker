@@ -32,14 +32,22 @@ import { DataVehicleService } from "./data/insurance/data-vehicle.service";
 // import { UserProfileComponent } from './components/user-profile/user-profile.component';
 
 import { UserModule } from "./user/user.module";
+
 import { DataInsuranceService } from "./data/insurance/data-insurance.service";
+
+import { AdminPaneComponent } from './components/admin-pane/admin-pane.component';
+import { AdminGuard } from "./shared/guards/admin.guard";
+import { AdminSearchDetailsComponent } from './components/admin-search-details/admin-search-details.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     AboutComponent,
-    CarouselComponent
+    CarouselComponent,
+    AdminPaneComponent,
+    AdminSearchDetailsComponent
   ],
   imports: [
     SharedModule,
@@ -58,8 +66,7 @@ import { DataInsuranceService } from "./data/insurance/data-insurance.service";
     ReactiveFormsModule,
     // PopupModule
   ],
-
-  providers: [BreadcrumbService, UserService, DataUserService,InsuranceService,DataInsuranceService,ClientService,DataClientService,VehicleService,DataVehicleService],
+  providers: [BreadcrumbService, UserService, DataUserService,InsuranceService,DataInsuranceService,ClientService,DataClientService,VehicleService,DataVehicleService, AdminGuard],
 
   bootstrap: [AppComponent]
 })
