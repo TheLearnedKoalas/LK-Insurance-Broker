@@ -3,11 +3,12 @@ import { InsuranceFormComponent } from './forms/insurance-form/insurance-form.co
 
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { ProfileGuard } from "../shared/guards/profile.guard";
 
 export const insuranceRoutes: Routes = [
   { path: '', component: InsuranceInfoComponent },
   { path: 'online', loadChildren: '../online/online.module#OnlineModule' },
-  { path: 'form', component: InsuranceFormComponent }
+  { path: 'form', component: InsuranceFormComponent,canActivate: [ProfileGuard] }
 ];
 
 @NgModule({

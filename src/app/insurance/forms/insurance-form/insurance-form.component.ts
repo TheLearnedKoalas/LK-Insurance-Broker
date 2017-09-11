@@ -81,6 +81,7 @@ export class InsuranceFormComponent implements OnInit {
   ) { }
 
   CreatePolicy() { // ugly!!!
+    
     const insurance = this.fb.group({
       insuranceCompany: [this.insuranceCompany, []],
       totalPayment: [this.totalPayment, []],
@@ -104,11 +105,11 @@ export class InsuranceFormComponent implements OnInit {
       }, []]
     });
     console.log(insurance.value);
-    // this.insuranceService.create(insurance.value)
-    //   .subscribe(x => {
-    //     console.log(x);
-    //     this.router.navigate(['/insurances/form']);
-    //   });
+    console.log(this.clientId);
+    this.insuranceService.create(insurance.value)
+    .subscribe(res=>{
+      res.subscribe(x=>console.log(x));
+    });
   }
 
   // FindPolicy() { // for admin
@@ -135,14 +136,9 @@ export class InsuranceFormComponent implements OnInit {
 
   parentLoadClientContent(value) {
     this.clientId = value.clientId;
-    this.adress = value.adress;
-    this.name = value.name;
   }
   parentLoadVehicleContent(value) {
-    this.brand = value.brand;
     this.chassis = value.chassis;
-    this.firstReg = value.firsReg;
-    this.registrationNumber = value.registrationNumber;
     // more
   }
 

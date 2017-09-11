@@ -14,123 +14,93 @@ import { Observable } from 'rxjs/Observable';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import 'rxjs';
+
+import { DataClientService } from "../../data/insurance/data-client.service";
+import { DataVehicleService } from "../../data/insurance/data-vehicle.service";
+import { UserService } from "../../shared/user/user.service";
+import { DataInsuranceService } from "../../data/insurance/data-insurance.service";
 
 @Injectable()
 export class InsuranceService {
-    insurances = [];
-
-    url = 'http://localhost:4200/insurances';
-
-    constructor(private http: Http, private clientService: ClientService,
-        private vehicleService: VehicleService) {
+    constructor(private httpService: DataInsuranceService,
+        private userService: UserService,
+        private clientService: ClientService,
+        private vehicleService: VehicleService) { }
+    create(insuranceToAdd) {
+      return  Observable
+            .zip(
+            this.clientService.getById(insuranceToAdd.client.clientId),
+            this.vehicleService.getById(insuranceToAdd.vehicle.chassis),
+            (client, vehicle)=> {
+                //  console.log(insuranceToAdd);
+                const user = this.userService.getCurrentUser();
+                const insurance = new ThirdPartInsurance(client[0], vehicle[0], user);
+                // insurance.paymentsCount = insuranceToAdd.paymentsCount.value;
+                // insurance.totalPayment = insuranceToAdd.totalPayment.value;
+                insurance.insuranceCompany = insuranceToAdd.insuranceCompany.value;
+                // console.log(insurance);
+                // user.insurances.push(insurance);
+                // console.log(this.userService.getCurrentUser());
+                return this.httpService.create(insurance);
+            });
     }
 
-    create(insuranceDetails, client, vehicle) {
-        // this.clientService.find(client.id)
-        //     .subscribe(res => {
-        //         if (res === undefined) { // ok?
-        //             this.clientService.create(client)
-        //                 .subscribe(c => {
-        //                     client = c;
-        //                 });
-        //         } else {
-        //             client = res;
-        //         }
-        //     });
-        // this.vehicleService.find(vehicle.chassis)
-        //     .subscribe(res => {
-        //         if (res === undefined) {
-        //             this.vehicleService.create(vehicle)
-        //                 .subscribe(v => {
-        //                     vehicle = v;
-        //                 });
-        //         } else {
-        //             vehicle = res;
-        //         }
-        //     });
-        // const insurance = new ThirdPartInsurance(client, vehicle, 'current'); // userName
-        // if (insuranceDetails.hasOwnProperty('startDate')) {
-        //     insurance.startDate = new Date(Date.now());
-        //     insurance.endDate = insurance.startDate;
-        //     insurance.endDate.setDate(insurance.endDate.getDate() + 365);
-        // }
-        // if (insuranceDetails.hasOwnProperty('totalPayment')) {
-        //     insurance.totalPayment = insuranceDetails.totalPayment;
-        // }
-        // if (insuranceDetails.hasOwnProperty('paymentsCount')) {
-        //     insurance.paymentsCount = insuranceDetails.paymentsCount;
-        // }
-        // this.insurances.push(insurance);
-        // return Observable.create(x => x.next(insurance));
+    // private getById(insuranceId) {
+    //     return this.httpService.getById(insuranceId);
+    // }
 
-        // const headers = new Headers({ 'Content-Type': 'application/json' });
-        // const options = new RequestOptions({ headers: headers });
-        // return this.http.post(this.url + '/insurance', insurance, options)// url???
-        //     .map(this.extractData)
-        //     .catch(this.handleErrorObservable);
-    }
+    // getAll() {
+    //     return this.httpService.getAll();
+    // }
 
-    find(clientId, vehicleChassis) {
-        // const insurance = this.insurances.find(x => x.client.id === clientId
-        //     && x.vehicle.chassis === vehicleChassis);
+    // find(clientId, vehicleChassis) {
+    //     // const insurance = this.insurances.find(x => x.client.id === clientId
+    //     //     && x.vehicle.chassis === vehicleChassis);
 
-        // return Observable.create(x => x.next(insurance));
-        // const headers = new Headers();
-        // headers.append('Content-Type', 'application/json');
-        // const params = new URLSearchParams();
-        // params.append('client.id',clientId); //to fix???
-        // params.append('vehicle.chassis',vehicleChassis); //to fix???
-        // const options = new RequestOptions({ headers: headers, params: params });
-        // return this.http.get(this.url, options)
-        //     .map(this.extractData)
-        //     .catch(this.handleErrorObservable);
-    }
+    //     // return Observable.create(x => x.next(insurance));
+    //     // const headers = new Headers();
+    //     // headers.append('Content-Type', 'application/json');
+    //     // const params = new URLSearchParams();
+    //     // params.append('client.id',clientId); //to fix???
+    //     // params.append('vehicle.chassis',vehicleChassis); //to fix???
+    //     // const options = new RequestOptions({ headers: headers, params: params });
+    //     // return this.http.get(this.url, options)
+    //     //     .map(this.extractData)
+    //     //     .catch(this.handleErrorObservable);
+    // }
 
-    getAllPolices()  {
-        // return Observable.create(x => x.next(this.insurances.filter(i => i.status === 'policy')));
-        // const headers = new Headers();
-        // headers.append('Content-Type', 'application/json');
-        // const params = new URLSearchParams();
-        // params.append('status', 'policy');
-        // const options = new RequestOptions({ headers: headers, params: params });
-        // return this.http.get(this.url, options)
-        //     .map(this.extractData)
-        //     .catch(this.handleErrorObservable);
-    }
+    // getAllPolices() {
+    //     const status = 'policy';
+    //     return this.httpService.filterByStatus(status);
+    // }
 
-    getAllOffers() {
-        // return Observable.create(x => x.next(this.insurances.filter(i => i.status === 'offer')));
-        // const headers = new Headers();
-        // headers.append('Content-Type', 'application/json');
-        // const params = new URLSearchParams();
-        // params.append('status', 'offer');
-        // const options = new RequestOptions({ headers: headers, params: params });
-        // return this.http.get(this.url, options)
-        //     .map(this.extractData)
-        //     .catch(this.handleErrorObservable);
-    }
+    // getAllOffers() {
+    //     const status = 'offer';
+    //     return this.httpService.filterByStatus(status);
+    // }
 
-    finishPolicyOffer(offerId, policyNumber) {
-        // let offer: ThirdPartInsurance;
-        // this.findById(offerId)
-        //     .subscribe(res => {
-        //         offer = res;
-        //     });
-        // offer.status = 'policy';
-        // offer.number = policyNumber;
-        // return Observable.create(x => x.next(offer));
-        // let insurance: ThirdPartInsurance;
-        // this.findById(offerId)
-        //     .subscribe(res => {
-        //         insurance = res;
-        //     });
-        // const headers = new Headers();
-        // headers.append('Content-Type', 'application/json');
-        // const options = new RequestOptions({ headers: headers });
-        // return this.http.put(this.url, insurance, options)
-        //     .map(this.extractData)
-        //     .catch(this.handleErrorObservable);
-    }
+    // finishPolicyOffer(offerId, policyNumber) {
+    //     // let offer: ThirdPartInsurance;
+    //     // this.findById(offerId)
+    //     //     .subscribe(res => {
+    //     //         offer = res;
+    //     //     });
+    //     // offer.status = 'policy';
+    //     // offer.number = policyNumber;
+    //     // return Observable.create(x => x.next(offer));
+    //     // let insurance: ThirdPartInsurance;
+    //     // this.findById(offerId)
+    //     //     .subscribe(res => {
+    //     //         insurance = res;
+    //     //     });
+    //     // const headers = new Headers();
+    //     // headers.append('Content-Type', 'application/json');
+    //     // const options = new RequestOptions({ headers: headers });
+    //     // return this.http.put(this.url, insurance, options)
+    //     //     .map(this.extractData)
+    //     //     .catch(this.handleErrorObservable);
+    // }
 
     // getAllPolicesforUser(userName): Observable<ThirdPartInsurance[]> { // from users
     //     return Observable
@@ -147,28 +117,16 @@ export class InsuranceService {
     //     //     .catch(this.handleErrorObservable);
     // }
 
-    findByNumber(number) {
-        // const headers = new Headers();
-        // headers.append('Content-Type', 'application/json');
-        // const params = new URLSearchParams();
-        // params.append('number', number);
-        // const options = new RequestOptions({ headers: headers, params: params });
-        // return this.http.get(this.url, options)
-        //     .map(this.extractData)
-        //     .catch(this.handleErrorObservable);
-        // return Observable.create(x => x.next(this.insurances.find(i => i.number === number)));
-    }
+    // findByNumber(number) {
+    //     // const headers = new Headers();
+    //     // headers.append('Content-Type', 'application/json');
+    //     // const params = new URLSearchParams();
+    //     // params.append('number', number);
+    //     // const options = new RequestOptions({ headers: headers, params: params });
+    //     // return this.http.get(this.url, options)
+    //     //     .map(this.extractData)
+    //     //     .catch(this.handleErrorObservable);
+    //     // return Observable.create(x => x.next(this.insurances.find(i => i.number === number)));
+    // }
 
-    private findById(id){
-        // const headers = new Headers();
-        // headers.append('Content-Type', 'application/json');
-        // const params = new URLSearchParams();
-        // params.append('id', id);
-        // const options = new RequestOptions({ headers: headers, params: params });
-        // return this.http.get(this.url, options)
-        //     .map(this.extractData)
-        //     .catch(this.handleErrorObservable);
-        // return Observable.create(x => x.next(this.insurances.find(i => i.id === id)));
-    }  
 }
-
