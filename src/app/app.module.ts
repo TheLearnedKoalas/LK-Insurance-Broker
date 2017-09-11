@@ -29,7 +29,6 @@ import { DataUserService } from "./data/user/data-user.service";
 
 import { DataClientService } from "./data/insurance/data-client.service";
 import { DataVehicleService } from "./data/insurance/data-vehicle.service";
-import { UserProfileComponent } from './components/user-profile/user-profile.component';
 
 import { UserModule } from "./user/user.module";
 import { AdminPaneComponent } from './components/admin-pane/admin-pane.component';
