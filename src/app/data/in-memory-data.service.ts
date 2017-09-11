@@ -139,7 +139,6 @@ export class InMemoryDataService implements InMemoryDbService {
         isAdmin: false,
         insurances: [
           {
-<<<<<<< HEAD
             number: '12345',
             status: 'policy',
             startDate: Date.now(),
@@ -177,13 +176,6 @@ export class InMemoryDataService implements InMemoryDbService {
             },
             // insuranceType: 2,
             // insuranceObject: { test: "testObject" }
-=======
-            startingDate: Date.now(),
-            endingDate: Date.UTC(2018, 12, 29),
-            price: 100,
-            insuranceType: 2 as InsuranceType,
-            insuranceObject: { signature: "testObject" }
->>>>>>> feature/user-insurances
           }
         ]
       }
