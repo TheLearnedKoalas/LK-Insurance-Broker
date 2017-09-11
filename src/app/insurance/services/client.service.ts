@@ -5,7 +5,7 @@ import { Client } from './../models/client';
 
 import { Injectable } from '@angular/core';
 
-import { DataClientService } from "../../data/user/data-client.service";
+import { DataClientService } from "../../data/insurance/data-client.service";
 
 
 
@@ -14,43 +14,31 @@ export class ClientService {
 
     constructor(private httpService: DataClientService) { }
     create(clientToAdd) {
+        // console.log(clientToAdd);
         let client: Client;
-        const id = clientToAdd.id || ''; // validation
+        const clientId = clientToAdd.clientId; // validation
+        // console.log(clientId);
         const name = clientToAdd.name; // validation
         const adress = clientToAdd.adress || '';
         const contacts = clientToAdd.constacts || {};
         if (clientToAdd.clientType == 'физическо лице') { // enum
-            client = new Individual(id, name, adress);
+            client = new Individual(clientId.toString(), name, adress);
+            client.clientId=clientId;
+            client.name=name;
             client.contacts = contacts;
+            // console.log(client);
         } else if (clientToAdd.clientType == 'юридическо лице') { // enum
-            client = new Company(id, name, adress);
+            client = new Company(clientId.toString(), name, adress);
             client.contacts = contacts;
         }
-        return this.httpService.create(client)
-            .subscribe((res) => {
-                return Observable.create(x => x.next(res));
-            });
+        return this.httpService.create(client);
     }
 
+    getById(clientId) {
+        return this.httpService.getById(clientId);
+    }
 
-
-    // find(clientId): Observable<Client> {
-    //     const clientFount = this.clients.find(x => x.id === clientId);
-    //     return Observable.create(x => x.next(clientFount));
-    //     // const headers = new Headers();
-    //     // headers.append('Content-Type', 'application/json');
-    //     // const params = new URLSearchParams();
-    //     // params.append('id', clientId);
-    //     // const options = new RequestOptions({ headers: headers, params: params });
-    //     // return this.http.get(this.url, options)
-    //     //     .map(this.extractData)
-    //     //     .catch(this.handleErrorObservable);
-    // }
-
-    // getAll(): Observable<Client[]> {
-    //     return Observable.create(x => x.next(this.clients));
-    //      // return this.http.get(this.url)
-    //     //     .map(this.extractData)
-    //     //     .catch(this.handleErrorObservable);});
-    // }
+    getAll() {
+        return this.httpService.getAll();
+    }
 }

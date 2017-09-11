@@ -1,6 +1,6 @@
 <div class="blogwrapstart">
   <h4 style="color: #296BA8;padding: 0;">&nbsp;Данни за Застрахован</h4>
-  <form [formGroup]="client">
+  <form [formGroup]="client" #clientForm=ngForm novalidate>
     <!-- (ngSubmit)="insurance.resetForm(CreatePolicy(insuranceForm.value))" -->
     <div style="height: 15px;">&nbsp;</div>
     <div id="criteria_21" class="form-group">
@@ -13,13 +13,13 @@
     </div>
     <div id="criteria_22" class="form-group">
       <label style="float: left;width: 32%;padding-left: 5px;" for="name">&nbsp;Име</label>
-      <input name="name" formControlName="name" required>
+      <input type="text" name="name" formControlName="name" required>
       <!-- <span *ngIf="name.hasError('required') && name.touched || (!name.valid)" class="text-danger">Изберете вид собственик</span> -->
       <div class="clear"></div>
     </div>
     <div id="criteria_23" class="form-group">
-      <label style="float: left;width: 32%;padding-left: 5px;" for="id">&nbsp;ЕГН/Булстат/ЛНЧ</label>
-      <input name="id" formControlName="id" required>
+      <label style="float: left;width: 32%;padding-left: 5px;" for="clientId">&nbsp;ЕГН/Булстат/ЛНЧ</label>
+      <input name="clientId" formControlName="clientId" required>
       <!-- <span *ngIf="id.hasError('required') && id.touched || (!id.valid)" class="text-danger">Изберете вид собственик</span> -->
       <div class="clear"></div>
     </div>

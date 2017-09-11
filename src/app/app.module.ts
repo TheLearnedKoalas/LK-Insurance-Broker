@@ -26,7 +26,8 @@ import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './data/in-memory-data.service';
 import { UserService } from "./shared/user/user.service";
 import { DataUserService } from "./data/user/data-user.service";
-import { DataClientService } from "./data/user/data-client.service";
+import { DataClientService } from "./data/insurance/data-client.service";
+import { DataVehicleService } from "./data/insurance/data-vehicle.service";
 
 @NgModule({
   declarations: [
@@ -52,7 +53,7 @@ import { DataClientService } from "./data/user/data-client.service";
     // PopupModule
   ],
 
-  providers: [BreadcrumbService, UserService, DataUserService,InsuranceService,ClientService,DataClientService,VehicleService],
+  providers: [BreadcrumbService, UserService, DataUserService,InsuranceService,ClientService,DataClientService,VehicleService,DataVehicleService],
 
   bootstrap: [AppComponent]
 })

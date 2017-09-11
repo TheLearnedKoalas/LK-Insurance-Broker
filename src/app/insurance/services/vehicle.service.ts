@@ -8,55 +8,30 @@ import { Observable } from 'rxjs/Observable';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import { DataVehicleService } from "../../data/insurance/data-vehicle.service";
 
 @Injectable()
 export class VehicleService {
     vehicles = [];
 
     url = 'http://localhost:4200/insurances/vehicles';
-    constructor(private http: Http) { }
-    create(vehicle) {
-        // this.find(vehicle.chassis)
-        //     .subscribe(res => {
-        //         if (res !== undefined) {
-        //             vehicle = res;
-        //             // return http.get
-        //         }
-        //     });
-        // const vehicleToCreate = new Vehicle();
-        // for (const key in vehicle) {
-        //     if (vehicleToCreate.hasOwnProperty(key)) {
-        //         vehicleToCreate[key] = vehicle[key];
-        //     }
-        // }
-
-        // return Observable.create(x => x.next(vehicleToCreate));
-        // const headers = new Headers({ 'Content-Type': 'application/json' });
-        // const options = new RequestOptions({ headers: headers });
-        // return this.http.post(this.url, vehicleToCreate, options)// url???
-        //     .map(this.extractData)
-        //     .catch(this.handleErrorObservable);
+    constructor(private httpService: DataVehicleService) { }
+    create(vehicleToAdd) {
+        let vehicle= new Vehicle();
+        console.log(vehicleToAdd);
+        vehicle.chassis = vehicleToAdd.chassis; // validation
+        vehicle.brand = vehicleToAdd.brand; // validation
+        vehicle.model = vehicleToAdd.model;
+        vehicle.registrationNumber = vehicleToAdd.registrationNumber;
+        
+        return this.httpService.create(vehicle);
     }
 
-    find(vehicleChassis) {
-        // const vehicleFound = this.vehicles.find(x => x.chassis === vehicleChassis);
-        // return Observable.create(x => x.next(vehicleFound));
-
-        // const headers = new Headers();
-        // headers.append('Content-Type', 'application/json');
-        // const params = new URLSearchParams();
-        // params.append('chassis', vehicleChassis);
-        // const options = new RequestOptions({ headers: headers, params: params });
-        // return this.http.get(this.url, options)
-        //     .map(this.extractData)
-        //     .catch(this.handleErrorObservable);
+    getById(chassis) {
+        return this.httpService.getById(chassis);
     }
 
     getAll() {
-        // return Observable.create(x => x.next(this.vehicles));
-
-        // return this.http.get(this.url)
-        //     .map(this.extractData)
-        //     .catch(this.handleErrorObservable);});
+        return this.httpService.getAll();
     }
 }
