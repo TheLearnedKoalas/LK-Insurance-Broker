@@ -6,6 +6,7 @@ import { Individual } from '../models/individual';
 import { Company } from '../models/company';
 import { Client } from '../models/client';
 import { ThirdPartInsurance } from '../models/thirdPartInsurance';
+import { IInsurance } from '../../models/interfaces/insurance';
 
 import { Injectable, ReflectiveInjector } from '@angular/core';
 import { Http, Response } from '@angular/http';
@@ -27,7 +28,7 @@ export class InsuranceService {
         private userService: UserService,
         private clientService: ClientService,
         private vehicleService: VehicleService) { }
-    create(clientId,chassis,insuranceCompany,totalPayment,paymentsCount) {
+    create(clientId, chassis, insuranceCompany, totalPayment, paymentsCount) {
         return Observable
             .zip(
             this.clientService.getById(clientId),
@@ -35,15 +36,17 @@ export class InsuranceService {
             (client, vehicle) => {
                 const user = this.userService.getCurrentUser();
                 const insurance = new ThirdPartInsurance(client[0], vehicle[0], user);
-                 insurance.paymentsCount = paymentsCount;
-                 insurance.totalPayment = totalPayment;
+                insurance.paymentsCount = paymentsCount;
+                insurance.totalPayment = totalPayment;
                 insurance.insuranceCompany = insuranceCompany;
-                // console.log(insurance);
-                // console.log(client);
-                // console.log(vehicle);
-                // console.log(insurance);
-                // user.insurances.push(insurance);
-                // console.log(this.userService.getCurrentUser());
+
+                // if (user.hasOwnProperty('insurances')) {
+                //     user.insurances.push(insurance);
+                // } else {
+                //    console.log('fff');
+                // }
+
+                // console.log(user);
                 return this.httpService.create(insurance);
             });
     }

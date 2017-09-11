@@ -20,7 +20,7 @@ export class AppComponent {
     breadcrumbService.addFriendlyNameForRoute('/insurances/online', 'Online Застраховане');
     breadcrumbService.addFriendlyNameForRoute('/insurances/online/calculator', 'Калкулатор');
     breadcrumbService.addFriendlyNameForRoute('/auth/login', 'Вход');
-    breadcrumbService.addFriendlyNameForRoute('/auth', '');
+    breadcrumbService.addFriendlyNameForRoute('/auth', ' ');
     breadcrumbService.addFriendlyNameForRoute('/auth/signup', 'Регистрация');
     breadcrumbService.addFriendlyNameForRoute('/user/profile', 'Профил');
     breadcrumbService.addFriendlyNameForRoute('/user/insurances', 'Застраховки');
