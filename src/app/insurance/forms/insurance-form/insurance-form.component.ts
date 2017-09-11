@@ -21,41 +21,21 @@ export class InsuranceFormComponent implements OnInit {
   chassis: any;
   vehicleType: any;
   sub;
-  public insuranceCompany: FormControl;
-  public totalPayment: FormControl;
+  public insuranceCompany=new FormControl('',[]);
+  public totalPayment=new FormControl('',[]);
 
-  public paymentsCount: FormControl;
+  public paymentsCount=new FormControl('',[]);
 
-  public startDate: FormControl;
+  public startDate=new FormControl('',[]);
+
+  insurance:FormGroup;
 
   clientType = '';
   name = '';
   clientId = '';
   adress = '';
 
-  insurance = this.fb.group({
-    insuranceCompany: [this.insuranceCompany, []],
-    totalPayment: [this.totalPayment, []],
-    paymentsCount: [this.paymentsCount, []],
-    startDate: [this.startDate, []],
-    client: [{
-      clientType: this.clientType,
-      name: this.name,
-      clientId: this.clientId,
-      adress: this.adress,
-    }, []],
-    vehicle: [{
-      vehicleType: this.vehicleType,
-      chassis: this.chassis,
-      registrationNumber: this.registrationNumber,
-      brand: this.brand,
-      model: this.model,
-      firstReg: this.firstReg,
-      vehiclePower: this.vehiclePower,
-      purpose: this.purpose
-    }, []]
-  });
-
+  
 
 
   companiesList = [{
@@ -80,33 +60,9 @@ export class InsuranceFormComponent implements OnInit {
     private fb: FormBuilder
   ) { }
 
-  CreatePolicy() { // ugly!!!
-    
-    const insurance = this.fb.group({
-      insuranceCompany: [this.insuranceCompany, []],
-      totalPayment: [this.totalPayment, []],
-      paymentsCount: [this.paymentsCount, []],
-      startDate: [this.startDate, []],
-      client: [{
-        clientType: this.clientType,
-        name: this.name,
-        clientId: this.clientId,
-        adress: this.adress,
-      }, []],
-      vehicle: [{
-        vehicleType: this.vehicleType,
-        chassis: this.chassis,
-        registrationNumber: this.registrationNumber,
-        brand: this.brand,
-        model: this.model,
-        firstReg: this.firstReg,
-        vehiclePower: this.vehiclePower,
-        purpose: this.purpose
-      }, []]
-    });
-    console.log(insurance.value);
-    console.log(this.clientId);
-    this.insuranceService.create(insurance.value)
+  CreatePolicy() { 
+
+    this.insuranceService.create(this.clientId,this.chassis,this.insuranceCompany,this.totalPayment.value,this.paymentsCount.value)
     .subscribe(res=>{
       res.subscribe(x=>console.log(x));
     });
@@ -139,34 +95,39 @@ export class InsuranceFormComponent implements OnInit {
   }
   parentLoadVehicleContent(value) {
     this.chassis = value.chassis;
-    // more
   }
 
-  ngOnInit() { // not loading content
-    let count;
-    let paymentDetails = [''];
-    let sum = 0;
-    const clientDetails = { clientType: '' };
-    this.insuranceCompany = new FormControl('', [Validators.required]);
-    this.sub = this.activateRoute.queryParams
-      .subscribe(params => {
-        if (params.hasOwnProperty('paymentDetails')) {
-          //    console.log(params);
-          paymentDetails = params.paymentDetails.split('%');
-          const payment = paymentDetails[1].split('*');
-          for (let i = 0; i < payment.length; i++) {
-            sum += +payment[i];
-          }
-          count = payment.length.toString();
-          clientDetails.clientType = params.clientType;
-          this.insuranceCompany = new FormControl(paymentDetails[0], [Validators.required]);
-          this.clientType = params.clientType;
-          this.vehicleType = params.vehicleType;
-          this.vehiclePower = params.vehiclePower;
-          this.firstReg = params.firstReg;
-          this.purpose = params.purpose;
-        }
-      });
-    this.totalPayment = new FormControl(sum.toString(), [Validators.required]);
+  ngOnInit() { // not loading content   
+    this.insurance = new FormGroup({
+      insuranceCompany: this.insuranceCompany,
+      totalPayment: this.totalPayment,
+      paymentsCount: this.paymentsCount,
+      startDate: this.startDate,      
+    });
+    // let count;
+    // let paymentDetails = [''];
+    // let sum = 0;
+    // const clientDetails = { clientType: '' };
+    // this.insuranceCompany = new FormControl('', [Validators.required]);
+    // this.sub = this.activateRoute.queryParams
+    //   .subscribe(params => {
+    //     if (params.hasOwnProperty('paymentDetails')) {
+    //       //    console.log(params);
+    //       paymentDetails = params.paymentDetails.split('%');
+    //       const payment = paymentDetails[1].split('*');
+    //       for (let i = 0; i < payment.length; i++) {
+    //         sum += +payment[i];
+    //       }
+    //       count = payment.length.toString();
+    //       clientDetails.clientType = params.clientType;
+    //       this.insuranceCompany = new FormControl(paymentDetails[0], [Validators.required]);
+    //       this.clientType = params.clientType;
+    //       this.vehicleType = params.vehicleType;
+    //       this.vehiclePower = params.vehiclePower;
+    //       this.firstReg = params.firstReg;
+    //       this.purpose = params.purpose;
+    //     }
+    //   });
+    // this.totalPayment = new FormControl(sum.toString(), [Validators.required]);
   }
 }

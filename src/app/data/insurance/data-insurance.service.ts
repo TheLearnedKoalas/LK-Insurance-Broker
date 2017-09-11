@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http, Response, Headers } from "@angular/http";
 import { Observable } from "rxjs/Observable";
 import { ThirdPartInsurance } from "../../insurance/models/thirdPartInsurance";
+import { IUser } from "../../models/interfaces/user";
 
 @Injectable()
 export class DataInsuranceService {
@@ -19,28 +20,36 @@ export class DataInsuranceService {
         return Observable.throw(error.message || error);
     }
 
-    // getAll(): Observable<Client[]> {
-    //     return this.http.get(this.clientsUrl)
-    //         .map(this.extractData)
-    //         .catch(this.handleErrorObservable);
-    // };
+    getAll(): Observable<ThirdPartInsurance[]> {
+        return this.http.get(this.insurancesUrl)
+            .map(this.extractData)
+            .catch(this.handleErrorObservable);
+    };
 
-    // getById(clientId: string): Observable<Client> {
-    //     const url = `${this.clientsUrl}?clientId=${clientId}`;
+    getById(insuranceId: string): Observable<ThirdPartInsurance> {
+        const url = `${this.insurancesUrl}?insuranceId=${insuranceId}`;
 
-    //     return this.http.get(url)
-    //         .map(this.extractData)
-    //         .catch(this.handleErrorObservable);
-    // }
+        return this.http.get(url)
+            .map(this.extractData)
+            .catch(this.handleErrorObservable);
+    }
+
+    filterByStatus(status:string): Observable<ThirdPartInsurance[]> {
+        const url = `${this.insurancesUrl}?status=${status}`;
+
+        return this.http.get(url)
+            .map(this.extractData)
+            .catch(this.handleErrorObservable);
+    }
 
 
-    // update(client: Client): Observable<Client> {
-    //     const url = `${this.clientsUrl}?clientId=${client.clientId}`;
+    update(insurance: ThirdPartInsurance): Observable<ThirdPartInsurance> {
+        const url = `${this.insurancesUrl}?insuranceId=${insurance.insuranceId}`;
 
-    //     return this.http
-    //         .put(url, JSON.stringify(client), { headers: this.headers })
-    //         .catch(this.handleErrorObservable);
-    // }
+        return this.http
+            .put(url, JSON.stringify(insurance), { headers: this.headers })
+            .catch(this.handleErrorObservable);
+    }
 
     create(insurance: ThirdPartInsurance): Observable<ThirdPartInsurance> {
         // let exists = false;
@@ -59,11 +68,19 @@ export class DataInsuranceService {
             .catch(this.handleErrorObservable);
     }
 
-    // delete(client: Client | string): Observable<Client> {
-    //     const clientId = typeof client === 'string' ? client : client.clientId;
-    //    const url = `${this.clientsUrl}?clientId=${clientId}`;
+    getByPolicyNumber(number){
+        const url = `${this.insurancesUrl}?number=${number}`;
+        
+                return this.http.get(url)
+                    .map(this.extractData)
+                    .catch(this.handleErrorObservable);
+    }
 
-    //     return this.http.delete(url, { headers: this.headers })
-    //         .catch(this.handleErrorObservable);
-    // }
+    delete(insurance: ThirdPartInsurance | string): Observable<ThirdPartInsurance> {
+        const insuranceId = typeof insurance === 'string' ? insurance : insurance.insuranceId;
+       const url = `${this.insurancesUrl}?insuranceId=${insuranceId}`;
+
+        return this.http.delete(url, { headers: this.headers })
+            .catch(this.handleErrorObservable);
+    }
 }
