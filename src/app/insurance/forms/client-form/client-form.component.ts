@@ -27,8 +27,6 @@ export class ClientFormComponent implements OnInit {
   client : FormGroup;
   constructor(private clientService: ClientService) { }
 
-  // @Output()
-  // loadContent = new EventEmitter<object>();
 
   CreateClient() {
      console.log(this.client.value);
@@ -42,6 +40,7 @@ export class ClientFormComponent implements OnInit {
     console.log(this.clientId.value);
     this.clientService.getById(this.clientId.value)
       .subscribe(res => {
+        this.loadContent.emit(res[0]);
         console.log(res);
         this.name = new FormControl(res.name, []);
         this.adress = new FormControl(res.adress, []);

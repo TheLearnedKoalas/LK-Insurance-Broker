@@ -31,9 +31,13 @@ import { DataClientService } from "./data/insurance/data-client.service";
 import { DataVehicleService } from "./data/insurance/data-vehicle.service";
 
 import { UserModule } from "./user/user.module";
+
+import { DataInsuranceService } from "./data/insurance/data-insurance.service";
+
 import { AdminPaneComponent } from './components/admin-pane/admin-pane.component';
 import { AdminGuard } from "./shared/guards/admin.guard";
 import { AdminSearchDetailsComponent } from './components/admin-search-details/admin-search-details.component';
+
 
 @NgModule({
   declarations: [
@@ -61,7 +65,8 @@ import { AdminSearchDetailsComponent } from './components/admin-search-details/a
     ReactiveFormsModule,
     // PopupModule
   ],
-  providers: [BreadcrumbService, UserService, DataUserService, InsuranceService, ClientService, DataClientService, VehicleService, DataVehicleService, AdminGuard],
+  providers: [BreadcrumbService, UserService, DataUserService,InsuranceService,DataInsuranceService,ClientService,DataClientService,VehicleService,DataVehicleService, AdminGuard],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

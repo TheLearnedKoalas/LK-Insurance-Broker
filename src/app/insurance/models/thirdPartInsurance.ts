@@ -1,14 +1,15 @@
 import { Client } from './client';
 import { Vehicle } from './vehicle';
+import { IUser } from '../../models/interfaces/user';
 
 export class ThirdPartInsurance {
-    constructor(public client: Client, public vehicle: Vehicle, public user: string) { // user:User
+    constructor(public client: Client, public vehicle: Vehicle, public user: IUser ) {
         this.status = 'offer';
-        this.id = ThirdPartInsurance.idGenerator();
+        this.insuranceId = ThirdPartInsurance.idGenerator();
     }
-    id: string; // idGenerator
+    insuranceId: string; // idGenerator
     number: number;
-    status: string; // enum
+    public status: string; // enum
     public startDate: Date;
     public endDate: Date;
     public totalPayment: number;
