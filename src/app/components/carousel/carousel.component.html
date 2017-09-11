@@ -1,7 +1,40 @@
 <div class="carousel">
     <ul class="slides">
-      <li *ngFor="let slide of slides">
-        <h1>SLide content</h1>
+      <li>
+        <div>
+          <h2>
+            Евтина гражданска отговорност!
+          </h2>
+          <button [routerLink]="['/insurances/online']" class="btn btn-warning">Изберете най-добрата цена</button>
+        </div>
+      </li>
+        <li>
+          <div>
+            <h2>
+              Изпратете онлайн запитване за застраховка каско
+            </h2>
+            <p>
+              Наш представител ще се свърже с вас!
+            </p>
+            <p>
+             Така ще можете да изберете най подходящия прукт за Вашия автомобил
+            </p>
+            <button [routerLink]="['/insurances/online']" class="btn btn-warning">Запитване</button>
+          </div>
+        </li>
+          <li>
+            <div>
+              <h2>
+                Застраховка за дома
+              </h2>
+              <p>
+                Отстъпки над 40% само при нас!
+              </p>
+              <p>
+               Индивидуален пакет според нуждите Ви
+              </p>
+              <button [routerLink]="['/insurances/online']" class="btn btn-warning">Запитване</button>
+            </div>
       </li>
     </ul>
   </div>
