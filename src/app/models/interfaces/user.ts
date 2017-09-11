@@ -10,5 +10,5 @@ export interface IUser {
     email: string,
     telephone: string,
     isAdmin: boolean,
-    insurances: ThirdPartInsurance[]// IInsurance[]
+    insurances: IInsurance[]//ThirdPartInsurance[]
 }

@@ -42,6 +42,7 @@ export class DataUserService {
 
   updateUser(user: IUser): Promise<IUser> {
     const url = `${this.usersUrl}/${user.id}`;
+    console.log(user);
     return this.http
       .put(url, JSON.stringify(user), { headers: this.headers })
       .toPromise()
