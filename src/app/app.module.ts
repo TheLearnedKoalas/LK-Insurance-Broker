@@ -26,18 +26,19 @@ import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './data/in-memory-data.service';
 import { UserService } from "./shared/user/user.service";
 import { DataUserService } from "./data/user/data-user.service";
+
 import { DataClientService } from "./data/insurance/data-client.service";
 import { DataVehicleService } from "./data/insurance/data-vehicle.service";
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 
+import { UserModule } from "./user/user.module";
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     AboutComponent,
-    CarouselComponent,
-    UserProfileComponent
+    CarouselComponent
   ],
   imports: [
     SharedModule,
@@ -48,6 +49,7 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
     HttpModule,
     InMemoryWebApiModule.forRoot(InMemoryDataService),
     AuthModule,
+    UserModule,
     AppRoutingModule,
     FormsModule,
     InsuranceModule,

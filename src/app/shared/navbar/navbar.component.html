@@ -34,7 +34,10 @@
         <a class="nav-link" [routerLink]="[ '/auth' ]">ВХОД</a>
       </li>
       <li class="nav-item" *ngIf='currentUser'>
-        <a class="nav-link" [routerLink]="[ '/profile' ]">ПРОФИЛ</a>
+        <a class="nav-link" [routerLink]="[ '/user/profile' ]">ПРОФИЛ</a>
+      </li>
+      <li class="nav-item" *ngIf='currentUser && !currentUser.isAdmin'>
+        <a class="nav-link" [routerLink]="[ '/user/insurances' ]">ВАШИТЕ ЗАСТРАХОВКИ</a>
       </li>
       <li class="nav-item" *ngIf='currentUser && currentUser.isAdmin'>
         <a class="nav-link" [routerLink]="[ '/auth/profil' ]">АДМИН</a>
