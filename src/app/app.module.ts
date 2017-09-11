@@ -30,6 +30,7 @@ import { DataUserService } from "./data/user/data-user.service";
 import { DataClientService } from "./data/user/data-client.service";
 
 import { UserModule } from "./user/user.module";
+import { AdminPaneComponent } from './components/admin-pane/admin-pane.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { UserModule } from "./user/user.module";
     AppComponent,
     HomeComponent,
     AboutComponent,
-    CarouselComponent
+    CarouselComponent,
+    AdminPaneComponent
   ],
   imports: [
     SharedModule,
