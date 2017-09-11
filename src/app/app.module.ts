@@ -29,7 +29,7 @@ import { DataUserService } from "./data/user/data-user.service";
 
 import { DataClientService } from "./data/user/data-client.service";
 
-import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { UserModule } from "./user/user.module";
 
 
 @NgModule({
@@ -37,8 +37,7 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
     AppComponent,
     HomeComponent,
     AboutComponent,
-    CarouselComponent,
-    UserProfileComponent
+    CarouselComponent
   ],
   imports: [
     SharedModule,
@@ -49,6 +48,7 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
     HttpModule,
     InMemoryWebApiModule.forRoot(InMemoryDataService),
     AuthModule,
+    UserModule,
     AppRoutingModule,
     FormsModule,
     InsuranceModule,
