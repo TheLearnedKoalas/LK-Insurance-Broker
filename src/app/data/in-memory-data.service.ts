@@ -8,13 +8,13 @@ export class InMemoryDataService implements InMemoryDbService {
   createDb() {
     const clients = [
       {
-        id: '1234567890',
+        clientId: '1234567890',
         clientType: 'физическо лице',
         name: 'Асена Пенчева',
         adress: 'адрес'
       },
       {
-        id: '9876543210',
+        clientId: '9876543210',
         clientType: 'физическо лице',
         name: 'Иван Иванов',
         adress: 'адрес'
@@ -61,7 +61,7 @@ export class InMemoryDataService implements InMemoryDbService {
         lastName: 'user-last'
       },
       client: {
-        id: '1234567890',
+        clientId: '1234567890',
         clientType: 'физическо лице',
         name: 'Асена Пенчева',
         adress: 'адрес'
@@ -75,7 +75,7 @@ export class InMemoryDataService implements InMemoryDbService {
         firstReg: '2017',
         vehiclePower: '3000'
       },
-      id: '12345asdd',
+      policyId: '12345asdd',
       number: 12345,
       status: 'policy',
       startDate: Date.now(),
@@ -93,7 +93,7 @@ export class InMemoryDataService implements InMemoryDbService {
         lastName: 'user-last'
       },
       client: {
-        id: '9876543210',
+        clientId: '9876543210',
         clientType: 'физическо лице',
         name: 'Иван Иванов',
         adress: 'адрес'
@@ -107,7 +107,7 @@ export class InMemoryDataService implements InMemoryDbService {
         firstReg: '2013',
         vehiclePower: '200'
       },
-      id: '12345asdd',
+      policyId: '12345asdd',
       status: 'offer',
       startDate: Date.now(),
       endDate: Date.UTC(2018, 12, 29),
@@ -147,7 +147,7 @@ export class InMemoryDataService implements InMemoryDbService {
             paymentsCount: 4,
             insuranceCompany: 'Лев Инс',
             client: {
-              id: '1234567890',
+              clientId: '1234567890',
               name: 'Асена Пенчева',
             },
             vehicle: {
@@ -165,7 +165,7 @@ export class InMemoryDataService implements InMemoryDbService {
             paymentsCount: 4,
             insuranceCompany: 'Лев Инс',
             client: {
-              id: '9876543210',
+              clientId: '9876543210',
               name: 'Иван Иванов',
             },
             vehicle: {

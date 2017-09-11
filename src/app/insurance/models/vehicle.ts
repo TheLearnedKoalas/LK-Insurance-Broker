@@ -1,14 +1,14 @@
 export class Vehicle { // enumerations for type,brand, model, color
-    vehicleType: string;
-    chassis: string;
-    registrationNumber: string;
-    brand: string;
-    model: string;
-    firstReg: number;
-    vehiclePower: number;
-    enginePower: number;
-    weight: number;
-    color: number;
-    doorsCount: number;
-    keysCount: number;
+   public vehicleType: string;
+   public  chassis: string;
+   public  registrationNumber: string;
+   public  brand: string;
+   public  model: string;
+   public  firstReg: number;
+   public  vehiclePower: number;
+   public  enginePower: number;
+   public  weight: number;
+   public  color: number;
+   public  doorsCount: number;
+   public  keysCount: number;
 }

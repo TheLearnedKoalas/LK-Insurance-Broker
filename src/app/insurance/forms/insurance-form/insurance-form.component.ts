@@ -30,7 +30,7 @@ export class InsuranceFormComponent implements OnInit {
 
   clientType = '';
   name = '';
-  id = '';
+  clientId = '';
   adress = '';
 
   insurance = this.fb.group({
@@ -41,7 +41,7 @@ export class InsuranceFormComponent implements OnInit {
     client: [{
       clientType: this.clientType,
       name: this.name,
-      id: this.id,
+      clientId: this.clientId,
       adress: this.adress,
     }, []],
     vehicle: [{
@@ -89,7 +89,7 @@ export class InsuranceFormComponent implements OnInit {
       client: [{
         clientType: this.clientType,
         name: this.name,
-        id: this.id,
+        clientId: this.clientId,
         adress: this.adress,
       }, []],
       vehicle: [{
@@ -134,7 +134,7 @@ export class InsuranceFormComponent implements OnInit {
   // }
 
   parentLoadClientContent(value) {
-    this.id = value.adress;
+    this.clientId = value.clientId;
     this.adress = value.adress;
     this.name = value.name;
   }

@@ -75,14 +75,24 @@ export class VehicleFormComponent implements OnInit {
     });
   }
   CreateVehicle() {
-    // console.log(this.vehicle.value);
-    
+    console.log(this.vehicle.value);
     this.vehicleService.create(this.vehicle.value)
       .subscribe(res => {
-        this.loadContent.emit(this.vehicle.value);
-      });
+        console.log(res);
+      })
   }
 
   FindVehicle() {
+    console.log(this.chassis.value);
+    this.vehicleService.getById(this.chassis.value)
+      .subscribe(res => {
+        console.log(res);
+        this.registrationNumber = new FormControl(res.registrationNumber, []);
+        this.brand = new FormControl(res.brand, []);
+        this.model = new FormControl(res.model, []);
+        
+        // this.clientType = new FormControl(res.clientType, []);
+
+      });
   }
 }

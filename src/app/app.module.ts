@@ -27,10 +27,11 @@ import { InMemoryDataService } from './data/in-memory-data.service';
 import { UserService } from "./shared/user/user.service";
 import { DataUserService } from "./data/user/data-user.service";
 
-import { DataClientService } from "./data/user/data-client.service";
+import { DataClientService } from "./data/insurance/data-client.service";
+import { DataVehicleService } from "./data/insurance/data-vehicle.service";
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
 
 import { UserModule } from "./user/user.module";
-
 
 @NgModule({
   declarations: [
@@ -57,7 +58,7 @@ import { UserModule } from "./user/user.module";
     // PopupModule
   ],
 
-  providers: [BreadcrumbService, UserService, DataUserService,InsuranceService,ClientService,DataClientService,VehicleService],
+  providers: [BreadcrumbService, UserService, DataUserService,InsuranceService,ClientService,DataClientService,VehicleService,DataVehicleService],
 
   bootstrap: [AppComponent]
 })

@@ -23,32 +23,32 @@ export class DataClientService {
         return Observable.throw(error.message || error);
     }
 
-    // getAll(): Observable<Client[]> {
-    //     return this.http.get(this.clientsUrl)
-    //         .map(this.extractData)
-    //         .catch(this.handleErrorObservable);
-    // };
+    getAll(): Observable<Client[]> {
+        return this.http.get(this.clientsUrl)
+            .map(this.extractData)
+            .catch(this.handleErrorObservable);
+    };
 
-    getById(id: string): Observable<Client> {
-        const url = `${this.clientsUrl}/${id}`;
+    getById(clientId: string): Observable<Client> {
+        const url = `${this.clientsUrl}?clientId=${clientId}`;
 
         return this.http.get(url)
-            .map((res) => res.json().data as Client)
+            .map(this.extractData)
             .catch(this.handleErrorObservable);
     }
 
 
-    // update(client: Client): Observable<Client> {
-    //     const url = `${this.clientsUrl}/${client.id}`;
+    update(client: Client): Observable<Client> {
+        const url = `${this.clientsUrl}?clientId=${client.clientId}`;
 
-    //     return this.http
-    //         .put(url, JSON.stringify(client), { headers: this.headers })
-    //         .catch(this.handleErrorObservable);
-    // }
+        return this.http
+            .put(url, JSON.stringify(client), { headers: this.headers })
+            .catch(this.handleErrorObservable);
+    }
 
     create(client: Client): Observable<Client> {
         // let exists = false;
-        // this.getById(client.id).subscribe(res => {
+        // this.getById(client.clientId).subscribe(res => {
         //     if (Object.keys(res).length !== 0) {
         //         exists = true;
         //         client = res;
@@ -63,11 +63,11 @@ export class DataClientService {
             .catch(this.handleErrorObservable);
     }
 
-    // delete(client: Client | number): Observable<Client> {
-    //     const id = typeof client === 'number' ? client : client.id;
-    //     const url = `${this.clientsUrl}/${id}`;
+    delete(client: Client | string): Observable<Client> {
+        const clientId = typeof client === 'string' ? client : client.clientId;
+       const url = `${this.clientsUrl}?clientId=${clientId}`;
 
-    //     return this.http.delete(url, { headers: this.headers })
-    //         .catch(this.handleErrorObservable);
-    // }
+        return this.http.delete(url, { headers: this.headers })
+            .catch(this.handleErrorObservable);
+    }
 }
